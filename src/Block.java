@@ -1,4 +1,4 @@
-public class Block {
+public abstract class Block {
     private int posX, posY, width, height;
 
     protected Block(int posX, int posY, int width, int height){
