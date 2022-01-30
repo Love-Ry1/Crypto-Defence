@@ -1,11 +1,14 @@
-public abstract class Block {
-    private int posX, posY, width, height;
+import java.awt.*;
 
-    protected Block(int posX, int posY, int width, int height){
+public abstract class Block {
+    private int posX;
+    private int posY;
+    private int width = 50;     // width is 50 for all blocks (temp value)
+    private int height = 50;    // height is 50 for all blocks (temp value)
+
+    protected Block(int posX, int posY){
         this.posX = posX;
         this.posY = posY;
-        this.width = width;
-        this.height = height;
     }
 
     public int getPosX(){
@@ -39,4 +42,6 @@ public abstract class Block {
     public void setHeight(int height){
         this.height = height;
     }
+
+    public abstract Color getColor();   // returns the color of a block (maybe change to color to image later?)
 }

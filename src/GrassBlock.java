@@ -1,10 +1,15 @@
+import java.awt.*;
+
 public class GrassBlock extends Block {
+    private Color color = Color.green;
 
-    protected GrassBlock(int posX, int posY, int width, int height) {
-        super(posX, posY, width, height);
+    protected GrassBlock(int posX, int posY) {
+        super(posX, posY);
     }
-    
-    void drawGrassBlock(){
 
+    @Override
+    public Color getColor() {
+        return this.color;
     }
+
 }
