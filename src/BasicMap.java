@@ -1,7 +1,6 @@
 import java.awt.*;
 
 public class BasicMap {
-    String x;
     public BasicMap(){}
 
     public void drawRoom(Graphics g){
