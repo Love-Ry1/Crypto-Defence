@@ -3,6 +3,7 @@ import java.awt.*;
 public abstract class Block {
     private int posX;
     private int posY;
+    private Image blockImage;
     private static final int width = 80;     // width is 50 for all blocks (temp value)
     private static final int height = 80;    // height is 50 for all blocks (temp value)
 
@@ -35,7 +36,12 @@ public abstract class Block {
         return height;
     }
 
-    public abstract Color getColor();   // returns the color of a block (maybe change to color to image later?)
+    public void setBlockImage(Image image){
+        this.blockImage = image;
+    }
+    public Image getBlockImage(){
+        return this.blockImage;
+    }
 
-    public abstract void drawBlock(Graphics g);   // draws the block
+    public abstract void drawBlock(Graphics2D g);   // draws the block
 }

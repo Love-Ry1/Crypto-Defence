@@ -19,8 +19,8 @@ public class BasicMap {
     Block[][] blockArray = new Block[width][height];
 
     public BasicMap(){
-        for(int i = 0; i < this.width; i++){        // loops through the block array
-            for(int j = 0; j < this.height; j++){
+        for(int i = 0; i < width; i++){        // loops through the block array
+            for(int j = 0; j < height; j++){
                 if (blockTypeArray[i][j] == 0) {
                     blockArray[i][j] = new GrassBlock(j * Block.getWidth(), i * Block.getHeight());
                 }
@@ -34,11 +34,11 @@ public class BasicMap {
         }
     }
 
-    public void drawMap(Graphics g){
+    public void drawMap(Graphics2D g){
         g.setColor(Color.black);
 
-        for(int i = 0; i < this.width; i++){        // loops through the block array
-            for(int j = 0; j < this.height; j++){
+        for(int i = 0; i < width; i++){        // loops through the block array
+            for(int j = 0; j < height; j++){
                 Block currentBlock = this.blockArray[i][j];
                 if (currentBlock != null) {
                     currentBlock.drawBlock(g);
