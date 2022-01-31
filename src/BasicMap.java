@@ -1,9 +1,9 @@
 import java.awt.*;
 
 public class BasicMap {
-    private int width = 10;     // width in blocks (temp value)
-    private int height = 10;    // height in blocks (temp value)
-    private int[][] blockTypeArray = {
+    private static final int width = 10;     // width in blocks (temp value)
+    private static final int height = 10;    // height in blocks (temp value)
+    private static final int[][] blockTypeArray = {
             {1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},

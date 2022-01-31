@@ -31,20 +31,11 @@ public abstract class Block {
         return width;
     }
 
-    public void setWidth(int width){
-      //  this.width = width;
-    }
-
     public static int getHeight(){
         return height;
     }
 
-    public void setHeight(int height){
-      //  this.height = height;
-    }
-
     public abstract Color getColor();   // returns the color of a block (maybe change to color to image later?)
-
 
     public abstract void drawBlock(Graphics g);   // draws the block
 }

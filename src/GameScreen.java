@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameScreen extends JPanel {
-    Image floor;
+    Image stoneBlock;
     Image gras;
     Image water;
 
     public GameScreen(){    // constructor (maybe needed later)
 
-        floor = new ImageIcon("img\\floor.png").getImage(); // har ändrats till adress
+        stoneBlock = new ImageIcon("img\\floor.png").getImage(); // har ändrats till adress
         gras = new ImageIcon("img\\gras.png").getImage(); // har ändrats till adress
         water = new ImageIcon("img\\water.png").getImage(); // har ändrats till adress
 
@@ -26,7 +26,7 @@ public class GameScreen extends JPanel {
         basicMap.drawMap(g);
 
         Graphics2D graphics2D = (Graphics2D) g;
-        graphics2D.drawImage(floor,100,100,null);
+        graphics2D.drawImage(stoneBlock,100,100,null);
 
     }
 
