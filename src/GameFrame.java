@@ -19,6 +19,8 @@ public class GameFrame extends JFrame {
     public static void main(String[] args) {    // only for testing delete after
         GameFrame gameframe = new GameFrame();
 
-
     }
+
+
+
 }

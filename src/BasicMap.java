@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class BasicMap {
     private int width = 10;     // width in blocks (temp value)
@@ -43,4 +44,5 @@ public class BasicMap {
             }
         }
     }
+
 }
