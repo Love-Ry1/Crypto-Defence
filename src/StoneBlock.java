@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class StoneBlock extends Block {
-    Color color = Color.lightGray;
+    Color color = Color.black;
 
     protected StoneBlock(int posX, int posY) {
         super(posX, posY);
