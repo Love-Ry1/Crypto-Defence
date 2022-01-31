@@ -7,8 +7,10 @@ public class GameScreen extends JPanel {
     Image water;
 
     public GameScreen(){    // constructor (maybe needed later)
-        floor = new ImageIcon("floor.jpg").getImage();
 
+        floor = new ImageIcon("img\\floor.png").getImage(); // har ändrats till adress
+        gras = new ImageIcon("img\\gras.png").getImage(); // har ändrats till adress
+        water = new ImageIcon("img\\water.png").getImage(); // har ändrats till adress
 
 
     }
