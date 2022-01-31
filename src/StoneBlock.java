@@ -1,9 +1,9 @@
 import java.awt.*;
 
-public class GrassBlock extends Block {
-    private Color color = Color.green;      // move color to abstract class?
+public class StoneBlock extends Block {
+    Color color = Color.lightGray;
 
-    protected GrassBlock(int posX, int posY) {
+    protected StoneBlock(int posX, int posY) {
         super(posX, posY);
     }
 
@@ -17,5 +17,4 @@ public class GrassBlock extends Block {
         g.setColor(this.getColor());
         g.drawRect(this.getPosX(), this.getPosY(), getWidth(), getHeight());
     }
-
 }
