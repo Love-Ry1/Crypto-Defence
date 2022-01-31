@@ -8,9 +8,9 @@ public class GameScreen extends JPanel {
 
     public GameScreen(){    // constructor (maybe needed later)
 
-        stoneBlock = new ImageIcon("img\\floor.png").getImage(); // har ändrats till adress
-        gras = new ImageIcon("img\\gras.png").getImage(); // har ändrats till adress
-        water = new ImageIcon("img\\water.png").getImage(); // har ändrats till adress
+        stoneBlock = new ImageIcon("img\\floor.png").getImage(); //
+        gras = new ImageIcon("img\\gras.png").getImage(); //
+        water = new ImageIcon("img\\water.png").getImage(); //
 
 
     }
@@ -25,8 +25,8 @@ public class GameScreen extends JPanel {
         BasicMap basicMap = new BasicMap();     // just for testing move later
         basicMap.drawMap(g);
 
-        Graphics2D graphics2D = (Graphics2D) g;
-        graphics2D.drawImage(stoneBlock,100,100,null);
+       // Graphics2D graphics2D = (Graphics2D) g;
+        //graphics2D.drawImage(stoneBlock,100,100,null);
 
     }
 
