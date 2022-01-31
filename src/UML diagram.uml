@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/Mustafa/IdeaProjects/Crypto-Defence1</OriginalElement>
+  <nodes>
+    <node x="-45.0" y="157.0">GameScreen</node>
+    <node x="169.0" y="149.0">BasicMap</node>
+    <node x="-82.0" y="233.0">GameFrame</node>
+    <node x="222.0" y="233.0">Bullets</node>
+    <node x="143.0" y="81.0">StoneBlock</node>
+    <node x="79.75" y="-40.0">Block</node>
+    <node x="0.0" y="81.0">GrassBlock</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="StoneBlock" target="Block" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="206.0" y="56.0" />
+      <point x="123.75" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="GrassBlock" target="Block" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="61.5" y="56.0" />
+      <point x="123.75" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="605.5" y="372.5" />
+  <SelectedNodes>
+    <node>GameScreen</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
