@@ -1,10 +1,9 @@
-import javax.swing.*;
 import java.awt.*;
 
-public class StoneBlock extends Block {
-    Color color = Color.black;
+public class WaterBlock extends Block {
+    private Color color = Color.blue;      // move color to abstract class?
 
-    protected StoneBlock(int posX, int posY) {
+    protected WaterBlock(int posX, int posY) {
         super(posX, posY);
     }
 
@@ -18,8 +17,7 @@ public class StoneBlock extends Block {
         g.setColor(this.getColor());
         g.drawRect(this.getPosX(), this.getPosY(), getWidth(), getHeight());
         g.fillRect(this.getPosX(), this.getPosY(), getWidth(), getHeight());
-
     }
 
-
 }
+

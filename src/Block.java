@@ -45,5 +45,6 @@ public abstract class Block {
 
     public abstract Color getColor();   // returns the color of a block (maybe change to color to image later?)
 
+
     public abstract void drawBlock(Graphics g);   // draws the block
 }
