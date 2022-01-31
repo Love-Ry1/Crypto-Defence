@@ -3,8 +3,8 @@ import java.awt.*;
 public abstract class Block {
     private int posX;
     private int posY;
-    private static final int width = 50;     // width is 50 for all blocks (temp value)
-    private static final int height = 50;    // height is 50 for all blocks (temp value)
+    private static final int width = 80;     // width is 50 for all blocks (temp value)
+    private static final int height = 80;    // height is 50 for all blocks (temp value)
 
     protected Block(int posX, int posY){
         this.posX = posX;

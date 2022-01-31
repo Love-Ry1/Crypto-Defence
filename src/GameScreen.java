@@ -26,7 +26,7 @@ public class GameScreen extends JPanel {
         basicMap.drawMap(g);
 
         Graphics2D graphics2D = (Graphics2D) g;
-        graphics2D.drawImage(floor,500,100,null);
+        graphics2D.drawImage(floor,100,100,null);
 
     }
 
