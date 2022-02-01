@@ -4,7 +4,7 @@ public class GameFrame extends JFrame {
 
     public GameFrame(){
         // Frame settings
-        this.setSize(1000, 1000);
+        this.setSize(800, 1000);
         this.setTitle("Crypto Defence");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);       // makes the frame appear around the center of the monitor
