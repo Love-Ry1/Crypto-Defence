@@ -46,4 +46,7 @@ public class BasicMap {
             }
         }
     }
+    public static int BlocktypeArrays(){
+        return blockTypeArray.length;
+    }
 }
