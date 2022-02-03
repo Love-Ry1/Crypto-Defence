@@ -20,6 +20,7 @@ public abstract class Tower {
     public int getRange(){
         return this.range;
     }
+
     public int getAttackSpeed(){
         return this.attackSpeed;
     }
@@ -36,6 +37,6 @@ public abstract class Tower {
         return this.posY;
     }
 
-    public abstract void drawTower();
+    public abstract void drawTower(Graphics2D g);
 
 }

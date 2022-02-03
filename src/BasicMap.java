@@ -49,4 +49,12 @@ public class BasicMap {
     public static int BlocktypeArrays(){
         return blockTypeArray.length;
     }
+
+    public static int getWidth(){
+        return width;
+    }
+
+    public static int getHeight(){
+        return height;
+    }
 }
