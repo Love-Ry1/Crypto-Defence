@@ -39,6 +39,7 @@ public abstract class Block {
     public void setBlockImage(Image image){
         this.blockImage = image;
     }
+
     public Image getBlockImage(){
         return this.blockImage;
     }
