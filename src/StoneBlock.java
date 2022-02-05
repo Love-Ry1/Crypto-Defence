@@ -5,7 +5,7 @@ public class StoneBlock extends Block {
 
     protected StoneBlock(int posX, int posY) {
         super(posX, posY);
-        this.setBlockImage(new ImageIcon(getClass().getResource("stoneblock.png"), "StoneBlock").getImage());   // maybe move to a method
+        this.setBlockImage(new ImageIcon(getClass().getResource("stone.png"), "StoneBlock").getImage());   // maybe move to a method
     }
 
     @Override

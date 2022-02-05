@@ -30,7 +30,6 @@ public class BasicMap {
                 else if(blockTypeArray[i][j] == 2){
                     blockArray[i][j] = new WaterBlock(j * Block.getWidth(), i * Block.getHeight());
                 }
-
             }
         }
     }
@@ -47,6 +46,7 @@ public class BasicMap {
             }
         }
     }
+
     public static int BlocktypeArrays(){
         return blockTypeArray.length;
     }

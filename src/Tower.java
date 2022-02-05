@@ -1,13 +1,14 @@
 import java.awt.*;
 
 public abstract class Tower {
+    private int posX;
+    private int posY;
     private int damage;
     private int range;
     private int attackSpeed;
     private int cost;
     private Image towerImage;
-    private int posX;
-    private int posY;
+    private Bullets[] bullets;
 
     protected Tower(int posX, int posY){
         this.posX = posX;
@@ -59,6 +60,10 @@ public abstract class Tower {
 
     public Image getTowerImage(){
         return this.towerImage;
+    }
+
+    public void shoot(){
+        // TODO when turret is shooting add bullet to the bullet array
     }
 
     public abstract void drawTower(Graphics2D g);
