@@ -15,7 +15,7 @@ public class GameScreen extends JPanel {
 
         GameModel gameModel = new GameModel();      // just for testing tower mechanics, remove later
         BasicTower basicTower = new BasicTower(80, 80);
-        gameModel.addTower(0, 0, basicTower);
+        gameModel.addTower(0, 0, 1);
         gameModel.drawTowerMap(g);
 
     }

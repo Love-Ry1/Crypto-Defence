@@ -14,6 +14,7 @@ public abstract class Tower {
         this.posX = posX;
         this.posY = posY;
     }
+
     public void setDamage(int damage){
         this.damage = damage;
     }

@@ -4,6 +4,8 @@ public class GameModel {
     private final int width;
     private final int height;
     private Tower[][] towerMap;
+    private int currentBlockX;
+    private int currentBlockY;
 
     public GameModel(){
         this.width = BasicMap.getWidth();
@@ -11,8 +13,20 @@ public class GameModel {
         this.towerMap = new Tower[width][height];
     }
 
-    public void addTower(int x, int y, Tower tower){
-        towerMap[x][y] = tower;
+    // The idea is that we get the position of the mouse and the functions uses it to find the current "Block"
+    // There is probably a better way to this lol
+    public void posToBlock(int posX, int posY){
+        currentBlockX = posX / Block.getHeight();
+        currentBlockY = posY / Block.getWidth();
+    }
+
+    public void addTower(int posX, int posY, int towerId) {
+        posToBlock(posX, posY);
+        BasicTower newTower = null;
+        if (towerId == 1) {
+            newTower = new BasicTower(currentBlockX * Block.getWidth(), currentBlockY * Block.getHeight());
+        }
+        towerMap[currentBlockX][currentBlockY] = newTower;
     }
 
     public void drawTowerMap(Graphics2D g){
