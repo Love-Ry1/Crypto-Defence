@@ -5,12 +5,12 @@ public class Enemy1 extends Enemy {
 
 
     public Enemy1(int posx, int posy) {
-        super(posx, posy);
-        this.setEnimyImage(new ImageIcon("img\\water.png").getImage());
+      // funkar inte för int värde på posx och posy?? varför?  super(posx, posy);
+        this.setEnemySizeImage(new ImageIcon("img\\water.png").getImage());
     }
 
     @Override
-    public void drawEnemi(Graphics2D g) {
-        g.drawImage(this.getEnimyImage(), 810, 900,null); // for sitting the picture to the right position
+    public void drawEnemy(Graphics2D g) {
+        g.drawImage(this.getEnemyImage(), 810, 900,null); // for sitting the picture to the right position
     }
 }
