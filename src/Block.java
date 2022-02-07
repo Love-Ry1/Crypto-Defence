@@ -45,5 +45,7 @@ public abstract class Block {
         return this.blockImage;
     }
 
-    public abstract void drawBlock(Graphics2D g);   // draws the block
+    public void drawBlock(Graphics2D g){    // draws the block
+        g.drawImage(this.getBlockImage(), this.getPosX(), this.getPosY(), null);
+    }
 }

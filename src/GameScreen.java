@@ -25,11 +25,9 @@ public class GameScreen extends JPanel implements MouseMethods {
 
         GameModel gameModel = new GameModel();      // just for testing tower mechanics, remove later
         BasicTower basicTower = new BasicTower(80, 80);
-        gameModel.addTower(0, 0, 1);
+        gameModel.addTower(250, 85, Tower.TowerName.BASIC);
         gameModel.drawTowerMap(g);
         drawButtons(gr);
-
-
     }
 
     public void initInputs() {

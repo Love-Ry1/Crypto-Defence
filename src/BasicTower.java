@@ -10,10 +10,7 @@ public class BasicTower extends Tower{
         setCost(25);
         setAttackSpeed(2);
         setTowerImage(new ImageIcon(getClass().getResource("basictower.png"), "BasicTower").getImage());
+        setTowerName(TowerName.BASIC);
     }
 
-    @Override
-    public void drawTower(Graphics2D g) {
-        g.drawImage(this.getTowerImage(), this.getPosX(), this.getPosY(),null);
-    }
 }
