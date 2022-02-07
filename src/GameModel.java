@@ -20,10 +20,10 @@ public class GameModel {
         currentBlockY = posY / Block.getWidth();
     }
 
-    public void addTower(int posX, int posY, int towerId) {
+    public void addTower(int posX, int posY, Tower.TowerName towerName) {
         posToBlock(posX, posY);
         BasicTower newTower = null;
-        if (towerId == 1) {
+        if (towerName == Tower.TowerName.BASIC) {
             newTower = new BasicTower(currentBlockX * Block.getWidth(), currentBlockY * Block.getHeight());
         }
         towerMap[currentBlockX][currentBlockY] = newTower;

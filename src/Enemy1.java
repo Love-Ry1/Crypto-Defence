@@ -9,8 +9,8 @@ public class Enemy1 extends Enemy {
         setHealth(100);
         setSpeed(1);
         setDamage(10);
-      // funkar inte för int värde på posx och posy?? varför?  super(posx, posy);
-        this.setEnemySizeImage(new ImageIcon("img\\water.png").getImage());
+        setEnemySizeImage(new ImageIcon(getClass().getResource("img\\water.png"), "Monster").getImage());
+
     }
 
     @Override

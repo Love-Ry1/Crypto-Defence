@@ -9,6 +9,10 @@ public abstract class Tower {
     private int cost;
     private Image towerImage;
     private Bullets[] bullets;
+    public enum TowerName{
+        BASIC
+    }
+    private TowerName towerName;
 
     protected Tower(int posX, int posY){
         this.posX = posX;
@@ -63,6 +67,14 @@ public abstract class Tower {
         return this.towerImage;
     }
 
+    public TowerName getTowerName() {
+        return towerName;
+    }
+
+    public void setTowerName(TowerName towerName) {
+        this.towerName = towerName;
+    }
+
     public void shoot(){
         // TODO when turret is shooting add bullet to the bullet array
     }
@@ -82,6 +94,10 @@ public abstract class Tower {
          return Inrange;
     }
 
-    public abstract void drawTower(Graphics2D g);
+    public void drawTower(Graphics2D g){
+        // center the image in the block, thats why the parameters are so long... maybe shorten it?
+        g.drawImage(this.getTowerImage(), this.getPosX() + ((Block.getWidth() - getTowerImage().getWidth(null)) / 2),
+                this.getPosY() + ((Block.getHeight() - getTowerImage().getHeight(null)) / 2),null);
+    }
 
 }

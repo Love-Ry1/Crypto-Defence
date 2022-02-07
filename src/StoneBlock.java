@@ -8,15 +8,7 @@ public class StoneBlock extends Block {
         this.setBlockImage(new ImageIcon(getClass().getResource("stone.png"), "StoneBlock").getImage());   // maybe move to a method
     }
 
-    @Override
-    public void drawBlock(Graphics2D g) {
-        g.drawImage(this.getBlockImage(), this.getPosX(), this.getPosY(), null);
-    }
-
-
     //public Image getBlockImage(){
     //    return new ImageIcon(getClass().getResource("stoneblock.png"), "hej").getImage();
     //}
-
-
 }
