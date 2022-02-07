@@ -6,7 +6,6 @@ public class GameScreen extends JPanel implements MouseMethods {
     private MyMouseListener mouseMouseListener;
     private GameFrame gameFrame;
 
-
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
         initButtons();
@@ -23,11 +22,14 @@ public class GameScreen extends JPanel implements MouseMethods {
         BasicMap basicMap = new BasicMap();     // just for testing move later
         basicMap.drawMap(g);
 
+        BottomBarFrame bottomBarFrame = new BottomBarFrame(0,800,800,200 ); // create the bottom bar
+        bottomBarFrame.draw(g); //adding the bottom bar
+
         GameModel gameModel = new GameModel();      // just for testing tower mechanics, remove later
         BasicTower basicTower = new BasicTower(80, 80);
         gameModel.addTower(250, 85, Tower.TowerName.BASIC);
         gameModel.drawTowerMap(g);
-        drawButtons(gr);
+        drawButtons(g);
     }
 
     public void initInputs() {
@@ -39,8 +41,7 @@ public class GameScreen extends JPanel implements MouseMethods {
         //requestFocus();
     }
 
-
-    private void drawButtons(Graphics g) {
+    private void drawButtons(Graphics2D g) {
         tower1.draw(g);  //draws button for tower1
     }
 
@@ -56,5 +57,4 @@ public class GameScreen extends JPanel implements MouseMethods {
     public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of tower1
 
     }
-    //Image newImage = img.getScaledInstance(90, 154, Image.SCALE_DEFAULT); för resize
 }

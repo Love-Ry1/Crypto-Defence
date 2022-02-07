@@ -1,8 +1,6 @@
 import java.awt.*;
 
 public class BasicMap {
-    BottomBarFrame bottomBarFrame = new BottomBarFrame(0,800,800,200 ); // create the bottom bar
-
 
     private static final int width = 10;     // width in blocks (temp value)
     private static final int height = 10;    // height in blocks (temp value)
@@ -36,8 +34,6 @@ public class BasicMap {
     }
 
     public void drawMap(Graphics2D g) {
-        bottomBarFrame.draw(g); //adding the bottom bar
-        //g.setColor(Color.black);
         for (int i = 0; i < width; i++) {        // loops through the block array
             for (int j = 0; j < height; j++) {
                 Block currentBlock = this.blockArray[i][j];
@@ -46,10 +42,6 @@ public class BasicMap {
                 }
             }
         }
-    }
-
-    public static int BlocktypeArrays(){
-        return blockTypeArray.length;
     }
 
     public static int getWidth(){

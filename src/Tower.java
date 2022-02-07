@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class Tower {
     private int posX;
@@ -8,7 +9,7 @@ public abstract class Tower {
     private int attackSpeed;
     private int cost;
     private Image towerImage;
-    private Bullets[] bullets;
+    private ArrayList<Bullets> bullets;
     public enum TowerName{
         BASIC
     }
@@ -75,23 +76,27 @@ public abstract class Tower {
         this.towerName = towerName;
     }
 
-    public void shoot(){
-        // TODO when turret is shooting add bullet to the bullet array
+    public void shoot(){    // Do this abstract or use bullet type so different towers can use different bullets
+        // also need a method to calculate the direction
+        bullets.add(new BasicBullet(posX, posY, Bullets.Direction.NORTH));
     }
 
-    //Metod för range om tornet är i "range"
-    public boolean Range(int xCordinate, int yCordinate){
+    public void removeBullet(Bullets bullet){
+        bullets.remove(bullet);
+    }
 
-        double x2 = Math.pow((xCordinate - posX), 2);
-        double y2 = Math.pow((yCordinate - posY), 2);
-        double distance = Math.sqrt((y2 + x2));
-        boolean Inrange = false;
-
-         if(distance < range) {   //Range är en instansvariabel inget värde ännu men tror principen är rätt
-
-             Inrange = true;
-         }
-         return Inrange;
+    // returnerar första enemyn som är i range, är inte perfekt implementerad eftersom Enemy klassen inte är klar än
+    public Enemy firstEnemyInRange(ArrayList<Enemy> enemyList){
+        for (int i = 0; i < enemyList.size(); i++){
+            Enemy currentEnemy = enemyList.get(i);
+            double x2 = Math.pow(currentEnemy.getPosX() - posX, 2);
+            double y2 = Math.pow(currentEnemy.getPosY() - posY, 2);
+            double distance = Math.sqrt(x2 + y2);
+            if(distance < range){
+                return currentEnemy;
+            }
+        }
+        return null;
     }
 
     public void drawTower(Graphics2D g){
