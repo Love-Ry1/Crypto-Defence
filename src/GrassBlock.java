@@ -10,7 +10,7 @@ public class GrassBlock extends Block {
 
     @Override
     public void drawBlock(Graphics2D g) {
-        g.drawImage(this.getBlockImage(), this.getPosX(), this.getPosY(),null);
+        g.drawImage(this.getBlockImage(), this.getPosX(), this.getPosY(), null);
     }
 
 }

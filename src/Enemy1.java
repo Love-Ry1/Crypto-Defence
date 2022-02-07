@@ -11,6 +11,6 @@ public class Enemy1 extends Enemy {
 
     @Override
     public void drawEnemy(Graphics2D g) {
-        g.drawImage(this.getEnemyImage(), 810, 900,null); // for sitting the picture to the right position
+        g.drawImage(this.getEnemyImage(), 810, 900,null); // for setting the picture to the right position
     }
 }
