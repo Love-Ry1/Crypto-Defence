@@ -19,6 +19,18 @@ public abstract class Enemy  {
     private String path = "images" + File.separator;
     private Image enemyImage;
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
 
     private enum pathfinding{
         UP,DOWN,LEFT,RIGHT
@@ -27,14 +39,11 @@ public abstract class Enemy  {
     private pathfinding start;
     private pathfinding enddirection;
 
-    public Enemy(){
-       this.health = 100;
-       this.speed = 1;
-       this.posX = 1;
-       this.posY = 1;
-       this.damage = 10;
-       this.start = pathfinding.RIGHT;
-       this.enddirection = pathfinding.RIGHT;
+    public Enemy(int posX, int posY){
+        this.posX = posX;
+        this.posY = posY;
+        this.start = pathfinding.RIGHT;
+        this.enddirection = pathfinding.RIGHT;
 
        /*
        try {
