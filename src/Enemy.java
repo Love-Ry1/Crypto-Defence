@@ -93,8 +93,9 @@ public abstract class Enemy  {
     public Image getEnemyImage(){
         return this.enemyImage;
     }
+    // det är för att bara testa, kommer ändra den sen
     public void move(int turnTile, int threshold) {
-        //setDirection(turnTile, threshold);
+       // setDirection(turnTile, threshold);
         switch (start) {
             case UP:
                 posY -= speed ;
@@ -111,6 +112,61 @@ public abstract class Enemy  {
         }
 
     }
+    // det är för att bara testa, kommer ändra den sen
+    /*
+    private void setDirection(int turnTile, int threshold) {
+        int block = turnTile % 10;
+        if (block == 1 && start == pathfinding.RIGHT) {
+            if (posX >= threshold) {
+                posX = threshold;
+                start = pathfinding.UP;
+            }
+        }
+        else if (block == 1 && start == pathfinding.LEFT) {
+            if (posX <= threshold) {
+                posX = threshold;
+                start = pathfinding.UP;
+            }
+        }
+        else if (block == 2 && start == pathfinding.UP) {
+            if (posY <= threshold) {
+                posY = threshold;
+                start = pathfinding.RIGHT;
+            }
+        }
+        else if (block == 2 && start == pathfinding.DOWN) {
+            if (posY >= threshold) {
+                posY = threshold;
+                start = pathfinding.RIGHT;
+            }
+        }
+        else if (block == 3 && start == pathfinding.RIGHT) {
+            if (posX >= threshold) {
+                posX = threshold;
+                start = pathfinding.DOWN;
+            }
+        }
+        else if (block == 3 && start == pathfinding.LEFT) {
+            if (posX <= threshold) {
+                posX = threshold;
+                start = pathfinding.DOWN;
+            }
+        }
+        else if (block == 4 && start == pathfinding.UP) {
+            if (posY <= threshold) {
+                posY = threshold;
+                start = pathfinding.LEFT;
+            }
+        }
+        else if (block == 4 && start == pathfinding.DOWN) {
+            if (posY >= threshold) {
+                posY = threshold;
+                start = pathfinding.LEFT;
+            }
+        }
+    }
+
+     */
 
 
 
