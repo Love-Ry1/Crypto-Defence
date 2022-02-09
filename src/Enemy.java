@@ -96,6 +96,7 @@ public abstract class Enemy  {
     // det är för att bara testa, kommer ändra den sen
     public void move(int turnTile, int threshold) {
        // setDirection(turnTile, threshold);
+        start = pathfinding.RIGHT;
         switch (start) {
             case UP:
                 posY -= speed ;

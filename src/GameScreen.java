@@ -26,14 +26,13 @@ public class GameScreen extends JPanel implements MouseMethods {
         bottomBarFrame.draw(g); //adding the bottom bar
 
         GameModel gameModel = new GameModel();      // just for testing tower mechanics, remove later
-        BasicTower basicTower = new BasicTower(80, 80);
         gameModel.addTower(250, 85, Tower.TowerName.BASIC);
         gameModel.drawTowerMap(g);
         drawButtons(g);
 
 
-        Enemy1 enm1 = new Enemy1(20,20);
-        enm1.drawEnemy(g);
+        gameModel.addEnemy(20, 20);
+        gameModel.drawEnemies(g);
 
     }
 
