@@ -30,6 +30,11 @@ public class GameScreen extends JPanel implements MouseMethods {
         gameModel.addTower(250, 85, Tower.TowerName.BASIC);
         gameModel.drawTowerMap(g);
         drawButtons(g);
+
+
+        Enemy1 enm1 = new Enemy1(20,20);
+        enm1.drawEnemy(g);
+
     }
 
     public void initInputs() {

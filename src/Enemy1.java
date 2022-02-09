@@ -9,12 +9,13 @@ public class Enemy1 extends Enemy {
         setHealth(100);
         setSpeed(1);
         setDamage(10);
-        setEnemySizeImage(new ImageIcon(getClass().getResource("img\\water.png"), "Monster").getImage());
+        setEnemySizeImage(new ImageIcon(getClass().getResource("enemy.png"), "Monster").getImage());
+
 
     }
 
-    @Override
+  /*  @Override
     public void drawEnemy(Graphics2D g) {
         g.drawImage(this.getEnemyImage(), 810, 900,null); // for setting the picture to the right position
-    }
+    }*/
 }
