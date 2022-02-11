@@ -1,4 +1,9 @@
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class BottomBarButtons implements MouseMethods {
 
@@ -21,11 +26,10 @@ public class BottomBarButtons implements MouseMethods {
         this.bounds = new Rectangle(x, y, width, height);
     }
 
-    public void draw(Graphics gr) {
+    public void draw(Graphics2D gr) {
 
         // Draws the body for button
         drawBody(gr);
-
 
         // Draws the border for the button
         drawBorder(gr);
@@ -40,20 +44,27 @@ public class BottomBarButtons implements MouseMethods {
         return bounds;
     }
 
-    private void drawBody(Graphics g) {
-        g.setColor(Color.blue);
-        g.fillRect(x, y, width, height);
+    private void drawBody(Graphics2D g) {
+        //g.setColor(Color.blue);
+        //g.fillRect(x, y, width, height);
+
+
+        if (mouseOver) {
+            g.setColor(Color.gray);  // does not work
+        } else {
+            g.setColor(Color.WHITE);
+            g.fillRect(x, y, width, height);
+        }
 
     }
 
-    private void drawBorder(Graphics g) {
+    private void drawBorder(Graphics2D g) {
         g.setColor(Color.black);
         g.drawRect(x, y, width, height);
 
-
     }
 
-    private void drawText(Graphics g) {
+    private void drawText(Graphics2D g) {
     }
 
     @Override
@@ -63,6 +74,16 @@ public class BottomBarButtons implements MouseMethods {
 
     @Override
     public void mouseMoved(int x, int y) {
+
+    }
+
+    @Override
+    public void mousePressed(int x, int y) {
+
+    }
+
+    @Override
+    public void mouseReleased(int x, int y) {
 
     }
 

@@ -8,7 +8,7 @@ import java.awt.event.MouseMotionListener;
 
 public class MyMouseListener implements MouseListener, MouseMotionListener {
 
-    private GameFrame gameFrame;
+    private final GameFrame gameFrame;
 
     public MyMouseListener(GameFrame game) {
         this.gameFrame = game;

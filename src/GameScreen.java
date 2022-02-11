@@ -2,18 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameScreen extends JPanel implements MouseMethods {
-    private BottomBarButtons tower1, tower2, tower3;
+    private BottomBarFrame bottomBarFrame;
     private MyMouseListener mouseMouseListener;
     private GameFrame gameFrame;
 
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
-        initButtons();
+        bottomBarFrame = new BottomBarFrame(0, 800, 815, 185);
+
     }
 
-    private void initButtons() {
-        tower1 = new BottomBarButtons("Tower1", 100, 100, 100, 30);
-    }
 
     public void paintComponent(Graphics gr) {
         Graphics2D g = (Graphics2D) gr;
@@ -22,17 +20,15 @@ public class GameScreen extends JPanel implements MouseMethods {
         BasicMap basicMap = new BasicMap();     // just for testing move later
         basicMap.drawMap(g);
 
-        BottomBarFrame bottomBarFrame = new BottomBarFrame(0,800,800,200 ); // create the bottom bar
-        bottomBarFrame.draw(g); //adding the bottom bar
-
         GameModel gameModel = new GameModel();      // just for testing tower mechanics, remove later
         gameModel.addTower(250, 85, Tower.TowerName.BASIC);
         gameModel.drawTowerMap(g);
-        drawButtons(g);
 
 
         gameModel.addEnemy(20, 20);
         gameModel.drawEnemies(g);
+
+        bottomBarFrame.draw(g);
 
     }
 
@@ -41,24 +37,27 @@ public class GameScreen extends JPanel implements MouseMethods {
 
         addMouseListener(mouseMouseListener);
         addMouseMotionListener(mouseMouseListener);
-
-        //requestFocus();
+        requestFocus();
     }
 
-    private void drawButtons(Graphics2D g) {
-        tower1.draw(g);  //draws button for tower1
-    }
 
     @Override
     public void mouseClicked(int x, int y) {
-        if (tower1.getInitialBound().contains(x, y)) {  //checks if tower1 bounds are pressed (so if the button is pressed)
-            System.out.println("You pressed me!");
-        }
-
+        bottomBarFrame.mouseClicked(x, y);
     }
 
     @Override
-    public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of tower1
+    public void mouseMoved(int x, int y) {
+        bottomBarFrame.mouseMoved(x, y);
+    }
 
+    @Override
+    public void mousePressed(int x, int y) {
+        bottomBarFrame.mousePressed(x, y);
+    }
+
+    @Override
+    public void mouseReleased(int x, int y) {
+        bottomBarFrame.mouseReleased(x, y);
     }
 }
