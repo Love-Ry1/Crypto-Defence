@@ -32,14 +32,8 @@ public class GameModel {
         towerMap[currentBlockX][currentBlockY] = newTower;
     }
 
-    public void drawTowerMap(Graphics2D g){
-        for(int i = 0; i < width; i++){
-            for(int j = 0; j < height; j++){
-                if(towerMap[i][j] != null){
-                    towerMap[i][j].drawTower(g);
-                }
-            }
-        }
+    public Tower[][] getTowerMap(){
+        return towerMap;
     }
 
     public void addEnemy(int posX, int posY){
@@ -58,4 +52,13 @@ public class GameModel {
             enemy.drawEnemy(g);
         }
     }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
+    }
+
 }

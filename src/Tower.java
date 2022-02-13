@@ -98,11 +98,4 @@ public abstract class Tower {
         }
         return null;
     }
-
-    public void drawTower(Graphics2D g){
-        // center the image in the block, thats why the parameters are so long... maybe shorten it?
-        g.drawImage(this.getTowerImage(), this.getPosX() + ((Block.getWidth() - getTowerImage().getWidth(null)) / 2),
-                this.getPosY() + ((Block.getHeight() - getTowerImage().getHeight(null)) / 2),null);
-    }
-
 }
