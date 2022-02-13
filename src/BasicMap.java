@@ -2,6 +2,8 @@ import java.awt.*;
 
 public class BasicMap {
 
+    private enum direction{NORTH, EAST, SOUTH, WEST}
+    private direction [][] pathArray = new direction[width][height];
     private static final int width = 10;     // width in blocks (temp value)
     private static final int height = 10;    // height in blocks (temp value)
     private static final int[][] blockTypeArray = {
@@ -29,6 +31,44 @@ public class BasicMap {
                 } else if (blockTypeArray[i][j] == 2) {
                     blockArray[i][j] = new WaterBlock(j * Block.getWidth(), i * Block.getHeight());
                 }
+            }
+        }
+
+        int i = 0;
+        int j = 0;
+        direction currentDirection = null;
+        boolean loop = true;
+        while(loop){
+            if (blockTypeArray[i][j] == 1 && blockTypeArray[i][j + 1] == 1 && currentDirection != direction.WEST) {
+                currentDirection = direction.EAST;
+                pathArray[i][j] = currentDirection;
+                j += 1;
+            } else if (blockTypeArray[i][j] ==  1 && blockTypeArray[i + 1][j] == 1 && currentDirection != direction.NORTH) {
+                currentDirection = direction.SOUTH;
+                pathArray[i][j] = currentDirection;
+                i += 1;
+            } else if (blockTypeArray[i][j] == 1 && blockTypeArray[i][j - 1] == 1 && currentDirection != direction.EAST) {
+                currentDirection = direction.WEST;
+                pathArray[i][j] = currentDirection;
+                j -= 1;
+            } else if (blockTypeArray[i][j] == 1 && blockTypeArray[i - 1][j] == 1 && currentDirection != direction.SOUTH) {
+                currentDirection = direction.NORTH;
+                pathArray[i][j] = currentDirection;
+                i -= 1;
+            } else {
+                currentDirection = null;
+                pathArray[i][j] = currentDirection;
+                if (j < width - 1){
+                    j++;
+                } else if(i < height - 1){
+                    j = 0;
+                    i++;
+                }
+            }
+
+            if ((i == height - 1 && currentDirection == direction.SOUTH) || (j == width - 1 && currentDirection == direction.EAST) ||
+                    (i == 0 && currentDirection == direction.NORTH) || (j == 0 && currentDirection == direction.EAST)){
+                loop = false;
             }
         }
     }
