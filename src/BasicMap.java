@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class BasicMap {
 
-    private enum direction{NORTH, EAST, SOUTH, WEST}
+    public enum direction{NORTH, EAST, SOUTH, WEST}
     private direction [][] pathArray = new direction[width][height];
     private static final int width = 10;     // width in blocks (temp value)
     private static final int height = 10;    // height in blocks (temp value)
@@ -83,5 +83,11 @@ public class BasicMap {
 
     public Block[][] getBlockArray(){
         return blockArray;
+    }
+
+    public direction adjacent(int posX, int posY){
+        int row = posX / 80;
+        int column = posY / 80;
+        return pathArray[row][column];
     }
 }
