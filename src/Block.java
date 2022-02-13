@@ -16,16 +16,8 @@ public abstract class Block {
         return posX;
     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
     public int getPosY() {
         return posY;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
     }
 
     public static int getWidth() {
@@ -44,7 +36,4 @@ public abstract class Block {
         return this.blockImage;
     }
 
-    public void drawBlock(Graphics2D g){    // draws the block
-        g.drawImage(this.getBlockImage(), this.getPosX(), this.getPosY(), null);
-    }
 }

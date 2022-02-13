@@ -17,9 +17,6 @@ public class GameScreen extends JPanel implements MouseMethods {
         Graphics2D g = (Graphics2D) gr;
         g.clearRect(0, 0, this.getWidth(), this.getHeight());   // Clears the screen
 
-        //BasicMap basicMap = new BasicMap();     // just for testing move later
-        //basicMap.drawMap(g);
-
         DrawBasicMap drawBasicMap = new DrawBasicMap();
         drawBasicMap.draw(g);
 

@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class DrawBasicMap {
     private Block[][] blockArray;
-    BasicMap basicMap;
+    private BasicMap basicMap;
 
     public DrawBasicMap(){
         basicMap = new BasicMap();
@@ -17,7 +17,8 @@ public class DrawBasicMap {
             for (int j = 0; j < height; j++) {
                 Block currentBlock = this.blockArray[i][j];
                 if (currentBlock != null) {
-                    currentBlock.drawBlock(g);
+                    DrawBlock drawBlock = new DrawBlock(currentBlock);
+                    drawBlock.draw(g);
                 }
             }
         }
