@@ -67,7 +67,7 @@ public class BasicMap {
             }
 
             if ((i == height - 1 && currentDirection == direction.SOUTH) || (j == width - 1 && currentDirection == direction.EAST) ||
-                    (i == 0 && currentDirection == direction.NORTH) || (j == 0 && currentDirection == direction.EAST)){
+                    (i == 0 && currentDirection == direction.NORTH) || (j == 0 && currentDirection == direction.WEST)){
                 loop = false;
             }
         }
