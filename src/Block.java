@@ -40,7 +40,6 @@ public abstract class Block {
         this.blockImage = image;
     }
 
-
     public Image getBlockImage() {
         return this.blockImage;
     }

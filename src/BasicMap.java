@@ -33,22 +33,15 @@ public class BasicMap {
         }
     }
 
-    public void drawMap(Graphics2D g) {
-        for (int i = 0; i < width; i++) {        // loops through the block array
-            for (int j = 0; j < height; j++) {
-                Block currentBlock = this.blockArray[i][j];
-                if (currentBlock != null) {
-                    currentBlock.drawBlock(g);
-                }
-            }
-        }
-    }
-
     public static int getWidth(){
         return width;
     }
 
     public static int getHeight(){
         return height;
+    }
+
+    public Block[][] getBlockArray(){
+        return blockArray;
     }
 }
