@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Crypto-Defence.iml" filepath="$PROJECT_DIR$/Crypto-Defence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Formal Meetings/Formal Meetings.iml" filepath="$PROJECT_DIR$/Formal Meetings/Formal Meetings.iml" />
     </modules>
   </component>
 </project>
