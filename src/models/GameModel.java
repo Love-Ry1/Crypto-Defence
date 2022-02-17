@@ -1,3 +1,5 @@
+package models;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -16,7 +18,7 @@ public class GameModel {
         this.enemyList = new ArrayList<>();
     }
 
-    // The idea is that we get the position of the mouse and the functions uses it to find the current "Block"
+    // The idea is that we get the position of the mouse and the functions uses it to find the current "models.Block"
     // There is probably a better way to this lol
     public void posToBlock(int posX, int posY){
         currentBlockX = posX / Block.getHeight();

@@ -1,3 +1,5 @@
+package models;
+
 public class Player {
     private int health;
     private int gold;

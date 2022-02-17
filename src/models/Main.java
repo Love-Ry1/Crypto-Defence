@@ -1,3 +1,7 @@
+package models;
+
+import controllers.GameFrame;
+
 public class Main {
 
     public static void main(String[] args) {

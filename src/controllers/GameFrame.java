@@ -1,5 +1,8 @@
+package controllers;
+
+import controllers.GameScreen;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class GameFrame extends JFrame {
     private final GameScreen gameScreen;

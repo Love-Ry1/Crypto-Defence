@@ -1,4 +1,4 @@
-
+package controllers;
 
 public interface MouseMethods {
     void mouseClicked(int x, int y);

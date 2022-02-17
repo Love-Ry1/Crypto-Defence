@@ -1,3 +1,5 @@
+package controllers;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.concurrent.Executor;
@@ -12,7 +14,7 @@ public class BottomBarButtons implements MouseMethods {
     private Rectangle bounds; // a rectangle that checks if our x- and y- are inside the buttons bounds.
     private boolean mouseOver, mousePressed;
 
-    // For normal Buttons
+    // For normal controllers.Buttons
     public BottomBarButtons(String text, int x, int y, int width, int height) {
         this.text = text;
         this.x = x;

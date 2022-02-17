@@ -1,3 +1,7 @@
+package controllers;
+
+import models.Block;
+
 import java.awt.*;
 
 public class DrawBlock {

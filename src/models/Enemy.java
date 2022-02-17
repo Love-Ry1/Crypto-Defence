@@ -1,7 +1,7 @@
-import javax.imageio.ImageIO;
+package models;
+
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 

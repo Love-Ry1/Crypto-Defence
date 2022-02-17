@@ -1,3 +1,8 @@
+package controllers;
+
+import models.GameModel;
+import models.Tower;
+
 import javax.swing.*;
 import java.awt.*;
 

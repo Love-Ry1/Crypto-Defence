@@ -1,3 +1,5 @@
+package models;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -85,7 +87,7 @@ public abstract class Tower {
         bullets.remove(bullet);
     }
 
-    // returnerar första enemyn som är i range, är inte perfekt implementerad eftersom Enemy klassen inte är klar än
+    // returnerar första enemyn som är i range, är inte perfekt implementerad eftersom models.Enemy klassen inte är klar än
     public Enemy firstEnemyInRange(ArrayList<Enemy> enemyList){
         for (int i = 0; i < enemyList.size(); i++){
             Enemy currentEnemy = enemyList.get(i);

@@ -1,3 +1,8 @@
+package controllers;
+
+import models.BasicMap;
+import models.Block;
+
 import java.awt.*;
 
 public class DrawBasicMap {

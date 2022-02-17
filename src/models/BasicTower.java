@@ -1,7 +1,10 @@
-import javax.swing.*;
-import java.awt.*;
+package models;
 
-public class BasicTower extends Tower{
+import models.Tower;
+
+import javax.swing.*;
+
+public class BasicTower extends Tower {
 
     protected BasicTower(int posX, int posY){
         super(posX, posY);
@@ -9,7 +12,7 @@ public class BasicTower extends Tower{
         setRange(50);
         setCost(25);
         setAttackSpeed(2);
-        setTowerImage(new ImageIcon(getClass().getResource("basictower.png"), "BasicTower").getImage());
+        setTowerImage(new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage());
         setTowerName(TowerName.BASIC);
     }
 

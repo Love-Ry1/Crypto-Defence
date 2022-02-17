@@ -1,5 +1,8 @@
+package models;
+
+import models.Enemy;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class Enemy1 extends Enemy {
 
@@ -9,7 +12,7 @@ public class Enemy1 extends Enemy {
         setHealth(100);
         setSpeed(1);
         setDamage(10);
-        setEnemySizeImage(new ImageIcon(getClass().getResource("enemy.png"), "Monster").getImage());
+        setEnemySizeImage(new ImageIcon(getClass().getResource("/enemy.png"), "Monster").getImage());
 
 
     }

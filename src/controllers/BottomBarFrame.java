@@ -1,7 +1,8 @@
-import javax.swing.*;
+package controllers;
+
+import controllers.BottomBarButtons;
+
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 
 public class BottomBarFrame {

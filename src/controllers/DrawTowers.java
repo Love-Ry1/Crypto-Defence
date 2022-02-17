@@ -1,3 +1,9 @@
+package controllers;
+
+import models.Block;
+import models.GameModel;
+import models.Tower;
+
 import java.awt.*;
 
 public class DrawTowers {
