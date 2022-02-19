@@ -1,5 +1,7 @@
 package models;
 
+import controllers.GameScreen;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -10,12 +12,14 @@ public class GameModel {
     private int currentBlockX;
     private int currentBlockY;
     private ArrayList<Enemy> enemyList;
+    private GameScreen gameScreen;
 
-    public GameModel(){
+    public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
         this.height = BasicMap.getHeight();
         this.towerMap = new Tower[width][height];
         this.enemyList = new ArrayList<>();
+        this.gameScreen = gameScreen;
     }
 
     // The idea is that we get the position of the mouse and the functions uses it to find the current "models.Block"
@@ -49,18 +53,30 @@ public class GameModel {
         }
     }
 
-    public void drawEnemies(Graphics2D g){
-        for (Enemy enemy : enemyList){
-            enemy.drawEnemy(g);
-        }
-    }
-
     public int getWidth(){
         return width;
     }
 
     public int getHeight(){
         return height;
+    }
+
+    public void gameLoop(){
+        boolean gameRunning = true;
+        while(gameRunning){
+            // enemy.update();
+            // towers.update();
+            addEnemy(20, 20);
+            addTower(250, 85, Tower.TowerName.BASIC);
+            gameScreen.update(enemyList, towerMap);
+            try {
+                //sleep
+            } catch (Exception e){
+
+            }
+
+
+        }
     }
 
 }

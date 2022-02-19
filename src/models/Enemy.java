@@ -80,12 +80,6 @@ public abstract class Enemy  {
         return this.posY;
     }
 
-    public  void drawEnemy(Graphics2D g){
-        g.drawImage(this.getEnemyImage(), this.getPosX() + ((Block.getWidth() - getEnemyImage().getWidth(null)) / 2),
-                this.getPosY() + ((Block.getHeight() - getEnemyImage().getHeight(null)) / 2),null);
-
-    }
-
     public void setEnemySizeImage(Image image){
         this.enemyImage = image;
     }

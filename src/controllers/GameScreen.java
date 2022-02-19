@@ -1,22 +1,24 @@
 package controllers;
 
+import models.Enemy;
 import models.GameModel;
 import models.Tower;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GameScreen extends JPanel implements MouseMethods {
     private BottomBarFrame bottomBarFrame;
     private MyMouseListener mouseMouseListener;
     private GameFrame gameFrame;
+    private ArrayList<Enemy> enemyList;
+    private Tower[][] towerMap;
 
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
         bottomBarFrame = new BottomBarFrame(0, 800, 815, 185);
-
     }
-
 
     public void paintComponent(Graphics gr) {
         Graphics2D g = (Graphics2D) gr;
@@ -25,17 +27,19 @@ public class GameScreen extends JPanel implements MouseMethods {
         DrawBasicMap drawBasicMap = new DrawBasicMap();
         drawBasicMap.draw(g);
 
-        GameModel gameModel = new GameModel();      // just for testing tower mechanics, remove later
-        gameModel.addTower(250, 85, Tower.TowerName.BASIC);
-
-        DrawTowers drawTowers = new DrawTowers(gameModel);
+        DrawTowers drawTowers = new DrawTowers(this.towerMap);
         drawTowers.draw(g);
 
-        gameModel.addEnemy(20, 20);
-        gameModel.drawEnemies(g);
+        DrawEnemies drawEnemies = new DrawEnemies(enemyList);
+        drawEnemies.draw(g);
 
         bottomBarFrame.draw(g);
 
+    }
+
+    public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap){
+        this.enemyList = enemyList;
+        this.towerMap = towerMap;
     }
 
     public void initInputs() {

@@ -7,22 +7,22 @@ import models.Tower;
 import java.awt.*;
 
 public class DrawTowers {
-    GameModel gameModel;
+    private Tower[][] towers;
 
-    public DrawTowers(GameModel gameModel){
-        this.gameModel = gameModel;
+    public DrawTowers(Tower[][] towers){
+        this.towers = towers;
     }
 
     public void draw(Graphics2D g){
-        Tower[][] towers = gameModel.getTowerMap();
-
-        for(int i = 0; i < gameModel.getHeight(); i++){
-            for(int j = 0; j < gameModel.getWidth(); j++){
-                Tower currentTower = towers[i][j];
-                if(currentTower != null){
-                    g.drawImage(currentTower.getTowerImage(), currentTower.getPosX() +
-                                    ((Block.getWidth() - currentTower.getTowerImage().getWidth(null)) / 2),
-                            currentTower.getPosY() + ((Block.getHeight() - currentTower.getTowerImage().getHeight(null)) / 2),null);
+        if(this.towers != null) {
+            for (int i = 0; i < towers.length; i++) {
+                for (int j = 0; j < towers[0].length; j++) {
+                    Tower currentTower = towers[i][j];
+                    if (currentTower != null) {
+                        g.drawImage(currentTower.getTowerImage(), currentTower.getPosX() +
+                                        ((Block.getWidth() - currentTower.getTowerImage().getWidth(null)) / 2),
+                                currentTower.getPosY() + ((Block.getHeight() - currentTower.getTowerImage().getHeight(null)) / 2), null);
+                    }
                 }
             }
         }

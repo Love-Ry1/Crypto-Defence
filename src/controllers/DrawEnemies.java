@@ -1,0 +1,23 @@
+package controllers;
+
+import models.Block;
+import models.Enemy;
+
+import java.awt.*;
+import java.util.ArrayList;
+
+public class DrawEnemies {
+    ArrayList<Enemy> enemies;
+
+    public DrawEnemies(ArrayList<Enemy> enemies){
+        this.enemies = enemies;
+    }
+
+    public void draw(Graphics2D g) {
+        for (int i = 0; i < enemies.size(); i++){
+            Enemy enemy = enemies.get(i);
+            g.drawImage(enemy.getEnemyImage(), enemy.getPosX() + ((Block.getWidth() - enemy.getEnemyImage().getWidth(null)) / 2),
+                    enemy.getPosY() + ((Block.getHeight() - enemy.getEnemyImage().getHeight(null)) / 2), null);
+        }
+    }
+}
