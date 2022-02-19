@@ -88,7 +88,7 @@ public class BasicMap {
         return blockArray;
     }
 
-    public direction adjacent(int posX, int posY){
+    public direction nextDirection(int posX, int posY){
         int row = posX / 80;
         int column = posY / 80;
         return pathArray[row][column];

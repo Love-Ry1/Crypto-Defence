@@ -3,6 +3,7 @@ package models;
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public abstract class Enemy  {
@@ -22,6 +23,7 @@ public abstract class Enemy  {
     private Image enemyImage;
     private pathfinding start;
     private pathfinding enddirection;
+    private BasicMap basicMap = new BasicMap();
 
     private enum pathfinding{
         UP,DOWN,LEFT,RIGHT
@@ -87,82 +89,17 @@ public abstract class Enemy  {
     public Image getEnemyImage(){
         return this.enemyImage;
     }
-    // det är för att bara testa, kommer ändra den sen
-    public void move(int turnTile, int threshold) {
-       // setDirection(turnTile, threshold);
-        start = pathfinding.RIGHT;
-        switch (start) {
-            case UP:
-                posY -= speed ;
-                break;
-            case LEFT:
-                posX -= speed;
-                break;
-            case RIGHT:
-                posX += speed ;
-                break;
-            case DOWN:
-                posY += speed ;
-                break;
-        }
 
-    }
-    // det är för att bara testa, kommer ändra den sen
-    /*
-    private void setDirection(int turnTile, int threshold) {
-        int block = turnTile % 10;
-        if (block == 1 && start == pathfinding.RIGHT) {
-            if (posX >= threshold) {
-                posX = threshold;
-                start = pathfinding.UP;
-            }
-        }
-        else if (block == 1 && start == pathfinding.LEFT) {
-            if (posX <= threshold) {
-                posX = threshold;
-                start = pathfinding.UP;
-            }
-        }
-        else if (block == 2 && start == pathfinding.UP) {
-            if (posY <= threshold) {
-                posY = threshold;
-                start = pathfinding.RIGHT;
-            }
-        }
-        else if (block == 2 && start == pathfinding.DOWN) {
-            if (posY >= threshold) {
-                posY = threshold;
-                start = pathfinding.RIGHT;
-            }
-        }
-        else if (block == 3 && start == pathfinding.RIGHT) {
-            if (posX >= threshold) {
-                posX = threshold;
-                start = pathfinding.DOWN;
-            }
-        }
-        else if (block == 3 && start == pathfinding.LEFT) {
-            if (posX <= threshold) {
-                posX = threshold;
-                start = pathfinding.DOWN;
-            }
-        }
-        else if (block == 4 && start == pathfinding.UP) {
-            if (posY <= threshold) {
-                posY = threshold;
-                start = pathfinding.LEFT;
-            }
-        }
-        else if (block == 4 && start == pathfinding.DOWN) {
-            if (posY >= threshold) {
-                posY = threshold;
-                start = pathfinding.LEFT;
-            }
+    public void move() {
+        BasicMap.direction dir = basicMap.nextDirection(posX, posY);
+        if (dir == BasicMap.direction.NORTH){
+            posY += speed;
+        } else if (dir == BasicMap.direction.EAST){
+            posX += speed;
+        } else if (dir == BasicMap.direction.SOUTH){
+            posY += speed;
+        } else if (dir == BasicMap.direction.WEST){
+            posX -= speed;
         }
     }
-
-     */
-
-
-
 }

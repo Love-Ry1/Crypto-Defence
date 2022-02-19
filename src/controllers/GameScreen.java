@@ -34,7 +34,6 @@ public class GameScreen extends JPanel implements MouseMethods {
         drawEnemies.draw(g);
 
         bottomBarFrame.draw(g);
-
     }
 
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap){

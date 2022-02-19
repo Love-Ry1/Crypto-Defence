@@ -14,10 +14,12 @@ public class DrawEnemies {
     }
 
     public void draw(Graphics2D g) {
-        for (int i = 0; i < enemies.size(); i++){
-            Enemy enemy = enemies.get(i);
-            g.drawImage(enemy.getEnemyImage(), enemy.getPosX() + ((Block.getWidth() - enemy.getEnemyImage().getWidth(null)) / 2),
-                    enemy.getPosY() + ((Block.getHeight() - enemy.getEnemyImage().getHeight(null)) / 2), null);
+        if (enemies != null) {
+            for (int i = 0; i < enemies.size(); i++) {
+                Enemy enemy = enemies.get(i);
+                g.drawImage(enemy.getEnemyImage(), enemy.getPosX() + ((Block.getWidth() - enemy.getEnemyImage().getWidth(null)) / 2),
+                        enemy.getPosY() + ((Block.getHeight() - enemy.getEnemyImage().getHeight(null)) / 2), null);
+            }
         }
     }
 }

@@ -49,7 +49,7 @@ public class GameModel {
 
     public void moveEnemies(){
         for (Enemy enemy : enemyList){
-            enemy.move(1, 1);
+            enemy.move();
         }
     }
 
@@ -62,12 +62,13 @@ public class GameModel {
     }
 
     public void gameLoop(){
+        addEnemy(20, 20);
+        addTower(250, 85, Tower.TowerName.BASIC);
         boolean gameRunning = true;
         while(gameRunning){
             // enemy.update();
             // towers.update();
-            addEnemy(20, 20);
-            addTower(250, 85, Tower.TowerName.BASIC);
+            moveEnemies();
             gameScreen.update(enemyList, towerMap);
             try {
                 //sleep
