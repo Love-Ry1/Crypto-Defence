@@ -1,5 +1,6 @@
 package controllers;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.concurrent.Executor;
@@ -56,6 +57,9 @@ public class BottomBarButtons implements MouseMethods {
         } else {
             g.setColor(Color.WHITE);
             g.fillRect(x, y, width, height);
+
+            Image towerImage1 = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
+            g.drawImage(towerImage1, x+50-(towerImage1.getWidth(null)/2), y+2, null);
         }
 
     }

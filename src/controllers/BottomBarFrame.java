@@ -8,6 +8,8 @@ import java.awt.*;
 public class BottomBarFrame {
     private int x, y, width, height;
     private BottomBarButtons tower1, tower2, tower3, tower4;
+    private boolean buttonPress1 = false;
+
 
     public BottomBarFrame(int x, int y, int width, int height) {
         this.x = x;
@@ -37,7 +39,10 @@ public class BottomBarFrame {
 
     public void mouseClicked(int x, int y) {
         if (tower1.getInitialBound().contains(x, y)) {  //checks if tower1 bounds are pressed (so if the button is pressed)
-            System.out.println("You pressed tower 1!");
+            //System.out.println("You pressed tower 1!");
+            buttonPress1 = true;
+            System.out.printf(String.valueOf(buttonPress1));
+
             //tower1.setMousePressed(true);  - If button is pressed then mousePressed = true
         }
         if (tower2.getInitialBound().contains(x, y)) {
@@ -55,12 +60,16 @@ public class BottomBarFrame {
 
     }
 
+    public boolean getButton1Pressed(){
+        return buttonPress1;
+    }
+
 
     public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of tower1
         tower1.setMouseOver(false);
         if (tower1.getInitialBound().contains(x, y)) {
             tower1.setMouseOver(true);
-            System.out.println("Your hovering over button 1");
+            //System.out.println("Your hovering over button 1");
         }
 
     }

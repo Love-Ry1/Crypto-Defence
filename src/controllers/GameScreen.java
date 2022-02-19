@@ -53,6 +53,9 @@ public class GameScreen extends JPanel implements MouseMethods {
     @Override
     public void mouseClicked(int x, int y) {
         bottomBarFrame.mouseClicked(x, y);
+        if (bottomBarFrame.getButton1Pressed()){
+            System.out.println(x+" "+y);
+        }
     }
 
     @Override
