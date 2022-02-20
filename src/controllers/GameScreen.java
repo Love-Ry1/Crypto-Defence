@@ -45,6 +45,7 @@ public class GameScreen extends JPanel implements MouseMethods {
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap){
         this.enemyList = enemyList;
         this.towerMap = towerMap;
+        repaint();
     }
 
     public void initInputs() {
