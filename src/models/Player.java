@@ -6,7 +6,7 @@ public class Player {
     // Todo add a gold image and maybe a health image.
 
     public Player(){
-        
+
          this.gold = 50;
          this.health = 100;
 
