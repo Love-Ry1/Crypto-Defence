@@ -7,6 +7,7 @@ public class Player {
 
     public Player(){
 
+
          this.gold = 50;
          this.health = 100;
 
@@ -33,6 +34,7 @@ public class Player {
         gold += Add;
         return gold;
     }
+
 
     public void takeDamage(int damage){
         health -= damage;
