@@ -83,6 +83,9 @@ public abstract class Bullets {
         }
 
         // TODO if the bullet hits a target it should get removed
+
+
+
     }
 
 }
