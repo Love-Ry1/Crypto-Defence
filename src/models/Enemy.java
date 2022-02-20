@@ -13,6 +13,8 @@ public abstract class Enemy  {
     private int damage;
     private int health;
     private int posX;
+
+
     private int posY;
     private ArrayList<Enemy> enemies;
     private  Image  enemyUp;
@@ -82,6 +84,10 @@ public abstract class Enemy  {
         return this.posY;
     }
 
+    public void setPosX(int posX) { this.posX = posX; }
+
+    public void setPosY(int posY) { this.posY = posY; }
+
     public void setEnemySizeImage(Image image){
         this.enemyImage = image;
     }
@@ -101,5 +107,9 @@ public abstract class Enemy  {
         } else if (dir == BasicMap.direction.WEST){
             posX -= speed;
         }
+    }
+
+    public void enemyUpdate(){
+
     }
 }

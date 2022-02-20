@@ -68,6 +68,7 @@ public class GameModel {
         while(gameRunning){
             // enemy.update();
             // towers.update();
+
             moveEnemies();
             gameScreen.update(enemyList, towerMap);
             try {
