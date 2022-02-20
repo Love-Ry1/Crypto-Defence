@@ -89,8 +89,8 @@ public class BasicMap {
     }
 
     public direction nextDirection(int posX, int posY){
-        int row = posX / 80;
-        int column = posY / 80;
+        int row = posY / 80;
+        int column = posX / 80;
         return pathArray[row][column];
     }
 }

@@ -5,7 +5,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
 public abstract class Enemy  {
 
     private int enemySize= 80;
@@ -13,8 +12,6 @@ public abstract class Enemy  {
     private int damage;
     private int health;
     private int posX;
-
-
     private int posY;
     private ArrayList<Enemy> enemies;
     private  Image  enemyUp;
@@ -30,7 +27,6 @@ public abstract class Enemy  {
     private enum pathfinding{
         UP,DOWN,LEFT,RIGHT
     }
-
 
     public Enemy(int posX, int posY){
         this.posX = posX;
@@ -53,7 +49,6 @@ public abstract class Enemy  {
 
     }
 
-
     public int getHealth() {
         return health;
     }
@@ -65,8 +60,6 @@ public abstract class Enemy  {
     public void setDamage(int damage) {
         this.damage = damage;
     }
-
-
 
     public void setSpeed(int speed){this.speed = speed;}
 
@@ -98,6 +91,7 @@ public abstract class Enemy  {
 
     public void move() {
         BasicMap.direction dir = basicMap.nextDirection(posX, posY);
+        System.out.println(dir);
         if (dir == BasicMap.direction.NORTH){
             posY += speed;
         } else if (dir == BasicMap.direction.EAST){

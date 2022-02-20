@@ -5,7 +5,7 @@ import controllers.GameScreen;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class GameModel {
+public class GameModel implements Runnable{
     private final int width;
     private final int height;
     private Tower[][] towerMap;
@@ -61,20 +61,22 @@ public class GameModel {
         return height;
     }
 
-    public void gameLoop(){
+    public void run(){
         addEnemy(20, 20);
         addTower(250, 85, Tower.TowerName.BASIC);
-        boolean gameRunning = true;
-        while(gameRunning){
+        boolean running = true;
+        while(running){
             // enemy.update();
             // towers.update();
 
             moveEnemies();
+            for (Enemy enemy : enemyList){
+                System.out.println(enemy.getPosX() + "  " + enemy.getPosY());
+            }
             gameScreen.update(enemyList, towerMap);
             try {
-                //sleep
-            } catch (Exception e){
-
+                Thread.sleep(20);
+            } catch (InterruptedException ex){
             }
 
 

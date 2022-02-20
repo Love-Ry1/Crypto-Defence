@@ -14,6 +14,7 @@ public class GameScreen extends JPanel implements MouseMethods {
     private GameFrame gameFrame;
     private ArrayList<Enemy> enemyList;
     private Tower[][] towerMap;
+    private GameModel gameModel;
 
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
@@ -27,6 +28,7 @@ public class GameScreen extends JPanel implements MouseMethods {
         DrawBasicMap drawBasicMap = new DrawBasicMap();
         drawBasicMap.draw(g);
 
+        gameModel.addTower(400, 100, Tower.TowerName.BASIC);    // just testing
         DrawTowers drawTowers = new DrawTowers(this.towerMap);
         drawTowers.draw(g);
 
@@ -34,6 +36,10 @@ public class GameScreen extends JPanel implements MouseMethods {
         drawEnemies.draw(g);
 
         bottomBarFrame.draw(g);
+    }
+
+    public void setGameModel(GameModel gameModel){
+        this.gameModel = gameModel;
     }
 
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap){
@@ -49,13 +55,9 @@ public class GameScreen extends JPanel implements MouseMethods {
         requestFocus();
     }
 
-
     @Override
     public void mouseClicked(int x, int y) {
         bottomBarFrame.mouseClicked(x, y);
-        if (bottomBarFrame.getButton1Pressed()){
-            System.out.println(x+" "+y);
-        }
     }
 
     @Override
