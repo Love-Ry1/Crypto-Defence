@@ -117,6 +117,10 @@ public abstract class Bullets {
         return rect.contains(posX, posY);
     }
 
+    public Enemy getEnemy(){
+        return enemy;
+    }
+
     public void update(){
         updateDirection();
         updatePos();

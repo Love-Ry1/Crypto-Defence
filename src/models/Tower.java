@@ -117,6 +117,7 @@ public abstract class Tower {
             Bullets bullet = it.next();
             bullet.update();
             if (bullet.hitTarget()){
+                bullet.getEnemy().takeDamage(damage);
                 it.remove();
             }
         }
