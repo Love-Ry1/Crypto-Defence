@@ -69,8 +69,24 @@ public class BottomBarFrame {
         tower1.setMouseOver(false);
         if (tower1.getInitialBound().contains(x, y)) {
             tower1.setMouseOver(true);
-            //System.out.println("Your hovering over button 1");
         }
+
+        tower2.setMouseOver(false);
+        if (tower2.getInitialBound().contains(x, y)) {
+            tower2.setMouseOver(true);
+        }
+
+        tower3.setMouseOver(false);
+        if (tower3.getInitialBound().contains(x, y)) {
+            tower3.setMouseOver(true);
+        }
+
+        tower4.setMouseOver(false);
+        if (tower4.getInitialBound().contains(x, y)) {
+            tower4.setMouseOver(true);
+        }
+
+
 
     }
 

@@ -53,7 +53,10 @@ public class BottomBarButtons implements MouseMethods {
 
 
         if (mouseOver) {
-            g.setColor(Color.gray);  // does not work
+            g.setColor(Color.gray);
+            g.fillRect(x, y, width, height);
+            Image towerImage1 = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
+            g.drawImage(towerImage1, x+50-(towerImage1.getWidth(null)/2), y+2, null);
         } else {
             g.setColor(Color.WHITE);
             g.fillRect(x, y, width, height);
