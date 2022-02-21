@@ -111,6 +111,7 @@ public abstract class Tower {
 
         for (Iterator<Bullets> it = bullets.iterator(); it.hasNext();){
             Bullets bullet = it.next();
+
             bullet.update();
             if (bullet.hitTarget()){
                 bullet.getEnemy().takeDamage(damage);

@@ -4,6 +4,7 @@ import controllers.GameScreen;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GameModel implements Runnable{
     private final int width;
@@ -48,38 +49,27 @@ public class GameModel implements Runnable{
         enemyList.add(enemy);
     }
 
-    public void moveEnemies(){
-        for (Enemy enemy : enemyList){
-            enemy.move();
-        }
-    }
-
-    public int getWidth(){
-        return width;
-    }
-
-    public int getHeight(){
-        return height;
-    }
-
     public void addPlayer(){
         player = new Player();
     }
 
     public void run(){
         addPlayer();
-        addEnemy(20, 20);
+        addEnemy(20, 40);
         addTower(250, 85, Tower.TowerName.BASIC);
         addTower(400, 100, Tower.TowerName.BASIC);    // just testing
         boolean running = true;
         while(running){
-            // enemy.update();
-            // towers.update();
 
-            moveEnemies();
-            for (Enemy enemy : enemyList){
-                System.out.println(enemy.getPosX() + "  " + enemy.getPosY());
+            for (Iterator<Enemy> it = enemyList.iterator(); it.hasNext();){
+                Enemy enemy = it.next();
+                enemy.enemyUpdate();
+                if (enemy.isDead()){
+                    it.remove();
+                }
             }
+
+
             for (int i = 0; i < towerMap.length; i++){
                 for (int j = 0; j < towerMap[0].length; j++){
                     if (towerMap[i][j] != null){
@@ -87,14 +77,12 @@ public class GameModel implements Runnable{
                     }
                 }
             }
+
             gameScreen.update(enemyList, towerMap, player);
             try {
                 Thread.sleep(20);
             } catch (InterruptedException ex){
             }
-
-
         }
     }
-
 }
