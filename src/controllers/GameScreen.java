@@ -23,6 +23,10 @@ public class GameScreen extends JPanel implements MouseMethods {
         bottomBarFrame = new BottomBarFrame(0, 800, 815, 185);
     }
 
+    /**
+     * This method is for painting all components in the screen
+     * @param gr
+     */
     public void paintComponent(Graphics gr) {
         Graphics2D g = (Graphics2D) gr;
         g.clearRect(0, 0, this.getWidth(), this.getHeight());   // Clears the screen
