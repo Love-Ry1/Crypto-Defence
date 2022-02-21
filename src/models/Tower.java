@@ -2,6 +2,7 @@ package models;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Tower {
     private int posX;
@@ -111,8 +112,13 @@ public abstract class Tower {
         if(firstEnemy != null){
             shoot(firstEnemy);
         }
-        for (Bullets bullet : bullets){
+
+        for (Iterator<Bullets> it = bullets.iterator(); it.hasNext();){
+            Bullets bullet = it.next();
             bullet.update();
+            if (bullet.hitTarget()){
+                it.remove();
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ public abstract class Enemy  {
     private pathfinding start;
     private pathfinding enddirection;
     private BasicMap basicMap = new BasicMap();
+    BasicMap.direction oldDir = null;
 
     private enum pathfinding{
         UP,DOWN,LEFT,RIGHT
@@ -92,6 +93,14 @@ public abstract class Enemy  {
     public void move() {
         BasicMap.direction dir = basicMap.nextDirection(posX, posY);
         System.out.println(dir);
+        if (((oldDir == BasicMap.direction.EAST && (dir == BasicMap.direction.SOUTH || dir == BasicMap.direction.NORTH)) && posX % 80 < 45)
+        || ((oldDir == BasicMap.direction.WEST && (dir == BasicMap.direction.SOUTH || dir == BasicMap.direction.NORTH)) && posX % 80 > 45)
+        || ((oldDir == BasicMap.direction.SOUTH && (dir == BasicMap.direction.WEST || dir == BasicMap.direction.EAST)) && posY % 80 < 45)
+        || ((oldDir == BasicMap.direction.NORTH && (dir == BasicMap.direction.WEST || dir == BasicMap.direction.EAST)) && posY % 80 > 45)){
+            dir = oldDir;
+        }
+
+
         if (dir == BasicMap.direction.NORTH){
             posY -= speed;
         } else if (dir == BasicMap.direction.EAST){
@@ -101,6 +110,7 @@ public abstract class Enemy  {
         } else if (dir == BasicMap.direction.WEST){
             posX -= speed;
         }
+        oldDir = dir;
     }
 
     public void enemyUpdate(){

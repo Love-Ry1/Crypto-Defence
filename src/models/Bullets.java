@@ -107,11 +107,14 @@ public abstract class Bullets {
             posY -= speed;
             posX -= speed;
         }
+    }
 
-        // TODO if the bullet hits a target it should get removed
-
-
-
+    public boolean hitTarget(){
+        Rectangle rect = new Rectangle();
+        rect.setBounds(enemy.getPosX() - enemy.getEnemyImage().getWidth(null)/2,
+                enemy.getPosY() - enemy.getEnemyImage().getHeight(null)/2, enemy.getEnemyImage().getWidth(null),
+                enemy.getEnemyImage().getHeight(null));
+        return rect.contains(posX, posY);
     }
 
     public void update(){

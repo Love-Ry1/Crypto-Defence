@@ -64,6 +64,7 @@ public class GameModel implements Runnable{
     public void run(){
         addEnemy(20, 20);
         addTower(250, 85, Tower.TowerName.BASIC);
+        addTower(400, 100, Tower.TowerName.BASIC);    // just testing
         boolean running = true;
         while(running){
             // enemy.update();
