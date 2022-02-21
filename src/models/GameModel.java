@@ -24,13 +24,25 @@ public class GameModel implements Runnable{
         this.gameScreen = gameScreen;
     }
 
-    // The idea is that we get the position of the mouse and the functions uses it to find the current "models.Block"
-    // There is probably a better way to this lol
+    //
+
+    /**
+     * The idea is that we get the position of the mouse and the functions uses it to find the current "models.Block"
+     *  There is probably a better way to this lol
+     * @param posX
+     * @param posY
+     */
     public void posToBlock(int posX, int posY){
         currentBlockX = posX / Block.getHeight();
         currentBlockY = posY / Block.getWidth();
     }
 
+    /**
+     * This method is for adding a Tower to the game
+     * @param posX
+     * @param posY
+     * @param towerName
+     */
     public void addTower(int posX, int posY, Tower.TowerName towerName) {
         posToBlock(posX, posY);
         BasicTower newTower = null;
@@ -40,19 +52,34 @@ public class GameModel implements Runnable{
         towerMap[currentBlockX][currentBlockY] = newTower;
     }
 
+    /**
+     * This method returns the Tower
+     * @return
+     */
     public Tower[][] getTowerMap(){
         return towerMap;
     }
 
+    /**
+     * addEnemy is for adding a new Enemy in the game
+     * @param posX
+     * @param posY
+     */
     public void addEnemy(int posX, int posY){
         Enemy enemy = new Enemy1(posX, posX);
         enemyList.add(enemy);
     }
 
+    /**
+     * This method is for adding a player
+     */
     public void addPlayer(){
         player = new Player();
     }
 
+    /**
+     * This method is for running the game "gameloops"
+     */
     public void run(){
         addPlayer();
         addEnemy(20, 40);
