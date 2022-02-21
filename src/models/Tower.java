@@ -9,7 +9,8 @@ public abstract class Tower {
     private int posY;
     private int range;
     private int damage;
-    private int attackSpeed;
+    private int attackCoolDown;
+    private int attackCoolDownTick = 0;
     private int cost;
     private Image towerImage;
     private ArrayList<Bullets> bullets = new ArrayList<>();
@@ -39,12 +40,8 @@ public abstract class Tower {
         return this.range;
     }
 
-    public void setAttackSpeed(int attackSpeed) {
-        this.attackSpeed = attackSpeed;
-    }
-
-    public int getAttackSpeed(){
-        return this.attackSpeed;
+    public void setAttackCoolDown(int coolDown){
+        attackCoolDown = coolDown;
     }
 
     public void setCost(int cost) {
@@ -85,10 +82,6 @@ public abstract class Tower {
         System.out.println("shoot!");
     }
 
-    public void removeBullet(Bullets bullet){
-        bullets.remove(bullet);
-    }
-
     // returnerar första enemyn som är i range, är inte perfekt implementerad eftersom models.Enemy klassen inte är klar än
     public Enemy firstEnemyInRange(ArrayList<Enemy> enemyList){
         for (int i = 0; i < enemyList.size(); i++){
@@ -109,8 +102,11 @@ public abstract class Tower {
 
     public void update(ArrayList<Enemy> enemyList){
         Enemy firstEnemy = firstEnemyInRange(enemyList);
-        if(firstEnemy != null){
+        if(firstEnemy != null && attackCoolDownTick > (attackCoolDown * 5)){
             shoot(firstEnemy);
+            attackCoolDownTick = 0;
+        } else{
+            attackCoolDownTick++;
         }
 
         for (Iterator<Bullets> it = bullets.iterator(); it.hasNext();){

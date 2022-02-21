@@ -13,6 +13,7 @@ public class GameModel implements Runnable{
     private int currentBlockY;
     private ArrayList<Enemy> enemyList;
     private GameScreen gameScreen;
+    private Player player;
 
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
@@ -61,7 +62,12 @@ public class GameModel implements Runnable{
         return height;
     }
 
+    public void addPlayer(){
+        player = new Player();
+    }
+
     public void run(){
+        addPlayer();
         addEnemy(20, 20);
         addTower(250, 85, Tower.TowerName.BASIC);
         addTower(400, 100, Tower.TowerName.BASIC);    // just testing
@@ -81,7 +87,7 @@ public class GameModel implements Runnable{
                     }
                 }
             }
-            gameScreen.update(enemyList, towerMap);
+            gameScreen.update(enemyList, towerMap, player);
             try {
                 Thread.sleep(20);
             } catch (InterruptedException ex){

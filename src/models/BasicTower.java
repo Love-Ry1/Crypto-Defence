@@ -11,7 +11,7 @@ public class BasicTower extends Tower {
         setDamage(5);
         setRange(100);
         setCost(25);
-        setAttackSpeed(2);
+        setAttackCoolDown(5);
         setTowerImage(new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage());
         setTowerName(TowerName.BASIC);
     }

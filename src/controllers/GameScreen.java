@@ -2,6 +2,7 @@ package controllers;
 
 import models.Enemy;
 import models.GameModel;
+import models.Player;
 import models.Tower;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class GameScreen extends JPanel implements MouseMethods {
     private ArrayList<Enemy> enemyList;
     private Tower[][] towerMap;
     private GameModel gameModel;
+    private Player player;
 
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
@@ -37,6 +39,9 @@ public class GameScreen extends JPanel implements MouseMethods {
         DrawEnemies drawEnemies = new DrawEnemies(enemyList);
         drawEnemies.draw(g);
 
+        DrawPlayer drawPlayer = new DrawPlayer(player);
+        drawPlayer.draw(g);
+
         bottomBarFrame.draw(g);
     }
 
@@ -44,7 +49,8 @@ public class GameScreen extends JPanel implements MouseMethods {
         this.gameModel = gameModel;
     }
 
-    public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap){
+    public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player){
+        this.player = player;
         this.enemyList = enemyList;
         this.towerMap = towerMap;
         repaint();
