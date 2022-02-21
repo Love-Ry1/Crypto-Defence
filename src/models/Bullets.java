@@ -12,11 +12,13 @@ public abstract class Bullets {
     private Direction direction;
     private int speed;
     private Image bulletImage;
+    Enemy enemy;
 
-    protected Bullets(int posX, int posY, Direction dir){
+    protected Bullets(int posX, int posY, Direction dir, Enemy enemy){
         this.posX = posX;
         this.posY = posY;
         this.direction = dir;
+        this.enemy = enemy;
     }
 
     public int getPosX() {
@@ -59,33 +61,62 @@ public abstract class Bullets {
         this.bulletImage = bulletImage;
     }
 
+    // this method could merge with updatePos? Need to add border cases
+    public void updateDirection(){
+        int enemyPosX = enemy.getPosX();
+        int enemyPosY = enemy.getPosY();
+
+        if(enemyPosX > posX && enemyPosY > posY){
+            direction = Direction.SOUTHEAST;
+        } else if(enemyPosX < posX && enemyPosY > posY){
+            direction = Direction.SOUTHWEST;
+        } else if(enemyPosX < posX && enemyPosY < posY){
+            direction = Direction.NORTHWEST;
+        } else if(enemyPosX > posX && enemyPosY < posY){
+            direction = Direction.NORTHEAST;
+        } else if(enemyPosX > posX){
+            direction = Direction.EAST;
+        } else if(enemyPosX < posX){
+            direction = Direction.WEST;
+        } else if(enemyPosY > posY){
+            direction = Direction.SOUTH;
+        } else if(enemyPosY < posY){
+            direction = Direction.NORTH;
+        }
+    }
+
     public void updatePos(){
         if(direction == Direction.NORTH){
-            posY -= 1;
+            posY -= speed;
         } else if(direction == Direction.NORTHEAST){
-            posY -= 1;
-            posX += 1;
+            posY -= speed;
+            posX += speed;
         } else if(direction == Direction.EAST){
-            posX += 1;
+            posX += speed;
         } else if(direction == Direction.SOUTHEAST){
-            posY += 1;
-            posX += 1;
+            posY += speed;
+            posX += speed;
         } else if(direction == Direction.SOUTH){
-            posY += 1;
+            posY += speed;
         } else if(direction == Direction.SOUTHWEST){
-            posY += 1;
-            posX -= 1;
+            posY += speed;
+            posX -= speed;
         } else if(direction == Direction.WEST){
-            posX -= 1;
+            posX -= speed;
         } else if(direction == Direction.NORTHWEST){
-            posY -= 1;
-            posX -= 1;
+            posY -= speed;
+            posX -= speed;
         }
 
         // TODO if the bullet hits a target it should get removed
 
 
 
+    }
+
+    public void update(){
+        updateDirection();
+        updatePos();
     }
 
 }

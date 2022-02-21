@@ -32,6 +32,9 @@ public class GameScreen extends JPanel implements MouseMethods {
         DrawTowers drawTowers = new DrawTowers(this.towerMap);
         drawTowers.draw(g);
 
+        DrawBullets drawBullets = new DrawBullets(towerMap);
+        drawBullets.draw(g);
+
         DrawEnemies drawEnemies = new DrawEnemies(enemyList);
         drawEnemies.draw(g);
 

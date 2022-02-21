@@ -11,7 +11,7 @@ public abstract class Tower {
     private int attackSpeed;
     private int cost;
     private Image towerImage;
-    private ArrayList<Bullets> bullets;
+    private ArrayList<Bullets> bullets = new ArrayList<>();
     public enum TowerName{
         BASIC
     }
@@ -78,9 +78,10 @@ public abstract class Tower {
         this.towerName = towerName;
     }
 
-    public void shoot(){    // Do this abstract or use bullet type so different towers can use different bullets
+    public void shoot(Enemy enemy){    // Do this abstract or use bullet type so different towers can use different bullets
         // also need a method to calculate the direction
-        bullets.add(new BasicBullet(posX, posY, Bullets.Direction.NORTH));
+        bullets.add(new BasicBullet(posX + Block.getWidth()/2, posY, Bullets.Direction.NORTH, enemy));
+        System.out.println("shoot!");
     }
 
     public void removeBullet(Bullets bullet){
@@ -99,5 +100,19 @@ public abstract class Tower {
             }
         }
         return null;
+    }
+
+    public ArrayList<Bullets> getBullets(){
+        return bullets;
+    }
+
+    public void update(ArrayList<Enemy> enemyList){
+        Enemy firstEnemy = firstEnemyInRange(enemyList);
+        if(firstEnemy != null){
+            shoot(firstEnemy);
+        }
+        for (Bullets bullet : bullets){
+            bullet.update();
+        }
     }
 }

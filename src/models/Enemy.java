@@ -93,7 +93,7 @@ public abstract class Enemy  {
         BasicMap.direction dir = basicMap.nextDirection(posX, posY);
         System.out.println(dir);
         if (dir == BasicMap.direction.NORTH){
-            posY += speed;
+            posY -= speed;
         } else if (dir == BasicMap.direction.EAST){
             posX += speed;
         } else if (dir == BasicMap.direction.SOUTH){

@@ -45,18 +45,22 @@ public class BasicMap {
             if (blockTypeArray[i][j] == 1 && blockTypeArray[i][j + 1] == 1 && currentDirection != direction.WEST) {
                 currentDirection = direction.EAST;
                 pathArray[i][j] = currentDirection;
+                System.out.println("row = " + i + " column = " + j + "    " + pathArray[i][j]);
                 j += 1;
             } else if (blockTypeArray[i][j] ==  1 && blockTypeArray[i + 1][j] == 1 && currentDirection != direction.NORTH) {
                 currentDirection = direction.SOUTH;
                 pathArray[i][j] = currentDirection;
+                System.out.println("row = " + i + " column = " + j + "    " + pathArray[i][j]);
                 i += 1;
             } else if (blockTypeArray[i][j] == 1 && blockTypeArray[i][j - 1] == 1 && currentDirection != direction.EAST) {
                 currentDirection = direction.WEST;
                 pathArray[i][j] = currentDirection;
+                System.out.println("row = " + i + " column = " + j + "    " + pathArray[i][j]);
                 j -= 1;
             } else if (blockTypeArray[i][j] == 1 && blockTypeArray[i - 1][j] == 1 && currentDirection != direction.SOUTH) {
                 currentDirection = direction.NORTH;
                 pathArray[i][j] = currentDirection;
+                System.out.println("row = " + i + " column = " + j + "    " + pathArray[i][j]);
                 i -= 1;
             } else {
                 currentDirection = null;

@@ -73,6 +73,13 @@ public class GameModel implements Runnable{
             for (Enemy enemy : enemyList){
                 System.out.println(enemy.getPosX() + "  " + enemy.getPosY());
             }
+            for (int i = 0; i < towerMap.length; i++){
+                for (int j = 0; j < towerMap[0].length; j++){
+                    if (towerMap[i][j] != null){
+                        towerMap[i][j].update(enemyList);
+                    }
+                }
+            }
             gameScreen.update(enemyList, towerMap);
             try {
                 Thread.sleep(20);
