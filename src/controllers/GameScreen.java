@@ -1,9 +1,6 @@
 package controllers;
 
-import models.Enemy;
-import models.GameModel;
-import models.Player;
-import models.Tower;
+import models.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +14,7 @@ public class GameScreen extends JPanel implements MouseMethods {
     private Tower[][] towerMap;
     private GameModel gameModel;
     private Player player;
+    private Shop shop;     // change so everyone has same instance of shop
 
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
@@ -51,6 +49,8 @@ public class GameScreen extends JPanel implements MouseMethods {
 
     public void setGameModel(GameModel gameModel){
         this.gameModel = gameModel;
+        this.shop = gameModel.getShop();
+        bottomBarFrame.setShop(shop);
     }
 
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player){
@@ -71,6 +71,10 @@ public class GameScreen extends JPanel implements MouseMethods {
     @Override
     public void mouseClicked(int x, int y) {
         bottomBarFrame.mouseClicked(x, y);
+        if (y < bottomBarFrame.getY()) {
+            shop.setCoordinates(x, y);
+        }
+
     }
 
     @Override

@@ -72,7 +72,6 @@ public abstract class Enemy  {
 
     public void move() {
         BasicMap.direction dir = basicMap.nextDirection(posX, posY);
-        System.out.println(dir);
         if (((oldDir == BasicMap.direction.EAST && (dir == BasicMap.direction.SOUTH || dir == BasicMap.direction.NORTH)) && posX % 80 < 45)
         || ((oldDir == BasicMap.direction.WEST && (dir == BasicMap.direction.SOUTH || dir == BasicMap.direction.NORTH)) && posX % 80 > 45)
         || ((oldDir == BasicMap.direction.SOUTH && (dir == BasicMap.direction.WEST || dir == BasicMap.direction.EAST)) && posY % 80 < 45)

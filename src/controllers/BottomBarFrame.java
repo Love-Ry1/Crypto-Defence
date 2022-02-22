@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.BottomBarButtons;
+import models.Shop;
 
 import java.awt.*;
 
@@ -9,6 +10,7 @@ public class BottomBarFrame {
     private int x, y, width, height;
     private BottomBarButtons tower1, tower2, tower3, tower4;
     private boolean buttonPress1 = false;
+    private Shop shop;
 
 
     public BottomBarFrame(int x, int y, int width, int height) {
@@ -36,12 +38,16 @@ public class BottomBarFrame {
         tower4 = new BottomBarButtons("tower4", 590, 850, 100, 70);
     }
 
+    public void setShop(Shop shop){
+        this.shop = shop;
+    }
 
     public void mouseClicked(int x, int y) {
         if (tower1.getInitialBound().contains(x, y)) {  //checks if tower1 bounds are pressed (so if the button is pressed)
             //System.out.println("You pressed tower 1!");
             buttonPress1 = true;
-            System.out.printf(String.valueOf(buttonPress1));
+            System.out.print(String.valueOf(buttonPress1));
+            shop.setButton1(true);
 
             //tower1.setMousePressed(true);  - If button is pressed then mousePressed = true
         }
@@ -64,6 +70,9 @@ public class BottomBarFrame {
         return buttonPress1;
     }
 
+    public int getY(){
+        return y;
+    }
 
     public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of tower1
         tower1.setMouseOver(false);

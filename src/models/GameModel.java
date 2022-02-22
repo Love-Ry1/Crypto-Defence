@@ -15,6 +15,7 @@ public class GameModel implements Runnable{
     private ArrayList<Enemy> enemyList;
     private GameScreen gameScreen;
     private Player player;
+    private Shop shop;
 
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
@@ -22,6 +23,7 @@ public class GameModel implements Runnable{
         this.towerMap = new Tower[width][height];
         this.enemyList = new ArrayList<>();
         this.gameScreen = gameScreen;
+        this.shop = new Shop(this);
     }
 
     //
@@ -46,10 +48,12 @@ public class GameModel implements Runnable{
     public void addTower(int posX, int posY, Tower.TowerName towerName) {
         posToBlock(posX, posY);
         BasicTower newTower = null;
-        if (towerName == Tower.TowerName.BASIC) {
-            newTower = new BasicTower(currentBlockX * Block.getWidth(), currentBlockY * Block.getHeight());
+        if (currentBlockX < 10 && currentBlockY < 10) {       // change so not hard coded
+            if (towerName == Tower.TowerName.BASIC) {
+                newTower = new BasicTower(currentBlockX * Block.getWidth(), currentBlockY * Block.getHeight());
+            }
+            towerMap[currentBlockX][currentBlockY] = newTower;
         }
-        towerMap[currentBlockX][currentBlockY] = newTower;
     }
 
     /**
@@ -77,6 +81,10 @@ public class GameModel implements Runnable{
         player = new Player();
     }
 
+    public Shop getShop(){
+        return shop;
+    }
+
     /**
      * This method is for running the game "gameloops"
      */
@@ -96,13 +104,17 @@ public class GameModel implements Runnable{
                 }
             }
 
-
             for (int i = 0; i < towerMap.length; i++){
                 for (int j = 0; j < towerMap[0].length; j++){
                     if (towerMap[i][j] != null){
                         towerMap[i][j].update(enemyList);
                     }
                 }
+            }
+
+            if (shop.addTower()){
+                addTower(shop.getPosX(), shop.getPosY(), Tower.TowerName.BASIC);
+                shop.reset();
             }
 
             gameScreen.update(enemyList, towerMap, player);
