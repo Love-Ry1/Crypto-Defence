@@ -92,7 +92,6 @@ public class GameModel implements Runnable{
      */
     public void run(){
         addPlayer();
-        addEnemy(20, 40);
         mobWave.loadWave();
 
         boolean running = true;
@@ -102,7 +101,8 @@ public class GameModel implements Runnable{
             } else {
                 gameTick++;
             }
-            if (gameTick % 100 == 0){       // maybe move this into mobwave.update()?
+
+            if (gameTick % 80 == 1){       // maybe move this into mobwave.update()?
                 Enemy nextEnemy = mobWave.nextMob();
                 if(nextEnemy != null) {
                     enemyList.add(nextEnemy);
