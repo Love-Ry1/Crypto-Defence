@@ -16,6 +16,8 @@ public class GameModel implements Runnable{
     private GameScreen gameScreen;
     private Player player;
     private Shop shop;
+    private MobWave mobWave = new MobWave();
+    private int gameTick;
 
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
@@ -91,10 +93,21 @@ public class GameModel implements Runnable{
     public void run(){
         addPlayer();
         addEnemy(20, 40);
-        addTower(250, 85, Tower.TowerName.BASIC);
-        addTower(400, 100, Tower.TowerName.BASIC);    // just testing
+        mobWave.loadWave();
+
         boolean running = true;
         while(running){
+            if (gameTick >= 1000000){
+                gameTick = 0;
+            } else {
+                gameTick++;
+            }
+            if (gameTick % 100 == 0){       // maybe move this into mobwave.update()?
+                Enemy nextEnemy = mobWave.nextMob();
+                if(nextEnemy != null) {
+                    enemyList.add(nextEnemy);
+                }
+            }
 
             for (Iterator<Enemy> it = enemyList.iterator(); it.hasNext();){
                 Enemy enemy = it.next();
@@ -116,7 +129,6 @@ public class GameModel implements Runnable{
                 addTower(shop.getPosX(), shop.getPosY(), Tower.TowerName.BASIC);
                 shop.reset();
             }
-
             gameScreen.update(enemyList, towerMap, player);
             try {
                 Thread.sleep(20);
