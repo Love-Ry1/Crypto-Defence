@@ -88,6 +88,10 @@ public class BasicMap {
         return blockArray;
     }
 
+    public static int[][] getBlockTypeArray(){
+        return blockTypeArray;
+    }
+
     public direction nextDirection(int posX, int posY){
         int row = posY / 80;
         int column = posX / 80;

@@ -40,11 +40,13 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        gameFrame.getGameScreen().mousePressed(e.getX(), e.getY());
 
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        gameFrame.getGameScreen().mouseReleased(e.getX(), e.getY());
 
     }
 

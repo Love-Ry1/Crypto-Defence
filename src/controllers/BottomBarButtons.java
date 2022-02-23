@@ -70,6 +70,11 @@ public class BottomBarButtons implements MouseMethods {
     private void drawBorder(Graphics2D g) {
         g.setColor(Color.black);
         g.drawRect(x, y, width, height);
+        if (mousePressed) {
+            g.drawRect(x + 1, y + 1, width - 2, height - 2);
+            g.drawRect(x + 2, y + 2, width - 4, height - 4);
+            g.drawRect(x + 3, y + 3, width - 6, height - 6);
+        }
 
     }
 

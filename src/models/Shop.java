@@ -58,6 +58,10 @@ public class Shop {
         button1 = false;
     }
 
+    public boolean getButton1() {
+        return button1;
+    }
+
     /**
      * This method add a new Tower on the map
      * @return

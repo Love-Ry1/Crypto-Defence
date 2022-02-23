@@ -9,7 +9,6 @@ import java.awt.*;
 public class BottomBarFrame {
     private int x, y, width, height;
     private BottomBarButtons tower1, tower2, tower3, tower4;
-    private boolean buttonPress1 = false;
     private Shop shop;
 
 
@@ -38,43 +37,21 @@ public class BottomBarFrame {
         tower4 = new BottomBarButtons("tower4", 590, 850, 100, 70);
     }
 
-    public void setShop(Shop shop){
+    public void setShop(Shop shop) {
         this.shop = shop;
     }
 
     public void mouseClicked(int x, int y) {
-        if (tower1.getInitialBound().contains(x, y)) {  //checks if tower1 bounds are pressed (so if the button is pressed)
-            //System.out.println("You pressed tower 1!");
-            buttonPress1 = true;
-            System.out.print(String.valueOf(buttonPress1));
-            shop.setButton1(true);
 
-            //tower1.setMousePressed(true);  - If button is pressed then mousePressed = true
-        }
-        if (tower2.getInitialBound().contains(x, y)) {
-            System.out.println("You pressed tower2!");
-
-        }
-        if (tower3.getInitialBound().contains(x, y)) {
-            System.out.println("You pressed tower3!");
-
-        }
-        if (tower4.getInitialBound().contains(x, y)) {
-            System.out.println("You pressed tower4!");
-
-        }
 
     }
 
-    public boolean getButton1Pressed(){
-        return buttonPress1;
-    }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 
-    public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of tower1
+    public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of the towers
         tower1.setMouseOver(false);
         if (tower1.getInitialBound().contains(x, y)) {
             tower1.setMouseOver(true);
@@ -95,18 +72,39 @@ public class BottomBarFrame {
             tower4.setMouseOver(true);
         }
 
-
-
     }
 
     public void mousePressed(int x, int y) {
+        tower1.setMousePressed(false);
+        if (tower1.getInitialBound().contains(x, y)) {  //checks if tower1 bounds are pressed (so if the button is pressed)
+            shop.setButton1(true);
+            tower1.setMousePressed(true);
+        }
+
+        tower2.setMousePressed(false);
+        if (tower2.getInitialBound().contains(x, y)) {
+            shop.setButton1(true);
+            tower2.setMousePressed(true);
+        }
+
+        tower3.setMousePressed(false);
+        if (tower3.getInitialBound().contains(x, y)) {
+            shop.setButton1(true);
+            tower3.setMousePressed(true);
+        }
+
+        tower4.setMousePressed(false);
+        if (tower4.getInitialBound().contains(x, y)) {
+            shop.setButton1(true);
+            tower4.setMousePressed(true);
+        }
+
+
     }
 
     public void mouseReleased(int x, int y) {
+
     }
-
-
-
 
 
 }

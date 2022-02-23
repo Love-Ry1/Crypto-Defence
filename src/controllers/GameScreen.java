@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static models.BasicMap.getHeight;
+import static models.BasicMap.getWidth;
+
 public class GameScreen extends JPanel implements MouseMethods {
     private BottomBarFrame bottomBarFrame;
     private MyMouseListener mouseMouseListener;

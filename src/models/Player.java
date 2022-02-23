@@ -5,13 +5,9 @@ public class Player {
     private int gold;
     // Todo add a gold image and maybe a health image.
 
-    public Player(){
-
-
-         this.gold = 50;
-         this.health = 100;
-
-
+    public Player() {
+        this.gold = 50;
+        this.health = 100;
     }
 
     /**
@@ -51,20 +47,17 @@ public class Player {
      * @param Add
      * @return
      */
-    public int AddGold(int Add){
-        gold += Add;
-        return gold;
+    public int addGold(int add) {
+        return gold += add;
     }
 
     /**
      * This method is for decreasing damage
      * @param damage
      */
-    public void takeDamage(int damage){
+    public void takeDamage(int damage) {
         health -= damage;
     }
-
-
 
 
 }
