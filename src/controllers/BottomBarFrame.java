@@ -3,20 +3,25 @@ package controllers;
 import controllers.BottomBarButtons;
 import models.Shop;
 
+import javax.swing.*;
 import java.awt.*;
 
 
 public class BottomBarFrame {
     private int x, y, width, height;
     private BottomBarButtons tower1, tower2, tower3, tower4;
+    private BottomBarButtons nextLevel;
+    private GameScreen gameScreen;
+    private boolean buttonPress1 = false;
     private Shop shop;
 
 
-    public BottomBarFrame(int x, int y, int width, int height) {
+    public BottomBarFrame(int x, int y, int width, int height, GameScreen gameScreen) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.gameScreen = gameScreen;
         Buttons();
     }
 
@@ -26,32 +31,35 @@ public class BottomBarFrame {
         tower1.draw(g);
         tower2.draw(g);
         tower3.draw(g);
-        tower4.draw(g);
+        nextLevel.draw(g);
     }
 
 
     public void Buttons() {
-        tower1 = new BottomBarButtons("tower1", 110, 850, 100, 70);
-        tower2 = new BottomBarButtons("tower2", 270, 850, 100, 70);
-        tower3 = new BottomBarButtons("tower3", 430, 850, 100, 70);
-        tower4 = new BottomBarButtons("tower4", 590, 850, 100, 70);
+        Image image = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
+        tower1 = new BottomBarButtons("tower1", 110, 850, 100, 70, image);
+        tower2 = new BottomBarButtons("tower2", 270, 850, 100, 70, image);
+        tower3 = new BottomBarButtons("tower3", 430, 850, 100, 70, image);
+        image = new ImageIcon(getClass().getResource("/nextlevel.png"), "controller.nextlevel").getImage();
+        nextLevel = new BottomBarButtons("Next Level", 590, 850, 100, 70, image);
     }
 
-    public void setShop(Shop shop) {
+    public void setShop(Shop shop){
         this.shop = shop;
     }
 
     public void mouseClicked(int x, int y) {
-
-
     }
 
+    public boolean getButton1Pressed(){
+        return buttonPress1;
+    }
 
-    public int getY() {
+    public int getY(){
         return y;
     }
 
-    public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of the towers
+    public void mouseMoved(int x, int y) {  // checks if the mouse is hovering over the bounds of tower1
         tower1.setMouseOver(false);
         if (tower1.getInitialBound().contains(x, y)) {
             tower1.setMouseOver(true);
@@ -67,10 +75,12 @@ public class BottomBarFrame {
             tower3.setMouseOver(true);
         }
 
-        tower4.setMouseOver(false);
-        if (tower4.getInitialBound().contains(x, y)) {
-            tower4.setMouseOver(true);
+        nextLevel.setMouseOver(false);
+        if (nextLevel.getInitialBound().contains(x, y)) {
+            nextLevel.setMouseOver(true);
         }
+
+
 
     }
 
@@ -93,18 +103,22 @@ public class BottomBarFrame {
             tower3.setMousePressed(true);
         }
 
-        tower4.setMousePressed(false);
-        if (tower4.getInitialBound().contains(x, y)) {
-            shop.setButton1(true);
-            tower4.setMousePressed(true);
+        nextLevel.setMousePressed(false);
+        if (nextLevel.getInitialBound().contains(x, y)) {
+            gameScreen.getGameModel().getMobWave().nextLevel();
+
+            System.out.println("You pressed next level!");
+
         }
 
 
     }
 
     public void mouseReleased(int x, int y) {
-
     }
+
+
+
 
 
 }

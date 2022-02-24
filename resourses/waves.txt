@@ -1,1 +1,6 @@
+level1:
 enemy1: 5
+;
+level2:
+enemy1: 3
+;

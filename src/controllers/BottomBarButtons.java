@@ -14,14 +14,16 @@ public class BottomBarButtons implements MouseMethods {
     private final String text;
     private Rectangle bounds; // a rectangle that checks if our x- and y- are inside the buttons bounds.
     private boolean mouseOver, mousePressed;
+    private Image image;
 
     // For normal controllers.Buttons
-    public BottomBarButtons(String text, int x, int y, int width, int height) {
+    public BottomBarButtons(String text, int x, int y, int width, int height, Image image) {
         this.text = text;
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.image = image;
         initialBounds();
     }
 
@@ -55,14 +57,12 @@ public class BottomBarButtons implements MouseMethods {
         if (mouseOver) {
             g.setColor(Color.gray);
             g.fillRect(x, y, width, height);
-            Image towerImage1 = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
-            g.drawImage(towerImage1, x+50-(towerImage1.getWidth(null)/2), y+2, null);
+            g.drawImage(image, x+50-(image.getWidth(null)/2), y + height/2 - image.getHeight(null)/2 - 2, null);
         } else {
             g.setColor(Color.WHITE);
             g.fillRect(x, y, width, height);
 
-            Image towerImage1 = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
-            g.drawImage(towerImage1, x+50-(towerImage1.getWidth(null)/2), y+2, null);
+            g.drawImage(image, x+50-(image.getWidth(null)/2), y + height/2 - image.getHeight(null)/2, null);
         }
 
     }

@@ -87,6 +87,10 @@ public class GameModel implements Runnable{
         return shop;
     }
 
+    public MobWave getMobWave(){
+        return mobWave;
+    }
+
     /**
      * This method is for running the game "gameloops"
      */
@@ -102,6 +106,7 @@ public class GameModel implements Runnable{
                 gameTick++;
             }
 
+            mobWave.loadWave();
             if (gameTick % 80 == 1){       // maybe move this into mobwave.update()?
                 Enemy nextEnemy = mobWave.nextMob();
                 if(nextEnemy != null) {

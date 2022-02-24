@@ -21,7 +21,7 @@ public class GameScreen extends JPanel implements MouseMethods {
 
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
-        bottomBarFrame = new BottomBarFrame(0, 800, 815, 185);
+        bottomBarFrame = new BottomBarFrame(0, 800, 815, 185, this);
     }
 
     /**
@@ -54,6 +54,10 @@ public class GameScreen extends JPanel implements MouseMethods {
         this.gameModel = gameModel;
         this.shop = gameModel.getShop();
         bottomBarFrame.setShop(shop);
+    }
+
+    public GameModel getGameModel(){
+        return gameModel;
     }
 
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player){
