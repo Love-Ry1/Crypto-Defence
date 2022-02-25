@@ -13,6 +13,10 @@ public class DrawTowers {
         this.towers = towers;
     }
 
+    /**
+     * This method is used for drawing Towers on the map
+     * @param g
+     */
     public void draw(Graphics2D g){
         if(this.towers != null) {
             for (int i = 0; i < towers.length; i++) {

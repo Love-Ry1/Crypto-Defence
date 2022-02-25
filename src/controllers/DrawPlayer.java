@@ -9,6 +9,10 @@ public class DrawPlayer {
         this.player = player;
     }
 
+    /**
+     * This method is for drawing players information
+     * @param g
+     */
     public void draw(Graphics2D g) {
         if (player != null) {
             Color oldColor = g.getColor();

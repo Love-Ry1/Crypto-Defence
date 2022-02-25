@@ -8,6 +8,9 @@ public class GameFrame extends JFrame {
     private final GameScreen gameScreen;
     //private final BottomBar bottomBar;
 
+    /**
+     * This is the constructor for initiating the frame
+     */
     public GameFrame() {
         this.gameScreen = new GameScreen(this);
 

@@ -13,6 +13,10 @@ public class DrawEnemies {
         this.enemies = enemies;
     }
 
+    /**
+     * This method is used for drawing Enemies
+     * @param g
+     */
     public void draw(Graphics2D g) {
         if (enemies != null) {
             for (int i = 0; i < enemies.size(); i++) {
