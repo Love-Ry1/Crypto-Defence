@@ -1,6 +1,15 @@
 level1:
-enemy1: 5
+enemy1: 1
 ;
 level2:
+enemy1: 2
+;
+level3:
 enemy1: 3
+;
+level4:
+enemy1: 4
+;
+level5:
+enemy1: 5
 ;

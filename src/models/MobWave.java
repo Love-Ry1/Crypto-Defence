@@ -37,6 +37,7 @@ public class MobWave {
                         }
                         line = bf.readLine();
                     }
+                    oldLevel++;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
