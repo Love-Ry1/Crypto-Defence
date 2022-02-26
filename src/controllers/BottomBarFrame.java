@@ -32,6 +32,7 @@ public class BottomBarFrame {
         tower2.draw(g);
         tower3.draw(g);
         nextLevel.draw(g);
+
     }
 
 
@@ -42,6 +43,7 @@ public class BottomBarFrame {
         tower3 = new BottomBarButtons("tower3", 430, 850, 100, 70, image);
         image = new ImageIcon(getClass().getResource("/nextlevel.png"), "controller.nextlevel").getImage();
         nextLevel = new BottomBarButtons("Next Level", 590, 850, 100, 70, image);
+
     }
 
     public void setShop(Shop shop){
@@ -106,9 +108,7 @@ public class BottomBarFrame {
         nextLevel.setMousePressed(false);
         if (nextLevel.getInitialBound().contains(x, y)) {
             gameScreen.getGameModel().getMobWave().nextLevel();
-
             System.out.println("You pressed next level!");
-
         }
 
 

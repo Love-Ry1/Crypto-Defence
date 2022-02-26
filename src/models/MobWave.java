@@ -1,7 +1,6 @@
 package models;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class MobWave {
@@ -63,6 +62,5 @@ public class MobWave {
         level++;
         System.out.println("level: " + level);
     }
-
 
 }

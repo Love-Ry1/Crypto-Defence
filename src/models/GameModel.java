@@ -3,10 +3,11 @@ package models;
 import controllers.GameScreen;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class GameModel implements Runnable{
+public class GameModel implements Runnable, Serializable {
     private final int width;
     private final int height;
     private Tower[][] towerMap;
@@ -89,6 +90,18 @@ public class GameModel implements Runnable{
 
     public MobWave getMobWave(){
         return mobWave;
+    }
+
+    public void saveState(){
+        try {
+            FileOutputStream fileOut = new FileOutputStream("modelState.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(this);
+            out.close();
+            fileOut.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
