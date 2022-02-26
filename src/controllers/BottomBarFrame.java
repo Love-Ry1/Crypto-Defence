@@ -88,6 +88,7 @@ public class BottomBarFrame {
         if (nextLevel.getInitialBound().contains(x, y)) {
             nextLevel.setMouseOver(true);
         }
+
         save.setMouseOver(false);
         if (save.getInitialBound().contains(x, y)) {
             save.setMouseOver(true);

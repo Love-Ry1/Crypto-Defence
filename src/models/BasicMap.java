@@ -2,8 +2,9 @@ package models;
 
 
 import java.awt.*;
+import java.io.Serializable;
 
-public class BasicMap {
+public class BasicMap implements Serializable {
 
     public enum direction{NORTH, EAST, SOUTH, WEST}
     private direction [][] pathArray = new direction[width][height];

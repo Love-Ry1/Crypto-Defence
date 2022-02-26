@@ -78,10 +78,6 @@ public class GameScreen extends JPanel implements MouseMethods {
     @Override
     public void mouseClicked(int x, int y) {
         bottomBarFrame.mouseClicked(x, y);
-        if (y < bottomBarFrame.getY()) {
-            shop.setCoordinates(x, y);
-        }
-
     }
 
     @Override
@@ -92,6 +88,9 @@ public class GameScreen extends JPanel implements MouseMethods {
     @Override
     public void mousePressed(int x, int y) {
         bottomBarFrame.mousePressed(x, y);
+        if (y < bottomBarFrame.getY()) {
+            shop.setCoordinates(x, y);
+        }
     }
 
     @Override

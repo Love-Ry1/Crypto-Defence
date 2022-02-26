@@ -1,11 +1,11 @@
 package models;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public abstract class Block {
+public abstract class Block implements Serializable {
     private int posX;
     private int posY;
-    private Image blockImage;
     private static final int width = 80;     // width is 50 for all blocks (temp value)
     private static final int height = 80;    // height is 50 for all blocks (temp value)
     private String name;
@@ -58,22 +58,6 @@ public abstract class Block {
 
     public void setName(String name){
         this.name = name;
-    }
-
-    /**
-     * This method is for att assign image to the block
-     * @param image
-     */
-    public void setBlockImage(Image image) {
-        this.blockImage = image;
-    }
-
-    /**
-     * This method returns image of the block.
-     * @return
-     */
-    public Image getBlockImage() {
-        return this.blockImage;
     }
 
 }

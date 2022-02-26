@@ -11,7 +11,6 @@ public abstract class Bullets {
     }
     private Direction direction;
     private int speed;
-    private Image bulletImage;
     Enemy enemy;
 
     protected Bullets(int posX, int posY, Direction dir, Enemy enemy){
@@ -37,28 +36,8 @@ public abstract class Bullets {
         this.posY = posY;
     }
 
-    public int getSpeed() {
-        return speed;
-    }
-
     public void setSpeed(int speed) {
         this.speed = speed;
-    }
-
-    public Direction getDirection() {
-        return direction;
-    }
-
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
-
-    public Image getBulletImage() {
-        return bulletImage;
-    }
-
-    public void setBulletImage(Image bulletImage) {
-        this.bulletImage = bulletImage;
     }
 
     // this method could merge with updatePos? Need to add border cases
@@ -111,9 +90,9 @@ public abstract class Bullets {
 
     public boolean hitTarget(){
         Rectangle rect = new Rectangle();
-        rect.setBounds(enemy.getPosX() - enemy.getEnemyImage().getWidth(null)/2,
-                enemy.getPosY() - enemy.getEnemyImage().getHeight(null)/2, enemy.getEnemyImage().getWidth(null),
-                enemy.getEnemyImage().getHeight(null));
+        rect.setBounds(enemy.getPosX() - enemy.getWidth()/2,
+                enemy.getPosY() - enemy.getHeight()/2, enemy.getWidth(),
+                enemy.getHeight());
         return rect.contains(posX, posY);
     }
 

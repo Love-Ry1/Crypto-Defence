@@ -1,10 +1,11 @@
 package models;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public abstract class Tower {
+public abstract class Tower implements Serializable {
     private int posX;
     private int posY;
     private int range;

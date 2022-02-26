@@ -4,6 +4,7 @@ import models.Block;
 import models.Bullets;
 import models.Tower;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ public class DrawBullets {
 
         private Tower[][] towers;
         private ArrayList<Bullets> bullets;
+        Image image = new ImageIcon(getClass().getResource("/basicbullet.png"), "bascicBullet").getImage();
 
         public DrawBullets(Tower[][] towers){
             this.towers = towers;
@@ -24,7 +26,7 @@ public class DrawBullets {
                         if (currentTower != null) {
                             bullets = currentTower.getBullets();
                             for(Bullets bullet : bullets){
-                                g.drawImage(bullet.getBulletImage(), bullet.getPosX(), bullet.getPosY(), null);
+                                g.drawImage(image, bullet.getPosX(), bullet.getPosY(), null);
                             }
                         }
                     }

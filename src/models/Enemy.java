@@ -2,18 +2,19 @@ package models;
 
 import java.awt.*;
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public abstract class Enemy  {
+public abstract class Enemy implements Serializable {
 
-    private int enemySize= 80;
+    private int width;
+    private int height;
     private int speed;
     private int damage;
     private int health;
     private int posX;
     private int posY;
-    private Image enemyImage;
     private BasicMap basicMap = new BasicMap();
     BasicMap.direction oldDir = null;
 
@@ -58,16 +59,24 @@ public abstract class Enemy  {
 
     public void setPosY(int posY) { this.posY = posY; }
 
-    public void setEnemySizeImage(Image image){
-        this.enemyImage = image;
-    }
-
-    public Image getEnemyImage(){
-        return this.enemyImage;
-    }
-
     public boolean isDead(){
         return health <= 0;
+    }
+
+    public void setWidth(int width){
+        this.width = width;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public void setHeight(int height){
+        this.height = height;
+    }
+
+    public int getHeight(){
+        return height;
     }
 
     public void move() {
