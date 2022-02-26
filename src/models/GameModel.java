@@ -14,11 +14,13 @@ public class GameModel implements Runnable, Serializable {
     private int currentBlockX;
     private int currentBlockY;
     private ArrayList<Enemy> enemyList;
-    private GameScreen gameScreen;
+    private transient GameScreen gameScreen;
     private Player player;
-    private Shop shop;
+    private transient Shop shop;
     private MobWave mobWave = new MobWave();
     private int gameTick;
+    private transient boolean saveGameFlag = false;
+    private transient SaveGame saveGame;
 
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
@@ -27,9 +29,8 @@ public class GameModel implements Runnable, Serializable {
         this.enemyList = new ArrayList<>();
         this.gameScreen = gameScreen;
         this.shop = new Shop(this);
+        this.saveGame = new SaveGame(this);
     }
-
-    //
 
     /**
      * The idea is that we get the position of the mouse and the functions uses it to find the current "models.Block"
@@ -92,16 +93,16 @@ public class GameModel implements Runnable, Serializable {
         return mobWave;
     }
 
-    public void saveState(){
-        try {
-            FileOutputStream fileOut = new FileOutputStream("modelState.ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(this);
-            out.close();
-            fileOut.close();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+    public GameModel getGameModel(){
+        return this;
+    }
+
+    public void setSaveGameFlag(Boolean value){
+        this.saveGameFlag = value;
+    }
+
+    public SaveGame getSaveGame(){
+        return saveGame;
     }
 
     /**
@@ -148,6 +149,12 @@ public class GameModel implements Runnable, Serializable {
                 shop.reset();
             }
             gameScreen.update(enemyList, towerMap, player);
+
+            if(saveGameFlag){
+                saveGame.saveGame();
+                saveGameFlag = false;
+            }
+
             try {
                 Thread.sleep(20);
             } catch (InterruptedException ex){

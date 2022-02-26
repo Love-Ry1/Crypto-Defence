@@ -3,12 +3,12 @@ package models;
 import java.io.*;
 import java.util.LinkedList;
 
-public class MobWave {
+public class MobWave implements Serializable {
     private LinkedList<Enemy> wave = new LinkedList<>();
     private int level = 1;
     private int oldLevel = 0;
-    InputStream is;
-    BufferedReader bf;
+    private transient InputStream is;
+    private transient BufferedReader bf;
 
     public MobWave(){
         try {

@@ -127,7 +127,7 @@ public class BottomBarFrame {
 
         save.setMousePressed(false);
         if (save.getInitialBound().contains(x, y)) {
-            gameScreen.getGameModel().getSaveGame().saveGame();
+            gameScreen.getGameModel().setSaveGameFlag(true);
         }
 
         load.setMousePressed(false);

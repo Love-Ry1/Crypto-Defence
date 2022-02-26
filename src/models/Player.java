@@ -1,6 +1,8 @@
 package models;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
     private int health;
     private int gold;
     // Todo add a gold image and maybe a health image.
@@ -44,7 +46,7 @@ public class Player {
 
     /**
      * This methods is for adding the gold and return it
-     * @param Add
+     * @param add
      * @return
      */
     public int addGold(int add) {
