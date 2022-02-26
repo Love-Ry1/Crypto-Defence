@@ -10,7 +10,7 @@ import java.awt.*;
 public class BottomBarFrame {
     private int x, y, width, height;
     private BottomBarButtons tower1, tower2, tower3, tower4;
-    private BottomBarButtons nextLevel;
+    private BottomBarButtons nextLevel, save, load;
     private GameScreen gameScreen;
     private boolean buttonPress1 = false;
     private Shop shop;
@@ -32,6 +32,8 @@ public class BottomBarFrame {
         tower2.draw(g);
         tower3.draw(g);
         nextLevel.draw(g);
+        save.draw(g);
+        load.draw(g);
     }
 
 
@@ -40,8 +42,15 @@ public class BottomBarFrame {
         tower1 = new BottomBarButtons("tower1", 110, 850, 100, 70, image);
         tower2 = new BottomBarButtons("tower2", 270, 850, 100, 70, image);
         tower3 = new BottomBarButtons("tower3", 430, 850, 100, 70, image);
+
         image = new ImageIcon(getClass().getResource("/nextlevel.png"), "controller.nextlevel").getImage();
         nextLevel = new BottomBarButtons("Next Level", 590, 850, 100, 70, image);
+
+        image = new ImageIcon(getClass().getResource("/save.png"), "save").getImage();
+        save = new BottomBarButtons("Save", 20, 850, 50, 20, image);
+
+        image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
+        load = new BottomBarButtons("Load Game", 20, 880, 50, 20, image);
     }
 
     public void setShop(Shop shop){
@@ -79,6 +88,16 @@ public class BottomBarFrame {
         if (nextLevel.getInitialBound().contains(x, y)) {
             nextLevel.setMouseOver(true);
         }
+        save.setMouseOver(false);
+        if (save.getInitialBound().contains(x, y)) {
+            save.setMouseOver(true);
+        }
+
+        load.setMouseOver(false);
+        if (load.getInitialBound().contains(x, y)) {
+            load.setMouseOver(true);
+        }
+
     }
 
     public void mousePressed(int x, int y) {
@@ -103,7 +122,16 @@ public class BottomBarFrame {
         nextLevel.setMousePressed(false);
         if (nextLevel.getInitialBound().contains(x, y)) {
             gameScreen.getGameModel().getMobWave().nextLevel();
-            System.out.println("You pressed next level!");
+        }
+
+        save.setMousePressed(false);
+        if (save.getInitialBound().contains(x, y)) {
+            gameScreen.getGameModel().getSaveGame().saveGame();
+        }
+
+        load.setMousePressed(false);
+        if (load.getInitialBound().contains(x, y)) {
+            System.out.println("load");
         }
     }
 

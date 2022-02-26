@@ -57,12 +57,12 @@ public class BottomBarButtons implements MouseMethods {
         if (mouseOver) {
             g.setColor(Color.gray);
             g.fillRect(x, y, width, height);
-            g.drawImage(image, x+50-(image.getWidth(null)/2), y + height/2 - image.getHeight(null)/2 - 2, null);
+            g.drawImage(image, x + width/2 - (image.getWidth(null)/2), y + height/2 - image.getHeight(null)/2 - 2, null);
         } else {
             g.setColor(Color.WHITE);
             g.fillRect(x, y, width, height);
 
-            g.drawImage(image, x+50-(image.getWidth(null)/2), y + height/2 - image.getHeight(null)/2, null);
+            g.drawImage(image, x + width/2 -(image.getWidth(null)/2), y + height/2 - image.getHeight(null)/2, null);
         }
 
     }
