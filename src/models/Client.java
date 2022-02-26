@@ -13,11 +13,17 @@ public class Client {
 
     private boolean connected = false;
 
-
+    /**
+     *Here we save the information about a certain server target
+     * @param
+     * @param
+     *
+     */
 
 
     public Client(){
-
+        this.adress = adress;
+        this.portnumber = portnumber;
 
     }
 
@@ -25,6 +31,23 @@ public class Client {
 
     private void connectToTarget(){
 
+    /*    try {
+            socket = new Socket(adress, portnumber);
+            input = new DataInputStream(System.in);
+            output = new DataOutputStream(socket.getOutputStream());
+            connected = true;
+
+        } catch (IOException e) {
+            connected = false;
+            e.printStackTrace();
+        }
+
+*/
 
     }
+
+
+
+
+
 }
