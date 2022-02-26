@@ -8,6 +8,7 @@ public abstract class Block {
     private Image blockImage;
     private static final int width = 80;     // width is 50 for all blocks (temp value)
     private static final int height = 80;    // height is 50 for all blocks (temp value)
+    private String name;
 
     /**
      * Constructor for initiate and create the block
@@ -49,6 +50,14 @@ public abstract class Block {
      */
     public static int getHeight() {
         return height;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     /**

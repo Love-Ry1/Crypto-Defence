@@ -12,7 +12,6 @@ public abstract class Tower {
     private int attackCoolDown;
     private int attackCoolDownTick = 0;
     private int cost;
-    private Image towerImage;
     private ArrayList<Bullets> bullets = new ArrayList<>();
     public enum TowerName{
         BASIC
@@ -100,22 +99,6 @@ public abstract class Tower {
      */
     public int getPosY(){
         return this.posY;
-    }
-
-    /**
-     * This method set the image of the tower
-     * @param image
-     */
-    public void setTowerImage(Image image){
-        this.towerImage = image;
-    }
-
-    /**
-     * This method return image of the tower
-     * @return
-     */
-    public Image getTowerImage(){
-        return this.towerImage;
     }
 
     /**
