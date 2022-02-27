@@ -133,6 +133,8 @@ public class GameModel implements Runnable, Serializable {
                 enemy.enemyUpdate();
                 if (enemy.isDead()){
                     it.remove();
+                    PlaySound playSound = new PlaySound();
+                    playSound.playDeath1();
                 }
             }
 
