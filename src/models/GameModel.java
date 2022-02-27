@@ -136,6 +136,10 @@ public class GameModel implements Runnable, Serializable {
                     PlaySound playSound = new PlaySound();
                     playSound.playDeath1();
                 }
+                if (enemy.isOnEndBlock()){
+                    player.takeDamage(enemy.getDamage());
+                    it.remove();
+                }
             }
 
             for (int i = 0; i < towerMap.length; i++){

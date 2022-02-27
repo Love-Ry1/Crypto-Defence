@@ -101,6 +101,10 @@ public abstract class Enemy implements Serializable {
         oldDir = dir;
     }
 
+    public boolean isOnEndBlock(){
+        return posX/80 == basicMap.getEndColumn() && posY/80 == basicMap.getEndRow();
+    }
+
     public void enemyUpdate(){
         move();
     }

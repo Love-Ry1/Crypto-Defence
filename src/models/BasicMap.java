@@ -10,6 +10,8 @@ public class BasicMap implements Serializable {
     private direction [][] pathArray = new direction[width][height];
     private static final int width = 10;     // width in blocks (temp value)
     private static final int height = 10;    // height in blocks (temp value)
+    private int endRow;
+    private int endColumn;
     private static final int[][] blockTypeArray = {
             {1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
@@ -72,8 +74,11 @@ public class BasicMap implements Serializable {
 
             if ((i == height - 1 && currentDirection == direction.SOUTH) || (j == width - 1 && currentDirection == direction.EAST) ||
                     (i == 0 && currentDirection == direction.NORTH) || (j == 0 && currentDirection == direction.WEST)){
+                endRow = i;
+                endColumn = j;
                 loop = false;
             }
+
         }
     }
 
@@ -91,6 +96,14 @@ public class BasicMap implements Serializable {
 
     public static int[][] getBlockTypeArray(){
         return blockTypeArray;
+    }
+
+    public int getEndRow(){
+        return endRow;
+    }
+
+    public int getEndColumn(){
+        return endColumn;
     }
 
     public direction nextDirection(int posX, int posY){
