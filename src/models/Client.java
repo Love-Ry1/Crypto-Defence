@@ -1,17 +1,16 @@
 package models;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
 public class Client {
-    private Socket socket = null;
-    private DataInputStream input = null;
-    private OutputStream output = null;
-    private String adress;   //The Ip adress
-    private int portnumber;  //The portnumber to use
+     Socket socket ;
+    DataInputStream input ;
+    DataOutputStream output ;
+     String adress;   //The Ip adress comes here
 
-    private boolean connected = false;
 
     /**
      *Here we save the information about a certain server target
@@ -19,32 +18,24 @@ public class Client {
      * @param
      *
      */
-
-
     public Client(){
-        this.adress = adress;
-        this.portnumber = portnumber;
 
-    }
+        try
+        {
+            socket=new Socket("localhost",10);
+            System.out.println(socket);
+            input= new DataInputStream(socket.getInputStream());
+            output= new DataOutputStream(socket.getOutputStream());
 
-
-
-    private void connectToTarget(){
-
-    /*    try {
-            socket = new Socket(adress, portnumber);
-            input = new DataInputStream(System.in);
-            output = new DataOutputStream(socket.getOutputStream());
-            connected = true;
-
-        } catch (IOException e) {
-            connected = false;
-            e.printStackTrace();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
         }
 
-*/
-
     }
+
+
 
 
 
