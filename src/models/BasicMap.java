@@ -2,32 +2,27 @@ package models;
 
 
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Serializable;
 
 public class BasicMap implements Serializable {
 
+    private final String MAPNAME = "map1.txt";
     public enum direction{NORTH, EAST, SOUTH, WEST}
     private direction [][] pathArray = new direction[width][height];
     private static final int width = 10;     // width in blocks (temp value)
     private static final int height = 10;    // height in blocks (temp value)
     private int endRow;
     private int endColumn;
-    private static final int[][] blockTypeArray = {
-            {1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-            {0, 0, 1, 1, 1, 2, 2, 0, 0, 0},
-            {0, 0, 1, 2, 2, 2, 2, 1, 1, 1},
-            {0, 0, 1, 2, 2, 2, 2, 1, 0, 0},
-            {0, 0, 1, 2, 2, 2, 2, 1, 0, 0},
-            {0, 0, 1, 1, 1, 1, 1, 1, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    };
+    private int[][] blockTypeArray = new int[height][width];
 
     Block[][] blockArray = new Block[width][height];
 
     public BasicMap() {
+        loadMap();
+
         for (int i = 0; i < width; i++) {        // loops through the block array
             for (int j = 0; j < height; j++) {
                 if (blockTypeArray[i][j] == 0) {
@@ -73,12 +68,40 @@ public class BasicMap implements Serializable {
             }
 
             if ((i == height - 1 && currentDirection == direction.SOUTH) || (j == width - 1 && currentDirection == direction.EAST) ||
-                    (i == 0 && currentDirection == direction.NORTH) || (j == 0 && currentDirection == direction.WEST)){
+                    (i == 0 && currentDirection == direction.NORTH) || (j == 0 && currentDirection == direction.WEST || currentDirection == null)){
                 endRow = i;
                 endColumn = j;
                 loop = false;
             }
+        }
+    }
 
+    public void loadMap(){
+        InputStream is;
+        BufferedReader bf;
+        try {
+            is = getClass().getClassLoader().getResourceAsStream(MAPNAME);
+            bf = new BufferedReader(new InputStreamReader(is));
+            for (int j = 0; j < height; j++){
+                String line = bf.readLine();
+                int index = 0;
+                for(int k = 0; k < width; k++) {
+                    char currentChar = 'a';
+                    while(!Character.isDigit(currentChar)) {
+                        currentChar = line.charAt(index);
+                        if (Character.isDigit(currentChar)) {
+                            int number = Character.getNumericValue(currentChar);
+                            blockTypeArray[j][k] = number;
+                        }
+                        index++;
+                        if(index > 100){
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -92,10 +115,6 @@ public class BasicMap implements Serializable {
 
     public Block[][] getBlockArray(){
         return blockArray;
-    }
-
-    public static int[][] getBlockTypeArray(){
-        return blockTypeArray;
     }
 
     public int getEndRow(){
