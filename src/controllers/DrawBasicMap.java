@@ -24,6 +24,21 @@ public class DrawBasicMap {
                 if (currentBlock != null) {
                     DrawBlock drawBlock = new DrawBlock(currentBlock);
                     drawBlock.draw(g);
+                    if(i == basicMap.getEndRow() && j == basicMap.getEndColumn()){
+                        for (int k = 0; k < 80; k++){
+                            for (int l = 0; l < 80; l++){
+                                if(k % 2 == 0 && l % 2 == 1){
+                                    g.setColor(Color.BLACK);
+                                    g.fillRect(currentBlock.getPosX() + k, currentBlock.getPosY() + l, 10, 10);
+                                }else{
+                                    g.setColor(Color.WHITE);
+                                    g.fillRect(currentBlock.getPosX() + k, currentBlock.getPosY() + l, 10, 10);
+                                }
+                            }
+                        }
+
+
+                    }
                 }
             }
         }
