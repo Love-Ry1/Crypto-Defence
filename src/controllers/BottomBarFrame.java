@@ -2,6 +2,7 @@ package controllers;
 
 import controllers.BottomBarButtons;
 import models.Shop;
+import models.Server;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +11,11 @@ import java.awt.*;
 public class BottomBarFrame {
     private int x, y, width, height;
     private BottomBarButtons tower1, tower2, tower3, tower4;
-    private BottomBarButtons nextLevel, save, load;
+    private BottomBarButtons nextLevel, save, load, connect;
     private GameScreen gameScreen;
     private boolean buttonPress1 = false;
     private Shop shop;
+    private Server server;
 
 
     public BottomBarFrame(int x, int y, int width, int height, GameScreen gameScreen) {
@@ -34,6 +36,7 @@ public class BottomBarFrame {
         nextLevel.draw(g);
         save.draw(g);
         load.draw(g);
+        connect.draw(g);
     }
 
 
@@ -51,6 +54,9 @@ public class BottomBarFrame {
 
         image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
         load = new BottomBarButtons("Load Game", 20, 880, 50, 20, image);
+
+        image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
+        connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
     }
 
     public void setShop(Shop shop){
@@ -98,7 +104,10 @@ public class BottomBarFrame {
         if (load.getInitialBound().contains(x, y)) {
             load.setMouseOver(true);
         }
-
+        connect.setMouseOver(false);
+        if (connect.getInitialBound().contains(x, y)) {
+            connect.setMouseOver(true);
+        }
     }
 
     public void mousePressed(int x, int y) {
@@ -133,6 +142,13 @@ public class BottomBarFrame {
         load.setMousePressed(false);
         if (load.getInitialBound().contains(x, y)) {
             System.out.println("load");
+        }
+
+        connect.setMousePressed(false);
+        if (connect.getInitialBound().contains(x, y)) {
+
+
+            System.out.println("connect!!!!!!!!!");
         }
     }
 
