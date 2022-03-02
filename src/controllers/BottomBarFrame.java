@@ -10,13 +10,11 @@ import java.awt.*;
 
 public class BottomBarFrame {
     private int x, y, width, height;
-    private BottomBarButtons tower1, tower2, tower3, tower4;
+    private BottomBarButtons tower1, tower2, tower3;
     private BottomBarButtons nextLevel, save, load, connect;
     private GameScreen gameScreen;
-    private boolean buttonPress1 = false;
     private Shop shop;
     private Server server;
-
 
     public BottomBarFrame(int x, int y, int width, int height, GameScreen gameScreen) {
         this.x = x;
@@ -39,7 +37,6 @@ public class BottomBarFrame {
         connect.draw(g);
     }
 
-
     public void Buttons() {
         Image image = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
         tower1 = new BottomBarButtons("tower1", 110, 850, 100, 70, image);
@@ -55,8 +52,8 @@ public class BottomBarFrame {
         image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
         load = new BottomBarButtons("Load Game", 20, 880, 50, 20, image);
 
-        //image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
-        connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
+        // image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
+        // connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
     }
 
     public void setShop(Shop shop){
@@ -64,10 +61,6 @@ public class BottomBarFrame {
     }
 
     public void mouseClicked(int x, int y) {
-    }
-
-    public boolean getButton1Pressed(){
-        return buttonPress1;
     }
 
     public int getY(){
@@ -146,8 +139,6 @@ public class BottomBarFrame {
 
         connect.setMousePressed(false);
         if (connect.getInitialBound().contains(x, y)) {
-
-
             System.out.println("connect!!!!!!!!!");
         }
     }

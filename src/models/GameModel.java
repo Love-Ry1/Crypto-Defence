@@ -14,12 +14,12 @@ public class GameModel implements Runnable, Serializable {
     private int currentBlockX;
     private int currentBlockY;
     private ArrayList<Enemy> enemyList;
-    private transient GameScreen gameScreen;
+    private GameScreen gameScreen;
     private Player player;
-    private transient Shop shop;
+    private Shop shop;
     private MobWave mobWave = new MobWave();
     private int gameTick;
-    private transient boolean saveGameFlag = false;
+    private boolean saveGameFlag = false;
     private boolean loadGameFlag = false;
     private GameInfo gameInfo = new GameInfo();
 
@@ -63,24 +63,6 @@ public class GameModel implements Runnable, Serializable {
     }
 
     /**
-     * This method returns the Tower
-     * @return
-     */
-    public Tower[][] getTowerMap(){
-        return towerMap;
-    }
-
-    /**
-     * addEnemy is for adding a new Enemy in the game
-     * @param posX
-     * @param posY
-     */
-    public void addEnemy(int posX, int posY){
-        Enemy enemy = new Enemy1(posX, posX);
-        enemyList.add(enemy);
-    }
-
-    /**
      * This method is for adding a player
      */
     public void addPlayer(){
@@ -93,10 +75,6 @@ public class GameModel implements Runnable, Serializable {
 
     public MobWave getMobWave(){
         return mobWave;
-    }
-
-    public GameModel getGameModel(){
-        return this;
     }
 
     public void setSaveGameFlag(Boolean value){
@@ -122,6 +100,7 @@ public class GameModel implements Runnable, Serializable {
         } catch (Exception e){
             e.printStackTrace();
         }
+        saveGameFlag = false;
     }
 
     public void loadGame(){
@@ -199,7 +178,6 @@ public class GameModel implements Runnable, Serializable {
 
             if(saveGameFlag){
                 saveGame();
-                saveGameFlag = false;
             }
 
             if (loadGameFlag){

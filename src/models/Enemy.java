@@ -41,8 +41,6 @@ public abstract class Enemy implements Serializable {
 
     public void setSpeed(int speed){this.speed = speed;}
 
-    public int getSpeed(){return this.speed;}
-
     public void takeDamage(int damage){health-=damage;}
 
     public int getDamage(){return damage;}
@@ -87,7 +85,6 @@ public abstract class Enemy implements Serializable {
         || ((oldDir == BasicMap.direction.NORTH && (dir == BasicMap.direction.WEST || dir == BasicMap.direction.EAST)) && posY % 80 > 45)){
             dir = oldDir;
         }
-
 
         if (dir == BasicMap.direction.NORTH){
             posY -= speed;
