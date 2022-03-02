@@ -34,6 +34,13 @@ public class Server
             in = new DataInputStream(
                     new BufferedInputStream(socket.getInputStream()));
 
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectOutputStream.writeObject(new Player());
+
+            // -- the other --
+            ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+            // Player player = (Player) objectInputStream.readObject();
+
             String line = "";
 
             // reads message from client until "Stop" is sent
