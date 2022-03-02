@@ -21,7 +21,6 @@ public class Shop {
      */
     public void setButton1(boolean button1){
         this.button1 = button1;
-        System.out.println("button 1 is true");
     }
 
     /**

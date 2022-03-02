@@ -60,6 +60,10 @@ public class GameScreen extends JPanel implements MouseMethods {
         return gameModel;
     }
 
+    public BottomBarFrame getBottomBarFrame(){
+        return bottomBarFrame;
+    }
+
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player){
         this.player = player;
         this.enemyList = enemyList;

@@ -24,6 +24,7 @@ public class GameModel implements Runnable, Serializable {
     private int gameTick;
     private boolean saveGameFlag = false;
     private boolean loadGameFlag = false;
+    private boolean nextLevelFlag = false;
     private GameInfo gameInfo = new GameInfo();
 
 
@@ -76,16 +77,11 @@ public class GameModel implements Runnable, Serializable {
         return shop;
     }
 
-    public MobWave getMobWave(){
-        return mobWave;
-    }
-
-    public void setSaveGameFlag(Boolean value){
-        this.saveGameFlag = value;
-    }
-
-    public void setLoadGameFlag(Boolean value){
-        this.loadGameFlag = value;
+    public void setButtonsPressed(){
+        saveGameFlag = gameScreen.getBottomBarFrame().isButtonSave();
+        loadGameFlag = gameScreen.getBottomBarFrame().isButtonLoad();
+        nextLevelFlag = gameScreen.getBottomBarFrame().isButtonNextLevel();
+        shop.setButton1(gameScreen.getBottomBarFrame().isButtonTower1());
     }
 
     public void saveGame(){
@@ -143,6 +139,12 @@ public class GameModel implements Runnable, Serializable {
                 gameTick++;
             }
 
+            setButtonsPressed();
+
+            if(nextLevelFlag){
+                mobWave.nextLevel();
+            }
+
             mobWave.loadWave();
             if (gameTick % 80 == 1){       // maybe move this into mobwave.update()?
                 Enemy nextEnemy = mobWave.nextMob();
@@ -187,6 +189,7 @@ public class GameModel implements Runnable, Serializable {
                 loadGame();
             }
 
+            gameScreen.getBottomBarFrame().resetButtons();
             try {
                 Thread.sleep(20);
             } catch (InterruptedException ex){

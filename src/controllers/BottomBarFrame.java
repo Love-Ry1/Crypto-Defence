@@ -15,6 +15,7 @@ public class BottomBarFrame {
     private GameScreen gameScreen;
     private Shop shop;
     private Server server;
+    private boolean buttonTower1, buttonTower2, buttonTower3, buttonNextLevel, buttonSave, buttonLoad;
 
     public BottomBarFrame(int x, int y, int width, int height, GameScreen gameScreen) {
         this.x = x;
@@ -106,35 +107,35 @@ public class BottomBarFrame {
     public void mousePressed(int x, int y) {
         tower1.setMousePressed(false);
         if (tower1.getInitialBound().contains(x, y)) {  //checks if tower1 bounds are pressed (so if the button is pressed)
-            shop.setButton1(true);
             tower1.setMousePressed(true);
+            buttonTower1 = true;
         }
 
         tower2.setMousePressed(false);
         if (tower2.getInitialBound().contains(x, y)) {
-            shop.setButton1(true);
             tower2.setMousePressed(true);
+            buttonTower1 = true;
         }
 
         tower3.setMousePressed(false);
         if (tower3.getInitialBound().contains(x, y)) {
-            shop.setButton1(true);
             tower3.setMousePressed(true);
+            buttonTower1 = true;
         }
 
         nextLevel.setMousePressed(false);
         if (nextLevel.getInitialBound().contains(x, y)) {
-            gameScreen.getGameModel().getMobWave().nextLevel();
+            buttonNextLevel = true;
         }
 
         save.setMousePressed(false);
         if (save.getInitialBound().contains(x, y)) {
-            gameScreen.getGameModel().setSaveGameFlag(true);
+            buttonSave = true;
         }
 
         load.setMousePressed(false);
         if (load.getInitialBound().contains(x, y)) {
-            gameScreen.getGameModel().setLoadGameFlag(true);
+            buttonLoad = true;
         }
 
         connect.setMousePressed(false);
@@ -143,6 +144,39 @@ public class BottomBarFrame {
         }
     }
 
+
+
     public void mouseReleased(int x, int y) {
     }
+
+    public boolean isButtonTower1() {
+        return buttonTower1;
+    }
+
+    public boolean isButtonTower2() {
+        return buttonTower2;
+    }
+
+    public boolean isButtonTower3() {
+        return buttonTower3;
+    }
+
+    public boolean isButtonNextLevel() {
+        return buttonNextLevel;
+    }
+
+    public boolean isButtonSave() {
+        return buttonSave;
+    }
+
+    public boolean isButtonLoad() {
+        return buttonLoad;
+    }
+
+    public void resetButtons(){
+        buttonLoad = false;
+        buttonSave = false;
+        buttonNextLevel = false;
+    }
+
 }
