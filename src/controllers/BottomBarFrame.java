@@ -13,7 +13,6 @@ public class BottomBarFrame {
     private BottomBarButtons tower1, tower2, tower3;
     private BottomBarButtons nextLevel, save, load, connect;
     private GameScreen gameScreen;
-    private Shop shop;
     private Server server;
     private boolean buttonTower1, buttonTower2, buttonTower3, buttonNextLevel, buttonSave, buttonLoad;
 
@@ -55,10 +54,6 @@ public class BottomBarFrame {
 
         // image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
         connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
-    }
-
-    public void setShop(Shop shop){
-        this.shop = shop;
     }
 
     public void mouseClicked(int x, int y) {
@@ -143,8 +138,6 @@ public class BottomBarFrame {
             System.out.println("connect!!!!!!!!!");
         }
     }
-
-
 
     public void mouseReleased(int x, int y) {
     }

@@ -15,9 +15,8 @@ public class GameScreen extends JPanel implements MouseMethods {
     private GameFrame gameFrame;
     private ArrayList<Enemy> enemyList;
     private Tower[][] towerMap;
-    private GameModel gameModel;
     private Player player;
-    private Shop shop;     // change so everyone has same instance of shop
+    private int posX, posY;
 
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
@@ -50,24 +49,24 @@ public class GameScreen extends JPanel implements MouseMethods {
         bottomBarFrame.draw(g);
     }
 
-    public void setGameModel(GameModel gameModel){
-        this.gameModel = gameModel;
-        this.shop = gameModel.getShop();
-        bottomBarFrame.setShop(shop);
-    }
-
-    public GameModel getGameModel(){
-        return gameModel;
-    }
-
     public BottomBarFrame getBottomBarFrame(){
         return bottomBarFrame;
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public int getPosY(){
+        return posY;
     }
 
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player){
         this.player = player;
         this.enemyList = enemyList;
         this.towerMap = towerMap;
+        this.posX = -1;
+        this.posY = -1;
         repaint();
     }
 
@@ -93,7 +92,9 @@ public class GameScreen extends JPanel implements MouseMethods {
     public void mousePressed(int x, int y) {
         bottomBarFrame.mousePressed(x, y);
         if (y < bottomBarFrame.getY()) {
-            shop.setCoordinates(x, y);
+            // shop.setCoordinates(x, y);
+            this.posX = x;
+            this.posY = y;
         }
     }
 

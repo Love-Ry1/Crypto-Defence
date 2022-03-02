@@ -8,8 +8,6 @@ public class Main {
         GameFrame gameFrame = new GameFrame();
         gameFrame.getGameScreen().initInputs();
         GameModel gameModel = new GameModel(gameFrame.getGameScreen());
-
-        gameFrame.getGameScreen().setGameModel(gameModel);
         gameModel.run();
     }
 }

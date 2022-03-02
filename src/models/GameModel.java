@@ -175,6 +175,10 @@ public class GameModel implements Runnable, Serializable {
                 }
             }
 
+            if (gameScreen.getPosX() >= 0 && gameScreen.getPosY() >= 0){
+                shop.setCoordinates(gameScreen.getPosX(), gameScreen.getPosY());
+            }
+
             if (shop.addTower()){
                 addTower(shop.getPosX(), shop.getPosY(), Tower.TowerName.BASIC);
                 shop.reset();
