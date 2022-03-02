@@ -3,6 +3,9 @@ package models;
 
 import controllers.GameScreen;
 
+/**
+ * This class is for creating the panel that displays the Towers and the thins which you can buy in the game
+ */
 public class Shop {
     private boolean button1 = false;
     private int posX = -1, posY = -1;
@@ -58,6 +61,10 @@ public class Shop {
         button1 = false;
     }
 
+    /**
+     * This method returns the boolean type of button1
+     * @return
+     */
     public boolean getButton1() {
         return button1;
     }

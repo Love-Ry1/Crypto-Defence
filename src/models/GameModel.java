@@ -7,6 +7,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * This GameModel class is for handling of all logic which the model of the game has.
+ */
 public class GameModel implements Runnable, Serializable {
     private final int width;
     private final int height;

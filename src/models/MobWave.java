@@ -3,6 +3,9 @@ package models;
 import java.io.*;
 import java.util.LinkedList;
 
+/**
+ * This class is for generating different wave of enemies
+ */
 public class MobWave implements Serializable {
     private LinkedList<Enemy> wave = new LinkedList<>();
     private int level = 0;

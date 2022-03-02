@@ -4,6 +4,9 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+/**
+ * This class is for creating the sound that generates when an enemy dies or a Tower shoots
+ */
 public class PlaySound {
     Clip clip;
     AudioInputStream inputStream;
