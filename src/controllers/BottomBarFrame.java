@@ -53,7 +53,7 @@ public class BottomBarFrame {
         load = new BottomBarButtons("Load Game", 20, 880, 50, 20, image);
 
         // image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
-        // connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
+        connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
     }
 
     public void setShop(Shop shop){
