@@ -141,6 +141,7 @@ public class GameModel implements Runnable, Serializable {
         enemyList = gameInfo.getEnemyList();
         mobWave = gameInfo.getMobWave();
         gameTick = gameInfo.getGameTick();
+        player = gameInfo.getPlayer();
 
         loadGameFlag = false;
     }

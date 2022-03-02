@@ -30,6 +30,10 @@ public class GameInfo implements Serializable {
         return mobWave;
     }
 
+    public Player getPlayer(){
+        return player;
+    }
+
     public int getGameTick() {
         return gameTick;
     }
