@@ -20,7 +20,9 @@ public class GameModel implements Runnable, Serializable {
     private MobWave mobWave = new MobWave();
     private int gameTick;
     private transient boolean saveGameFlag = false;
-    private transient SaveGame saveGame;
+    private boolean loadGameFlag = false;
+    private GameInfo gameInfo = new GameInfo();
+
 
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
@@ -29,7 +31,7 @@ public class GameModel implements Runnable, Serializable {
         this.enemyList = new ArrayList<>();
         this.gameScreen = gameScreen;
         this.shop = new Shop(this);
-        this.saveGame = new SaveGame(this);
+
     }
 
     /**
@@ -101,8 +103,46 @@ public class GameModel implements Runnable, Serializable {
         this.saveGameFlag = value;
     }
 
-    public SaveGame getSaveGame(){
-        return saveGame;
+    public void setLoadGameFlag(Boolean value){
+        this.loadGameFlag = value;
+    }
+
+    public void saveGame(){
+        // update GameInfo
+        gameInfo.saveGameInfo(towerMap, enemyList, mobWave, player, gameTick);
+
+        // serialize it
+        try {
+            FileOutputStream fileOut = new FileOutputStream("modelState.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(gameInfo);
+            out.close();
+            fileOut.close();
+            System.out.println("saved!");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void loadGame(){
+        // deserialize saved game
+        try {
+            FileInputStream fileIn = new FileInputStream("modelState.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            gameInfo = (GameInfo) in.readObject();
+            in.close();
+            fileIn.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        // change current variables with the saved ones
+        towerMap = gameInfo.getTowerMap();
+        enemyList = gameInfo.getEnemyList();
+        mobWave = gameInfo.getMobWave();
+        gameTick = gameInfo.getGameTick();
+
+        loadGameFlag = false;
     }
 
     /**
@@ -157,8 +197,12 @@ public class GameModel implements Runnable, Serializable {
             gameScreen.update(enemyList, towerMap, player);
 
             if(saveGameFlag){
-                saveGame.saveGame();
+                saveGame();
                 saveGameFlag = false;
+            }
+
+            if (loadGameFlag){
+                loadGame();
             }
 
             try {

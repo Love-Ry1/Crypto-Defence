@@ -55,7 +55,7 @@ public class BottomBarFrame {
         image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
         load = new BottomBarButtons("Load Game", 20, 880, 50, 20, image);
 
-        image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
+        //image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
         connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
     }
 
@@ -141,7 +141,7 @@ public class BottomBarFrame {
 
         load.setMousePressed(false);
         if (load.getInitialBound().contains(x, y)) {
-            System.out.println("load");
+            gameScreen.getGameModel().setLoadGameFlag(true);
         }
 
         connect.setMousePressed(false);

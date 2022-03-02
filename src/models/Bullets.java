@@ -2,8 +2,9 @@ package models;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
-public abstract class Bullets {
+public abstract class Bullets implements Serializable {
     private int posX;
     private int posY;
     protected enum Direction{
