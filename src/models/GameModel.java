@@ -7,6 +7,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * This GameModel class is for handling of all logic which the model of the game has.
+ */
 public class GameModel implements Runnable, Serializable {
     private final int width;
     private final int height;
@@ -14,13 +17,15 @@ public class GameModel implements Runnable, Serializable {
     private int currentBlockX;
     private int currentBlockY;
     private ArrayList<Enemy> enemyList;
-    private transient GameScreen gameScreen;
+    private GameScreen gameScreen;
     private Player player;
-    private transient Shop shop;
+    private Shop shop;
     private MobWave mobWave = new MobWave();
     private int gameTick;
-    private transient boolean saveGameFlag = false;
-    private transient SaveGame saveGame;
+    private boolean saveGameFlag = false;
+    private boolean loadGameFlag = false;
+    private GameInfo gameInfo = new GameInfo();
+
 
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
@@ -29,7 +34,7 @@ public class GameModel implements Runnable, Serializable {
         this.enemyList = new ArrayList<>();
         this.gameScreen = gameScreen;
         this.shop = new Shop(this);
-        this.saveGame = new SaveGame(this);
+
     }
 
     /**
@@ -61,24 +66,6 @@ public class GameModel implements Runnable, Serializable {
     }
 
     /**
-     * This method returns the Tower
-     * @return
-     */
-    public Tower[][] getTowerMap(){
-        return towerMap;
-    }
-
-    /**
-     * addEnemy is for adding a new Enemy in the game
-     * @param posX
-     * @param posY
-     */
-    public void addEnemy(int posX, int posY){
-        Enemy enemy = new Enemy1(posX, posX);
-        enemyList.add(enemy);
-    }
-
-    /**
      * This method is for adding a player
      */
     public void addPlayer(){
@@ -93,16 +80,52 @@ public class GameModel implements Runnable, Serializable {
         return mobWave;
     }
 
-    public GameModel getGameModel(){
-        return this;
-    }
-
     public void setSaveGameFlag(Boolean value){
         this.saveGameFlag = value;
     }
 
-    public SaveGame getSaveGame(){
-        return saveGame;
+    public void setLoadGameFlag(Boolean value){
+        this.loadGameFlag = value;
+    }
+
+    public void saveGame(){
+        // update GameInfo
+        gameInfo.saveGameInfo(towerMap, enemyList, mobWave, player, gameTick);
+
+        // serialize it
+        try {
+            FileOutputStream fileOut = new FileOutputStream("modelState.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(gameInfo);
+            out.close();
+            fileOut.close();
+            System.out.println("saved!");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        saveGameFlag = false;
+    }
+
+    public void loadGame(){
+        // deserialize saved game
+        try {
+            FileInputStream fileIn = new FileInputStream("modelState.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            gameInfo = (GameInfo) in.readObject();
+            in.close();
+            fileIn.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        // change current variables with the saved ones
+        towerMap = gameInfo.getTowerMap();
+        enemyList = gameInfo.getEnemyList();
+        mobWave = gameInfo.getMobWave();
+        gameTick = gameInfo.getGameTick();
+        player = gameInfo.getPlayer();
+
+        loadGameFlag = false;
     }
 
     /**
@@ -157,8 +180,11 @@ public class GameModel implements Runnable, Serializable {
             gameScreen.update(enemyList, towerMap, player);
 
             if(saveGameFlag){
-                saveGame.saveGame();
-                saveGameFlag = false;
+                saveGame();
+            }
+
+            if (loadGameFlag){
+                loadGame();
             }
 
             try {

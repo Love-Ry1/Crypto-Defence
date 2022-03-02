@@ -3,9 +3,12 @@ package models;
 import java.io.*;
 import java.util.LinkedList;
 
+/**
+ * This class is for generating different wave of enemies
+ */
 public class MobWave implements Serializable {
     private LinkedList<Enemy> wave = new LinkedList<>();
-    private int level = 1;
+    private int level = 0;
     private int oldLevel = 0;
     private transient InputStream is;
     private transient BufferedReader bf;
@@ -20,6 +23,15 @@ public class MobWave implements Serializable {
     }
 
     public void loadWave(){
+        if (is == null ||bf == null){
+            try {
+                is = getClass().getClassLoader().getResourceAsStream("waves.txt");
+                bf = new BufferedReader(new InputStreamReader(is));       // change to getResource
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         if (level > oldLevel) {
             try {
                 String levelString = "level" + level;

@@ -2,6 +2,9 @@ package models;
 
 import javax.swing.*;
 
+/**
+ * This class is for creating the stone block
+ */
 public class StoneBlock extends Block {
     /**
      * This method draws a stone block on the map
