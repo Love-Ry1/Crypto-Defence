@@ -5,6 +5,9 @@ import models.Block;
 
 import java.awt.*;
 
+/**
+ * This class will take a map and draw it
+ */
 public class DrawBasicMap {
     private Block[][] blockArray;
     private BasicMap basicMap;
@@ -13,6 +16,10 @@ public class DrawBasicMap {
         basicMap = new BasicMap();
     }
 
+    /**
+     * This method draws a map
+     * @param g
+     */
     public void draw(Graphics2D g){
         blockArray = basicMap.getBlockArray();
         int width = BasicMap.getWidth();

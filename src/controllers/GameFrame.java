@@ -4,6 +4,9 @@ import controllers.GameScreen;
 
 import javax.swing.*;
 
+/**
+ * This class creates a JFrame
+ */
 public class GameFrame extends JFrame {
     private final GameScreen gameScreen;
     //private final BottomBar bottomBar;
@@ -26,6 +29,10 @@ public class GameFrame extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * This method returns the gamescreen that the JFrame uses
+     * @return the gamescreen
+     */
     public GameScreen getGameScreen() {
         return this.gameScreen;
     }

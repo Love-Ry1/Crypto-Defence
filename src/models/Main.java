@@ -2,6 +2,9 @@ package models;
 
 import controllers.GameFrame;
 
+/**
+ * This class initializes the game
+ */
 public class Main {
 
     public static void main(String[] args) {

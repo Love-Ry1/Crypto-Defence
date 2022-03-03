@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * This class represents a enemy
+ */
 public abstract class Enemy implements Serializable {
 
     private int width;
@@ -17,10 +20,6 @@ public abstract class Enemy implements Serializable {
     private int posY;
     private BasicMap basicMap = new BasicMap();
     BasicMap.direction oldDir = null;
-
-    private enum pathfinding{
-        UP,DOWN,LEFT,RIGHT
-    }
 
     public Enemy(int posX, int posY){
         this.posX = posX;
@@ -77,6 +76,9 @@ public abstract class Enemy implements Serializable {
         return height;
     }
 
+    /**
+     * This method updates the position of an enemy
+     */
     public void move() {
         BasicMap.direction dir = basicMap.nextDirection(posX, posY);
         if (((oldDir == BasicMap.direction.EAST && (dir == BasicMap.direction.SOUTH || dir == BasicMap.direction.NORTH)) && posX % 80 < 45)
@@ -98,10 +100,17 @@ public abstract class Enemy implements Serializable {
         oldDir = dir;
     }
 
+    /**
+     * This method checks if the enemy is on the last block, and returns true if it is -----
+     * @return
+     */
     public boolean isOnEndBlock(){
         return posX/80 == basicMap.getEndColumn() && posY/80 == basicMap.getEndRow();
     }
 
+    /**
+     * This method updates the state of the enemy
+     */
     public void enemyUpdate(){
         move();
     }

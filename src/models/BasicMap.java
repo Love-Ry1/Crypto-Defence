@@ -7,6 +7,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 
+/**
+ * This class creates a game map
+ */
 public class BasicMap implements Serializable {
 
     private final String MAPNAME = "map1.txt";
@@ -76,6 +79,9 @@ public class BasicMap implements Serializable {
         }
     }
 
+    /**
+     * This method reads a map from a text file which is configurable
+     */
     public void loadMap(){
         InputStream is;
         BufferedReader bf;
@@ -125,6 +131,12 @@ public class BasicMap implements Serializable {
         return endColumn;
     }
 
+    /**
+     * This method returns the direction for a position on the map on where it should go to be able to arrive at the finish line
+     * @param posX
+     * @param posY
+     * @return
+     */
     public direction nextDirection(int posX, int posY){
         int row = posY / 80;
         int column = posX / 80;

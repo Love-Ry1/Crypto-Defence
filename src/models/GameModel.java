@@ -40,7 +40,6 @@ public class GameModel implements Runnable, Serializable {
 
     /**
      * The idea is that we get the position of the mouse and the functions uses it to find the current "models.Block"
-     *  There is probably a better way to this lol
      * @param posX
      * @param posY
      */
@@ -67,7 +66,7 @@ public class GameModel implements Runnable, Serializable {
     }
 
     /**
-     * This method is for adding a player
+     * This method is for creating a player
      */
     public void addPlayer(){
         player = new Player();
@@ -84,6 +83,9 @@ public class GameModel implements Runnable, Serializable {
         shop.setButton1(gameScreen.getBottomBarFrame().isButtonTower1());
     }
 
+    /**
+     * This method saves the games state
+     */
     public void saveGame(){
         // update GameInfo
         gameInfo.saveGameInfo(towerMap, enemyList, mobWave, player, gameTick);
@@ -102,6 +104,9 @@ public class GameModel implements Runnable, Serializable {
         saveGameFlag = false;
     }
 
+    /**
+     * This method loads the games last saved state
+     */
     public void loadGame(){
         // deserialize saved game
         try {

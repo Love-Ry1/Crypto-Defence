@@ -21,7 +21,10 @@ public class PlaySound {
         }
     }
 
-    public void play(){
+    /**
+     * This method is a help function for playing a sound
+     */
+    private void play(){
         try {
             clip.open(inputStream);
             clip.start();
@@ -30,6 +33,9 @@ public class PlaySound {
         }
     }
 
+    /**
+     * This method plays a shooting sound
+     */
     public void playShot1(){
         try{
             inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/shot1.wav"));
@@ -39,6 +45,9 @@ public class PlaySound {
         }
     }
 
+    /**
+     * This method plays a dying sound
+     */
     public void playDeath1(){
         try{
             inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/death1.wav"));

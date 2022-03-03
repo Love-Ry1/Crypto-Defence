@@ -2,9 +2,16 @@ package controllers;
 import models.Player;
 import java.awt.*;
 
+/**
+ * This class will draw our players health and gold
+ */
 public class DrawPlayer {
     Player player;
 
+    /**
+     *
+     * @param player
+     */
     public DrawPlayer(Player player){
         this.player = player;
     }

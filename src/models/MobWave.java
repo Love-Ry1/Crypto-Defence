@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 
 /**
- * This class is for generating different wave of enemies
+ * This class is for generating different waves of enemies
  */
 public class MobWave implements Serializable {
     private LinkedList<Enemy> wave = new LinkedList<>();
@@ -22,6 +22,9 @@ public class MobWave implements Serializable {
         }
     }
 
+    /**
+     * This method reads the proper wave from a text file
+     */
     public void loadWave(){
         if (is == null ||bf == null){
             try {
@@ -56,6 +59,11 @@ public class MobWave implements Serializable {
         }
     }
 
+    /**
+     * This method adds enemies to the enemy list
+     * @param quantity the amount of enemies that needs to be created
+     * @param enemy the enemy
+     */
     public void addToArray(int quantity, String enemy){      // should use polymorphism.. this breaks OCP
         for(int i = 0; i < quantity; i++){                  // if we have time we change it
             if (enemy.equals("Enemy1")){
@@ -65,10 +73,17 @@ public class MobWave implements Serializable {
         }
     }
 
+    /**
+     * This method returns the next enemy in the linked list and removes it
+     * @return
+     */
     public Enemy nextMob(){
         return wave.pollFirst();
     }
 
+    /**
+     * This method goes to the next level ----------
+     */
     public void nextLevel(){
         oldLevel = level;
         level++;

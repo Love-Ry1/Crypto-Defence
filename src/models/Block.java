@@ -3,6 +3,9 @@ package models;
 import java.awt.*;
 import java.io.Serializable;
 
+/**
+ * Thos class represents a block
+ */
 public abstract class Block implements Serializable {
     private int posX;
     private int posY;

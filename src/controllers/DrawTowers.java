@@ -7,6 +7,9 @@ import models.Tower;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class draws the towers
+ */
 public class DrawTowers {
     private Tower[][] towers;
     private Image currentImage = null;
@@ -16,7 +19,10 @@ public class DrawTowers {
         this.towers = towers;
     }
 
-
+    /**
+     * This method chooses the correct image for a tower
+     * @param tower
+     */
     public void chooseImage(Tower tower){
         Tower.TowerName name = tower.getTowerName();
         switch (name){
@@ -31,7 +37,7 @@ public class DrawTowers {
     }
 
     /**
-     * This method is used for drawing Towers on the map
+     * This method is used for drawing towers
      * @param g
      */
     public void draw(Graphics2D g){

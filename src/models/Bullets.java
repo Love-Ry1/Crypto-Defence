@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
+/**
+ * This class represents a bullet
+ */
 public abstract class Bullets implements Serializable {
     private int posX;
     private int posY;
@@ -42,6 +45,10 @@ public abstract class Bullets implements Serializable {
     }
 
     // this method could merge with updatePos? Need to add border cases
+
+    /**
+     * This method updates the directions for the bullet
+     */
     public void updateDirection(){
         int enemyPosX = enemy.getPosX();
         int enemyPosY = enemy.getPosY();
@@ -65,6 +72,9 @@ public abstract class Bullets implements Serializable {
         }
     }
 
+    /**
+     * This method moves the bullet
+     */
     public void updatePos(){
         if(direction == Direction.NORTH){
             posY -= speed;
@@ -89,6 +99,10 @@ public abstract class Bullets implements Serializable {
         }
     }
 
+    /**
+     * This method returns true if bullet has hit its target, otherwise return false-----
+     * @return
+     */
     public boolean hitTarget(){
         Rectangle rect = new Rectangle();
         rect.setBounds(enemy.getPosX() - enemy.getWidth()/2,
@@ -101,6 +115,9 @@ public abstract class Bullets implements Serializable {
         return enemy;
     }
 
+    /**
+     * This method updates the state for the bullet
+     */
     public void update(){
         updateDirection();
         updatePos();

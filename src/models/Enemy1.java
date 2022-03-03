@@ -4,6 +4,9 @@ import models.Enemy;
 
 import javax.swing.*;
 
+/**
+ * This class represents Enemy1
+ */
 public class Enemy1 extends Enemy {
 
     public Enemy1(int posx, int posy) {

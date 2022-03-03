@@ -1,19 +1,21 @@
 package controllers;
 
 import controllers.BottomBarButtons;
+import models.Player;
 import models.Shop;
 import models.Server;
 
 import javax.swing.*;
 import java.awt.*;
 
-
-public class BottomBarFrame {
+/**
+ * This BottomBarFrame creates the frame for the bottom bar and initializes the buttons from the BottomBarButtons class
+ */
+public class BottomBarFrame implements MouseMethods{
     private int x, y, width, height;
     private BottomBarButtons tower1, tower2, tower3;
     private BottomBarButtons nextLevel, save, load, connect;
     private GameScreen gameScreen;
-    private Shop shop;
     private Server server;
     private boolean buttonTower1, buttonTower2, buttonTower3, buttonNextLevel, buttonSave, buttonLoad;
 
@@ -26,6 +28,11 @@ public class BottomBarFrame {
         Buttons();
     }
 
+    /**
+     * This method will draw our frame and buttons
+     *
+     * @param g
+     */
     public void draw(Graphics2D g) {
         g.setColor(Color.ORANGE);
         g.fillRect(x, y, width, height);
@@ -38,33 +45,36 @@ public class BottomBarFrame {
         connect.draw(g);
     }
 
+    /**
+     * This method will assign our buttons with x,y,width,height values and an image
+     */
     public void Buttons() {
         Image image = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
-        tower1 = new BottomBarButtons("tower1", 110, 850, 100, 70, image);
-        tower2 = new BottomBarButtons("tower2", 270, 850, 100, 70, image);
-        tower3 = new BottomBarButtons("tower3", 430, 850, 100, 70, image);
+        tower1 = new BottomBarButtons(110, 850, 100, 70, image);
+        tower2 = new BottomBarButtons(270, 850, 100, 70, image);
+        tower3 = new BottomBarButtons(430, 850, 100, 70, image);
 
         image = new ImageIcon(getClass().getResource("/nextlevel.png"), "controller.nextlevel").getImage();
-        nextLevel = new BottomBarButtons("Next Level", 590, 850, 100, 70, image);
+        nextLevel = new BottomBarButtons(590, 850, 100, 70, image);
 
         image = new ImageIcon(getClass().getResource("/save.png"), "save").getImage();
-        save = new BottomBarButtons("Save", 20, 850, 50, 20, image);
+        save = new BottomBarButtons(20, 850, 50, 20, image);
 
         image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
-        load = new BottomBarButtons("Load Game", 20, 880, 50, 20, image);
+        load = new BottomBarButtons(20, 880, 50, 20, image);
 
         // image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
-        connect = new BottomBarButtons("Load", 20, 910, 50, 20, image);
+        connect = new BottomBarButtons(20, 910, 50, 20, image);
     }
 
-    public void setShop(Shop shop){
-        this.shop = shop;
-    }
 
-    public void mouseClicked(int x, int y) {
-    }
 
-    public int getY(){
+    /**
+     * This method returns the y-value
+     *
+     * @return the y-coordinate value for our BottomBarFrame
+     */
+    public int getY() {
         return y;
     }
 
@@ -144,11 +154,11 @@ public class BottomBarFrame {
         }
     }
 
-
-
-    public void mouseReleased(int x, int y) {
-    }
-
+    /**
+     * This isButtonTower1 method returns the boolean type of buttonTower1
+     *
+     * @return the boolean type of buttonTower1
+     */
     public boolean isButtonTower1() {
         return buttonTower1;
     }
@@ -161,19 +171,37 @@ public class BottomBarFrame {
         return buttonTower3;
     }
 
+    /**
+     * This isButtonNextLevel method returns the boolean type of buttonNextLevel
+     *
+     * @return the boolean type of buttonNextLevel
+     */
     public boolean isButtonNextLevel() {
         return buttonNextLevel;
     }
 
+    /**
+     * This isButtonSave method returns the boolean type of buttonSave
+     *
+     * @return the boolean type of buttonSave
+     */
     public boolean isButtonSave() {
         return buttonSave;
     }
 
+    /**
+     * This isButtonLoad method returns the boolean type of buttonLoad
+     *
+     * @return the boolean type of buttonLoad
+     */
     public boolean isButtonLoad() {
         return buttonLoad;
     }
 
-    public void resetButtons(){
+    /**
+     * This resetButtons method sets the boolean type for buttonLoad, buttonSave and buttonNextLevel to false
+     */
+    public void resetButtons() {
         buttonLoad = false;
         buttonSave = false;
         buttonNextLevel = false;

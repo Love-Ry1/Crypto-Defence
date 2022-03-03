@@ -7,16 +7,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * This class draws the enemies on the map
+ */
 public class DrawEnemies {
     ArrayList<Enemy> enemies;
     Image image = new ImageIcon(getClass().getResource("/enemy.png"), "Monster").getImage();
 
+    /**
+     *
+     * @param enemies
+     */
     public DrawEnemies(ArrayList<Enemy> enemies){
         this.enemies = enemies;
     }
 
     /**
-     * This method is used for drawing Enemies
+     * This method is used for drawing the enemies
      * @param g
      */
     public void draw(Graphics2D g) {

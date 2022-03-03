@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import static models.BasicMap.getHeight;
 import static models.BasicMap.getWidth;
 
-public class GameScreen extends JPanel implements MouseMethods {
+public class GameScreen extends JPanel implements MouseMethods{
     private BottomBarFrame bottomBarFrame;
     private MyMouseListener mouseMouseListener;
     private GameFrame gameFrame;
@@ -53,7 +53,6 @@ public class GameScreen extends JPanel implements MouseMethods {
     public void setGameModel(GameModel gameModel){
         this.gameModel = gameModel;
         this.shop = gameModel.getShop();
-        bottomBarFrame.setShop(shop);
     }
 
     public GameModel getGameModel(){
@@ -73,32 +72,19 @@ public class GameScreen extends JPanel implements MouseMethods {
 
     public void initInputs() {
         mouseMouseListener = new MyMouseListener(gameFrame);
-
         addMouseListener(mouseMouseListener);
         addMouseMotionListener(mouseMouseListener);
         requestFocus();
     }
 
-    @Override
-    public void mouseClicked(int x, int y) {
-        bottomBarFrame.mouseClicked(x, y);
-    }
-
-    @Override
     public void mouseMoved(int x, int y) {
         bottomBarFrame.mouseMoved(x, y);
     }
 
-    @Override
     public void mousePressed(int x, int y) {
         bottomBarFrame.mousePressed(x, y);
         if (y < bottomBarFrame.getY()) {
             shop.setCoordinates(x, y);
         }
-    }
-
-    @Override
-    public void mouseReleased(int x, int y) {
-        bottomBarFrame.mouseReleased(x, y);
     }
 }

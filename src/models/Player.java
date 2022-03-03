@@ -2,6 +2,9 @@ package models;
 
 import java.io.Serializable;
 
+/**
+ * This class represents a player
+ */
 public class Player implements Serializable {
     private int health;
     private int gold;

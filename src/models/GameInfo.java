@@ -3,6 +3,9 @@ package models;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * This class has the essential info to set a gamemodel state, and its used to serializable the state of a gamemodel
+ */
 public class GameInfo implements Serializable {
     private Tower[][] towerMap;
     private ArrayList<Enemy> enemyList;
@@ -36,5 +39,5 @@ public class GameInfo implements Serializable {
 
     public int getGameTick() {
         return gameTick;
-    }
+    } // Gametick used to keep track of the time ingame
 }

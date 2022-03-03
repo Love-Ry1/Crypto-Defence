@@ -7,7 +7,6 @@ import java.awt.event.MouseMotionListener;
 //import controllers.GameFrame;
 
 
-
 public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     private final GameFrame gameFrame;
@@ -19,13 +18,11 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
     @Override
     public void mouseDragged(MouseEvent e) {
 
-
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
         gameFrame.getGameScreen().mouseMoved(e.getX(), e.getY());
-
 
     }
 
@@ -35,8 +32,8 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
         //    System.out.println("Left button");
         //    System.out.println("X: "+ e.getX() + " " +"Y: "+ e.getY());
         //}
-        gameFrame.getGameScreen().mouseClicked(e.getX(), e.getY());
-}
+        //gameFrame.getGameScreen().mouseClicked(e.getX(), e.getY());
+    }
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -46,7 +43,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        gameFrame.getGameScreen().mouseReleased(e.getX(), e.getY());
+        //gameFrame.getGameScreen().mouseReleased(e.getX(), e.getY());
 
     }
 
