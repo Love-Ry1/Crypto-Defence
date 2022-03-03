@@ -75,6 +75,9 @@ public class GameModel implements Runnable, Serializable {
         player = new Player();
     }
 
+    /**
+     * this method is for setting of different flags
+     */
     public void setButtonsPressed(){
         saveGameFlag = gameScreen.getBottomBarFrame().isButtonSave();
         loadGameFlag = gameScreen.getBottomBarFrame().isButtonLoad();
