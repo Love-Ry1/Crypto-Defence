@@ -18,12 +18,13 @@ public abstract class Enemy implements Serializable {
     private int health;
     private int posX;
     private int posY;
-    private BasicMap basicMap = new BasicMap();
+    private BasicMap basicMap ;
     BasicMap.direction oldDir = null;
 
-    public Enemy(int posX, int posY){
+    public Enemy(int posX, int posY, MobWave mobWave){
         this.posX = posX;
         this.posY = posY;
+        basicMap  = mobWave.getBasicMap();
     }
 
     public int getHealth() {

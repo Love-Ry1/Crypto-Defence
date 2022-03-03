@@ -13,9 +13,16 @@ public class DrawBasicMap {
     private BasicMap basicMap;
 
     public DrawBasicMap(){
-        basicMap = new BasicMap();
+        this.basicMap = new BasicMap();
     }
 
+    public void setBasicMap(BasicMap basicMap){
+        this.basicMap = basicMap;
+    }
+
+    public BasicMap getBasicMap(){
+        return basicMap;
+    }
     /**
      * This method draws a map
      * @param g

@@ -17,7 +17,7 @@ public class BottomBarFrame implements MouseMethods{
     private BottomBarButtons nextLevel, save, load, connect;
     private GameScreen gameScreen;
     private Server server;
-    private boolean buttonTower1, buttonTower2, buttonTower3, buttonNextLevel, buttonSave, buttonLoad;
+    private boolean buttonTower1, buttonTower2, buttonTower3, buttonNextLevel, buttonSave, buttonLoad, buttonChange;
 
     public BottomBarFrame(int x, int y, int width, int height, GameScreen gameScreen) {
         this.x = x;
@@ -63,7 +63,7 @@ public class BottomBarFrame implements MouseMethods{
         image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
         load = new BottomBarButtons(20, 880, 50, 20, image);
 
-        // image = new ImageIcon(getClass().getResource("/connect.png"), "connection").getImage();
+         image = new ImageIcon(getClass().getResource("/mapChange.png"), "connection").getImage();
         connect = new BottomBarButtons(20, 910, 50, 20, image);
     }
 
@@ -150,6 +150,8 @@ public class BottomBarFrame implements MouseMethods{
 
         connect.setMousePressed(false);
         if (connect.getInitialBound().contains(x, y)) {
+            buttonChange = true;
+            //gameScreen.getDrawBasicMap().getBasicMap().changeMap();
             System.out.println("connect!!!!!!!!!");
         }
     }
@@ -198,6 +200,10 @@ public class BottomBarFrame implements MouseMethods{
         return buttonLoad;
     }
 
+    public boolean isButtonChangeMap() {
+        return buttonChange;
+    }
+
     /**
      * This resetButtons method sets the boolean type for buttonLoad, buttonSave and buttonNextLevel to false
      */
@@ -205,6 +211,7 @@ public class BottomBarFrame implements MouseMethods{
         buttonLoad = false;
         buttonSave = false;
         buttonNextLevel = false;
+        buttonChange = false;
     }
 
 }

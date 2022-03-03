@@ -20,12 +20,14 @@ public class GameModel implements Runnable, Serializable {
     private GameScreen gameScreen;
     private Player player;
     private Shop shop;
-    private MobWave mobWave = new MobWave();
+    private MobWave mobWave;
     private int gameTick;
     private boolean saveGameFlag = false;
     private boolean loadGameFlag = false;
     private boolean nextLevelFlag = false;
+    private boolean mapChangeFlag = false;
     private GameInfo gameInfo = new GameInfo();
+    private BasicMap basicMap = new BasicMap();
 
 
     public GameModel(GameScreen gameScreen){
@@ -35,6 +37,7 @@ public class GameModel implements Runnable, Serializable {
         this.enemyList = new ArrayList<>();
         this.gameScreen = gameScreen;
         this.shop = new Shop(this);
+        this.mobWave = new MobWave(basicMap);
 
     }
 
@@ -46,6 +49,10 @@ public class GameModel implements Runnable, Serializable {
     public void posToBlock(int posX, int posY){
         currentBlockX = posX / Block.getHeight();
         currentBlockY = posY / Block.getWidth();
+    }
+
+    public BasicMap getBasicMap(){
+        return basicMap;
     }
 
     /**
@@ -81,6 +88,8 @@ public class GameModel implements Runnable, Serializable {
         loadGameFlag = gameScreen.getBottomBarFrame().isButtonLoad();
         nextLevelFlag = gameScreen.getBottomBarFrame().isButtonNextLevel();
         shop.setButton1(gameScreen.getBottomBarFrame().isButtonTower1());
+        mapChangeFlag = gameScreen.getBottomBarFrame().isButtonChangeMap();
+
     }
 
     /**
@@ -145,6 +154,9 @@ public class GameModel implements Runnable, Serializable {
             }
 
             setButtonsPressed();
+            if(mapChangeFlag){
+                basicMap.changeMap();
+            }
 
             if(nextLevelFlag){
                 mobWave.nextLevel();
@@ -188,7 +200,7 @@ public class GameModel implements Runnable, Serializable {
                 addTower(shop.getPosX(), shop.getPosY(), Tower.TowerName.BASIC);
                 shop.reset();
             }
-            gameScreen.update(enemyList, towerMap, player);
+            gameScreen.update(enemyList, towerMap, player, basicMap);
 
             if(saveGameFlag){
                 saveGame();

@@ -20,7 +20,8 @@ public class GameScreen extends JPanel implements MouseMethods {
     private Tower[][] towerMap;
     private Player player;
     private int posX, posY;
-
+    private BasicMap basicMap;
+    private DrawBasicMap drawBasicMap = new DrawBasicMap();
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
         bottomBarFrame = new BottomBarFrame(0, 800, 815, 185, this);
@@ -34,7 +35,6 @@ public class GameScreen extends JPanel implements MouseMethods {
         Graphics2D g = (Graphics2D) gr;
         g.clearRect(0, 0, this.getWidth(), this.getHeight());   // Clears the screen
 
-        DrawBasicMap drawBasicMap = new DrawBasicMap();
         drawBasicMap.draw(g);
 
         DrawTowers drawTowers = new DrawTowers(this.towerMap);
@@ -64,12 +64,14 @@ public class GameScreen extends JPanel implements MouseMethods {
         return posY;
     }
 
-    public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player){
+    public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player, BasicMap basicMap){
         this.player = player;
         this.enemyList = enemyList;
         this.towerMap = towerMap;
         this.posX = -1;
         this.posY = -1;
+        this.basicMap = basicMap;
+        this.drawBasicMap.setBasicMap(this.basicMap);
         repaint();
     }
 
@@ -99,4 +101,7 @@ public class GameScreen extends JPanel implements MouseMethods {
     }
 
 
+    public DrawBasicMap getDrawBasicMap() {
+        return drawBasicMap;
+    }
 }

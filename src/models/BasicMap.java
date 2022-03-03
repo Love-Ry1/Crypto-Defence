@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class BasicMap implements Serializable {
 
-    private final String MAPNAME = "map1.txt";
+    private String MAPNAME = "map1.txt";
     public enum direction{NORTH, EAST, SOUTH, WEST}
     private direction [][] pathArray = new direction[width][height];
     private static final int width = 10;     // width in blocks (temp value)
@@ -20,12 +20,35 @@ public class BasicMap implements Serializable {
     private int endRow;
     private int endColumn;
     private int[][] blockTypeArray = new int[height][width];
+    private boolean changeMap= true;
+
 
     Block[][] blockArray = new Block[width][height];
 
-    public BasicMap() {
-        loadMap();
+    /**
+     * This method is for changing the map, but player need to change it at the beginning of the game
+     */
+    public void changeMap(){
+        switch (MAPNAME){
+            case "map1.txt":
+                this.MAPNAME = "map2.txt";
+                break;
 
+            case "map2.txt":
+                this.MAPNAME = "map3.txt";
+                break;
+
+            default:
+                this.MAPNAME = "map1.txt";
+
+        }
+
+        System.out.println(MAPNAME);
+        loadMap();
+        mapInit();
+    }
+
+    public void mapInit(){
         for (int i = 0; i < width; i++) {        // loops through the block array
             for (int j = 0; j < height; j++) {
                 if (blockTypeArray[i][j] == 0) {
@@ -79,6 +102,10 @@ public class BasicMap implements Serializable {
         }
     }
 
+    public BasicMap() {
+        loadMap();
+        mapInit();
+    }
     /**
      * This method reads a map from a text file which is configurable
      */

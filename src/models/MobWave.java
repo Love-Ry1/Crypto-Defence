@@ -12,14 +12,21 @@ public class MobWave implements Serializable {
     private int oldLevel = 0;
     private transient InputStream is;
     private transient BufferedReader bf;
+//    private GameModel gameModel;
+    private BasicMap basicMap;
 
-    public MobWave(){
+    public MobWave(BasicMap basicMap){
+        this.basicMap = basicMap;
         try {
             is = getClass().getClassLoader().getResourceAsStream("waves.txt");
             bf = new BufferedReader(new InputStreamReader(is));       // change to getResource
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public BasicMap getBasicMap(){
+        return basicMap;
     }
 
     /**
@@ -67,7 +74,7 @@ public class MobWave implements Serializable {
     public void addToArray(int quantity, String enemy){      // should use polymorphism.. this breaks OCP
         for(int i = 0; i < quantity; i++){                  // if we have time we change it
             if (enemy.equals("Enemy1")){
-                Enemy1 newEnemy = new Enemy1(20, 20);
+                Enemy1 newEnemy = new Enemy1(20, 20, this);
                 wave.add(newEnemy);
             }
         }
