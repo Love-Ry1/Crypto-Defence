@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import static models.BasicMap.getHeight;
 import static models.BasicMap.getWidth;
 
+/**
+ * This class creates a Jpanel
+ */
 public class GameScreen extends JPanel implements MouseMethods {
     private BottomBarFrame bottomBarFrame;
     private MyMouseListener mouseMouseListener;
@@ -78,10 +81,7 @@ public class GameScreen extends JPanel implements MouseMethods {
         requestFocus();
     }
 
-    @Override
-    public void mouseClicked(int x, int y) {
-        bottomBarFrame.mouseClicked(x, y);
-    }
+
 
     @Override
     public void mouseMoved(int x, int y) {
@@ -98,8 +98,5 @@ public class GameScreen extends JPanel implements MouseMethods {
         }
     }
 
-    @Override
-    public void mouseReleased(int x, int y) {
-        bottomBarFrame.mouseReleased(x, y);
-    }
+
 }
