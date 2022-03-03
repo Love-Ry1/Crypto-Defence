@@ -29,7 +29,10 @@ public class GameModel implements Runnable, Serializable {
     private GameInfo gameInfo = new GameInfo();
     private BasicMap basicMap = new BasicMap();
 
-
+    /**
+     *
+     * @param gameScreen
+     */
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
         this.height = BasicMap.getHeight();

@@ -55,10 +55,18 @@ public abstract class Block implements Serializable {
         return height;
     }
 
+    /**
+     * This method returns the name of the block
+     * @return the name of the block
+     */
     public String getName(){
         return name;
     }
 
+    /**
+     * This method sets the name of the block
+     * @param name the name of the block
+     */
     public void setName(String name){
         this.name = name;
     }

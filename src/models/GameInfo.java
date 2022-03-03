@@ -13,6 +13,14 @@ public class GameInfo implements Serializable {
     private Player player;
     private int gameTick;
 
+    /**
+     * ?????
+     * @param towerMap
+     * @param enemyList
+     * @param mobWave
+     * @param player
+     * @param gameTick
+     */
     public void saveGameInfo(Tower[][] towerMap, ArrayList<Enemy> enemyList, MobWave mobWave, Player player, int gameTick){
         this.towerMap = towerMap;
         this.enemyList = enemyList;
@@ -37,6 +45,10 @@ public class GameInfo implements Serializable {
         return player;
     }
 
+    /**
+     * This method is used to keep track of the time in the game
+     * @return the gametick
+     */
     public int getGameTick() {
         return gameTick;
     } // Gametick used to keep track of the time ingame

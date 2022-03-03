@@ -18,7 +18,7 @@ public class DrawBullets {
         Image image = new ImageIcon(getClass().getResource("/basicbullet.png"), "bascicBullet").getImage();
 
     /**
-     *
+     *  This is the constructor for initiating the towers
      * @param towers
      */
         public DrawBullets(Tower[][] towers){

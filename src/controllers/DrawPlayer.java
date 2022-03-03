@@ -9,7 +9,7 @@ public class DrawPlayer {
     Player player;
 
     /**
-     *
+     * This is the constructor for initiating the player
      * @param player
      */
     public DrawPlayer(Player player){

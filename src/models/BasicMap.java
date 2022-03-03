@@ -138,31 +138,51 @@ public class BasicMap implements Serializable {
         }
     }
 
+    /**
+     * This method returns the width of the map
+     * @return the width of the map
+     */
     public static int getWidth(){
         return width;
     }
 
+    /**
+     * This method returns the height of the map
+     * @return the height of the map
+     */
     public static int getHeight(){
         return height;
     }
 
+    /**
+     * This method returns a block array
+     * @return the array for Block
+     */
     public Block[][] getBlockArray(){
         return blockArray;
     }
 
+    /**
+     * This method returns the integer value for the endRow
+     * @return the integer value of the row for the last block
+     */
     public int getEndRow(){
         return endRow;
     }
 
+    /**
+     * This method returns the integer value for the endColumn
+     * @return the integer value of the column for the last block
+     */
     public int getEndColumn(){
         return endColumn;
     }
 
     /**
      * This method returns the direction for a position on the map on where it should go to be able to arrive at the finish line
-     * @param posX
-     * @param posY
-     * @return
+     * @param posX the x-coordinate
+     * @param posY the y-coordinate
+     * @return the direction
      */
     public direction nextDirection(int posX, int posY){
         int row = posY / 80;

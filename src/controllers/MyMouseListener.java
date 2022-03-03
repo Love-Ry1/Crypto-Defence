@@ -6,7 +6,9 @@ import java.awt.event.MouseMotionListener;
 
 //import controllers.GameFrame;
 
-
+/**
+ * This class notifies whenever you change the state of your mouse
+ */
 public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     private final GameFrame gameFrame;

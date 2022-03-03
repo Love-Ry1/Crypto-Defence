@@ -24,22 +24,39 @@ public abstract class Bullets implements Serializable {
         this.enemy = enemy;
     }
 
+    /**
+     * This method returns the x-coordinate for the bullet
+     * @return the x-coordinate for the bullet
+     */
     public int getPosX() {
         return posX;
     }
 
+    /**
+     * This method sets the x-coordinate for the bullet
+     */
     public void setPosX(int posX) {
         this.posX = posX;
     }
 
+    /**
+     * This method returns the y-coordinate for the bullet
+     * @return the y-coordinate for the bullet
+     */
     public int getPosY() {
         return posY;
     }
 
+    /**
+     * This method sets the y-coordinate for the bullet
+     */
     public void setPosY(int posY) {
         this.posY = posY;
     }
 
+    /**
+     * This method sets the integer speed value for the bullet
+     */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
