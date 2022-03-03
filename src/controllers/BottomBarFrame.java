@@ -19,6 +19,14 @@ public class BottomBarFrame implements MouseMethods{
     private Server server;
     private boolean buttonTower1, buttonTower2, buttonTower3, buttonNextLevel, buttonSave, buttonLoad;
 
+    /**
+     * This constructor initializes a frame with the following bounds
+     * @param x the x-coordinate of the frame
+     * @param y the y-coordinate of the frame
+     * @param width the width of the frame
+     * @param height the height of the frame
+     * @param gameScreen the current gameScreen
+     */
     public BottomBarFrame(int x, int y, int width, int height, GameScreen gameScreen) {
         this.x = x;
         this.y = y;
@@ -29,7 +37,7 @@ public class BottomBarFrame implements MouseMethods{
     }
 
     /**
-     * This method will draw our frame and buttons
+     * This method will draw the BottomBarFrame and buttons
      *
      * @param g
      */
@@ -46,7 +54,7 @@ public class BottomBarFrame implements MouseMethods{
     }
 
     /**
-     * This method will assign our buttons with x,y,width,height values and an image
+     * This method will assign our buttons with x, y, width, height values and an image
      */
     public void Buttons() {
         Image image = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();

@@ -10,7 +10,7 @@ import static models.BasicMap.getHeight;
 import static models.BasicMap.getWidth;
 
 /**
- * This class creates a Jpanel
+ * This class creates a JPanel
  */
 public class GameScreen extends JPanel implements MouseMethods {
     private BottomBarFrame bottomBarFrame;
@@ -52,18 +52,36 @@ public class GameScreen extends JPanel implements MouseMethods {
         bottomBarFrame.draw(g);
     }
 
+    /**
+     * This method returns the bottomBarFrame
+     * @return the bottomBarFrame
+     */
     public BottomBarFrame getBottomBarFrame(){
         return bottomBarFrame;
     }
 
+    /**
+     * This method returns the x position of the GameScreen
+     * @return the x-coordinate
+     */
     public int getPosX() {
         return posX;
     }
 
+    /**
+     * This method returns the y position of the GameScreen
+     * @return the y-coordinate
+     */
     public int getPosY(){
         return posY;
     }
 
+    /**
+     * ??????
+     * @param enemyList
+     * @param towerMap
+     * @param player
+     */
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player){
         this.player = player;
         this.enemyList = enemyList;
@@ -73,9 +91,11 @@ public class GameScreen extends JPanel implements MouseMethods {
         repaint();
     }
 
+    /**
+     * ???????
+     */
     public void initInputs() {
         mouseMouseListener = new MyMouseListener(gameFrame);
-
         addMouseListener(mouseMouseListener);
         addMouseMotionListener(mouseMouseListener);
         requestFocus();

@@ -13,6 +13,9 @@ public class MobWave implements Serializable {
     private transient InputStream is;
     private transient BufferedReader bf;
 
+    /**
+     *
+     */
     public MobWave(){
         try {
             is = getClass().getClassLoader().getResourceAsStream("waves.txt");

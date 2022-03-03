@@ -15,7 +15,7 @@ public class DrawEnemies {
     Image image = new ImageIcon(getClass().getResource("/enemy.png"), "Monster").getImage();
 
     /**
-     *
+     * This is the constructor for initiating the enemies
      * @param enemies
      */
     public DrawEnemies(ArrayList<Enemy> enemies){

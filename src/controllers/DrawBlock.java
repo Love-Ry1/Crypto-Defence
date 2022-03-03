@@ -16,7 +16,7 @@ public class DrawBlock {
     private final Image stoneImage = new ImageIcon(getClass().getResource("/stone.png"), "StoneBlock").getImage();
 
     /**
-     * ?????????????????????????
+     * This is the constructor for initiating a block
      * @param block
      */
     public DrawBlock(Block block){

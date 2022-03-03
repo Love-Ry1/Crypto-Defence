@@ -27,7 +27,10 @@ public class GameModel implements Runnable, Serializable {
     private boolean nextLevelFlag = false;
     private GameInfo gameInfo = new GameInfo();
 
-
+    /**
+     *
+     * @param gameScreen
+     */
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
         this.height = BasicMap.getHeight();
