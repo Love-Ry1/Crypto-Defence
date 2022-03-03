@@ -54,6 +54,10 @@ public class GameModel implements Runnable, Serializable {
         currentBlockY = posY / Block.getWidth();
     }
 
+    /**
+     * this method returns basicMap
+     * @return
+     */
     public BasicMap getBasicMap(){
         return basicMap;
     }
@@ -82,10 +86,17 @@ public class GameModel implements Runnable, Serializable {
         player = new Player();
     }
 
+    /**
+     * this method sending player's information
+     * @return
+     */
     public Shop getShop(){
         return shop;
     }
 
+    /**
+     * this method is for setting of different flags
+     */
     public void setButtonsPressed(){
         saveGameFlag = gameScreen.getBottomBarFrame().isButtonSave();
         loadGameFlag = gameScreen.getBottomBarFrame().isButtonLoad();

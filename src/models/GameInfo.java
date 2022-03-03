@@ -29,18 +29,34 @@ public class GameInfo implements Serializable {
         this.gameTick = gameTick;
     }
 
+    /**
+     * this method returns towerMap
+     * @return
+     */
     public Tower[][] getTowerMap() {
         return towerMap;
     }
 
+    /**
+     * this method returns enemyList
+     * @return
+     */
     public ArrayList<Enemy> getEnemyList() {
         return enemyList;
     }
 
+    /**
+     * this method returns mobWave
+     * @return
+     */
     public MobWave getMobWave() {
         return mobWave;
     }
 
+    /**
+     * this method returns player
+     * @return
+     */
     public Player getPlayer(){
         return player;
     }

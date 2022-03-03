@@ -52,18 +52,37 @@ public class GameScreen extends JPanel implements MouseMethods {
         bottomBarFrame.draw(g);
     }
 
+    /**
+     * this method return bottomBarFrame
+     * @return
+     */
     public BottomBarFrame getBottomBarFrame(){
         return bottomBarFrame;
     }
 
+    /**
+     * this method return position X
+     * @return
+     */
     public int getPosX() {
         return posX;
     }
 
+    /**
+     * this method return position Y
+     * @return
+     */
     public int getPosY(){
         return posY;
     }
 
+    /**
+     * this method updates player, enemyList, towerMap, BasicMap and position(X,Y)
+     * @param enemyList
+     * @param towerMap
+     * @param player
+     * @param basicMap
+     */
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player, BasicMap basicMap){
         this.player = player;
         this.enemyList = enemyList;
@@ -83,8 +102,6 @@ public class GameScreen extends JPanel implements MouseMethods {
         requestFocus();
     }
 
-
-
     @Override
     public void mouseMoved(int x, int y) {
         bottomBarFrame.mouseMoved(x, y);
@@ -100,7 +117,10 @@ public class GameScreen extends JPanel implements MouseMethods {
         }
     }
 
-
+    /**
+     * this method returns object of DrawBasicMap
+     * @return
+     */
     public DrawBasicMap getDrawBasicMap() {
         return drawBasicMap;
     }
