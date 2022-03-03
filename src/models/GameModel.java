@@ -1,8 +1,6 @@
 package models;
 
 import controllers.GameScreen;
-
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,9 +37,8 @@ public class GameModel implements Runnable, Serializable {
         this.towerMap = new Tower[width][height];
         this.enemyList = new ArrayList<>();
         this.gameScreen = gameScreen;
-        this.shop = new Shop(this);
+        this.shop = new Shop();
         this.mobWave = new MobWave(basicMap);
-
     }
 
     /**
@@ -52,10 +49,6 @@ public class GameModel implements Runnable, Serializable {
     public void posToBlock(int posX, int posY){
         currentBlockX = posX / Block.getHeight();
         currentBlockY = posY / Block.getWidth();
-    }
-
-    public BasicMap getBasicMap(){
-        return basicMap;
     }
 
     /**
@@ -82,17 +75,12 @@ public class GameModel implements Runnable, Serializable {
         player = new Player();
     }
 
-    public Shop getShop(){
-        return shop;
-    }
-
     public void setButtonsPressed(){
         saveGameFlag = gameScreen.getBottomBarFrame().isButtonSave();
         loadGameFlag = gameScreen.getBottomBarFrame().isButtonLoad();
         nextLevelFlag = gameScreen.getBottomBarFrame().isButtonNextLevel();
         shop.setButton1(gameScreen.getBottomBarFrame().isButtonTower1());
         mapChangeFlag = gameScreen.getBottomBarFrame().isButtonChangeMap();
-
     }
 
     /**
@@ -202,7 +190,9 @@ public class GameModel implements Runnable, Serializable {
             if (shop.addTower()){
                 addTower(shop.getPosX(), shop.getPosY(), Tower.TowerName.BASIC);
                 shop.reset();
+                gameScreen.getBottomBarFrame().setButtonTower1(false);
             }
+
             gameScreen.update(enemyList, towerMap, player, basicMap);
 
             if(saveGameFlag){

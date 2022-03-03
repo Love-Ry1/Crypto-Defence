@@ -1,10 +1,5 @@
 package controllers;
-
-import controllers.BottomBarButtons;
-import models.Player;
-import models.Shop;
 import models.Server;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -74,8 +69,6 @@ public class BottomBarFrame implements MouseMethods{
          image = new ImageIcon(getClass().getResource("/mapChange.png"), "connection").getImage();
         connect = new BottomBarButtons(20, 910, 50, 20, image);
     }
-
-
 
     /**
      * This method returns the y-value
@@ -210,6 +203,10 @@ public class BottomBarFrame implements MouseMethods{
 
     public boolean isButtonChangeMap() {
         return buttonChange;
+    }
+
+    public void setButtonTower1(boolean buttonTower1) {
+        this.buttonTower1 = buttonTower1;
     }
 
     /**

@@ -6,9 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static models.BasicMap.getHeight;
-import static models.BasicMap.getWidth;
-
 /**
  * This class creates a Jpanel
  */
@@ -20,7 +17,6 @@ public class GameScreen extends JPanel implements MouseMethods {
     private Tower[][] towerMap;
     private Player player;
     private int posX, posY;
-    private BasicMap basicMap;
     private DrawBasicMap drawBasicMap = new DrawBasicMap();
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
@@ -70,8 +66,7 @@ public class GameScreen extends JPanel implements MouseMethods {
         this.towerMap = towerMap;
         this.posX = -1;
         this.posY = -1;
-        this.basicMap = basicMap;
-        this.drawBasicMap.setBasicMap(this.basicMap);
+        this.drawBasicMap.setBasicMap(basicMap);
         repaint();
     }
 
@@ -83,8 +78,6 @@ public class GameScreen extends JPanel implements MouseMethods {
         requestFocus();
     }
 
-
-
     @Override
     public void mouseMoved(int x, int y) {
         bottomBarFrame.mouseMoved(x, y);
@@ -94,14 +87,8 @@ public class GameScreen extends JPanel implements MouseMethods {
     public void mousePressed(int x, int y) {
         bottomBarFrame.mousePressed(x, y);
         if (y < bottomBarFrame.getY()) {
-            // shop.setCoordinates(x, y);
             this.posX = x;
             this.posY = y;
         }
-    }
-
-
-    public DrawBasicMap getDrawBasicMap() {
-        return drawBasicMap;
     }
 }

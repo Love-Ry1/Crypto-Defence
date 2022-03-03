@@ -1,19 +1,11 @@
 package models;
 
-
-import controllers.GameScreen;
-
 /**
  * This class is for creating the panel that displays the Towers and the thins which you can buy in the game
  */
 public class Shop {
     private boolean button1 = false;
     private int posX = -1, posY = -1;
-    private GameModel gameModel;
-
-    public Shop(GameModel gameModel){
-        this.gameModel = gameModel;
-    }
 
     /**
      * This method is for setting the button on the map
