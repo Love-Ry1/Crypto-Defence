@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.net.URL;
 
 /**
  * This class creates a game map
@@ -110,11 +111,13 @@ public class BasicMap implements Serializable {
      * This method reads a map from a text file which is configurable
      */
     public void loadMap(){
+        URL url;
         InputStream is;
         BufferedReader bf;
         try {
-            is = getClass().getClassLoader().getResourceAsStream(MAPNAME);
-            bf = new BufferedReader(new InputStreamReader(is));
+            String urlString = "http://142.93.106.21:5000/d3/" + MAPNAME;
+            url = new URL(urlString);
+            bf = new BufferedReader(new InputStreamReader(url.openStream()));
             for (int j = 0; j < height; j++){
                 String line = bf.readLine();
                 int index = 0;
