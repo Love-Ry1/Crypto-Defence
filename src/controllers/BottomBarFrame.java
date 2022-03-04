@@ -53,21 +53,21 @@ public class BottomBarFrame implements MouseMethods{
      */
     public void Buttons() {
         Image image = new ImageIcon(getClass().getResource("/basictower.png"), "models.BasicTower").getImage();
-        tower1 = new BottomBarButtons(110, 850, 100, 70, image);
-        tower2 = new BottomBarButtons(270, 850, 100, 70, image);
-        tower3 = new BottomBarButtons(430, 850, 100, 70, image);
+        tower1 = new BottomBarButtons(170, 850, 100, 70, image);
+        tower2 = new BottomBarButtons(310, 850, 100, 70, image);
+        tower3 = new BottomBarButtons(450, 850, 100, 70, image);
 
         image = new ImageIcon(getClass().getResource("/nextlevel.png"), "controller.nextlevel").getImage();
         nextLevel = new BottomBarButtons(590, 850, 100, 70, image);
 
         image = new ImageIcon(getClass().getResource("/save.png"), "save").getImage();
-        save = new BottomBarButtons(20, 850, 50, 20, image);
+        save = new BottomBarButtons(30, 830, 80, 32, image);
 
         image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
-        load = new BottomBarButtons(20, 880, 50, 20, image);
+        load = new BottomBarButtons(30, 870, 80, 32, image);
 
          image = new ImageIcon(getClass().getResource("/mapChange.png"), "connection").getImage();
-        connect = new BottomBarButtons(20, 910, 50, 20, image);
+        connect = new BottomBarButtons(30, 910, 80, 32, image);
     }
 
     /**
