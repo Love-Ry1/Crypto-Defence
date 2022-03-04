@@ -49,6 +49,9 @@ public class BasicMap implements Serializable {
         mapInit();
     }
 
+    /**
+     * this method is for initialising the map
+     */
     public void mapInit(){
         for (int i = 0; i < width; i++) {        // loops through the block array
             for (int j = 0; j < height; j++) {
@@ -103,6 +106,9 @@ public class BasicMap implements Serializable {
         }
     }
 
+    /**
+     * this mehtod loads and initials the map
+     */
     public BasicMap() {
         loadMap();
         mapInit();

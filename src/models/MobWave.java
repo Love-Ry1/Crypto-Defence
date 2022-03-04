@@ -25,6 +25,10 @@ public class MobWave implements Serializable {
         }
     }
 
+    /**
+     * This method returns basicMap
+     * @return
+     */
     public BasicMap getBasicMap(){
         return basicMap;
     }
