@@ -16,11 +16,11 @@ public abstract class Bullets implements Serializable {
     private int speed;
     Enemy enemy;
 
-    protected Bullets(int posX, int posY, Direction dir, Enemy enemy){
+    protected Bullets(int posX, int posY, Enemy enemy){
         this.posX = posX;
         this.posY = posY;
-        this.direction = dir;
         this.enemy = enemy;
+        this.direction = null;
     }
 
     /**

@@ -50,4 +50,15 @@ public class ModelTest {
         assertEquals(2, gameModel.getCurrentBlockX());
         assertEquals(1, gameModel.getCurrentBlockY());
     }
+
+    @Test
+    public void bulletsMovingInRightDirection(){
+        Enemy enemy = new Enemy1(100, 100, new MobWave(new BasicMap()));
+        Bullets bullet = new BasicBullet(1, 1, enemy);
+
+        bullet.update();
+        assertTrue(bullet.getPosX() > 1);
+        assertTrue(bullet.getPosY() > 1);
+    }
+
 }

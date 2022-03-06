@@ -126,7 +126,7 @@ public abstract class Tower implements Serializable {
      */
     public void shoot(Enemy enemy){    // Do this abstract or use bullet type so different towers can use different bullets
         // also need a method to calculate the direction
-        bullets.add(new BasicBullet(posX + Block.getWidth()/2, posY, Bullets.Direction.NORTH, enemy));
+        bullets.add(new BasicBullet(posX + Block.getWidth()/2, posY, enemy));
         PlaySound playSound = new PlaySound();
         playSound.playShot1();
     }
