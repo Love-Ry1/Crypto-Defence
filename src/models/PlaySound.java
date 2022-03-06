@@ -37,7 +37,7 @@ public class PlaySound {
     }
 
     /**
-     * This method plays a shooting sound
+     * This method plays a shooting sounds
      */
     public void playShot1(){
         try{
