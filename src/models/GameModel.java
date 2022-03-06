@@ -1,6 +1,8 @@
 package models;
 
 import controllers.GameScreen;
+
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -190,6 +192,10 @@ public class GameModel implements Runnable, Serializable {
                 }
                 if (enemy.isOnEndBlock()){
                     player.takeDamage(enemy.getDamage());
+                    if (player.getHealth() <= 0){
+                        JOptionPane.showMessageDialog(null, "YOU LOST");
+                        System.exit(0);
+                    }
                     it.remove();
                 }
             }
