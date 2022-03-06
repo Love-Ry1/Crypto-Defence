@@ -3,7 +3,7 @@ import models.Player;
 import java.awt.*;
 
 /**
- * This class will draw our players health and gold
+ * This class will draw our players health and gold and display it on the map
  */
 public class DrawPlayer {
     Player player;
@@ -17,7 +17,7 @@ public class DrawPlayer {
     }
 
     /**
-     * This method is for drawing players information
+     * This method is for drawing players information such as health and gold
      * @param g
      */
     public void draw(Graphics2D g) {
