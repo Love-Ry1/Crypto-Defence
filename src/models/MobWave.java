@@ -12,7 +12,6 @@ public class MobWave implements Serializable {
     private int oldLevel = 0;
     private transient InputStream is;
     private transient BufferedReader bf;
-//    private GameModel gameModel;
     private BasicMap basicMap;
 
     public MobWave(BasicMap basicMap){
@@ -54,7 +53,6 @@ public class MobWave implements Serializable {
                     line = bf.readLine();
 
                     while (line != null && !line.contains(";")) {
-
                         if (line.contains("enemy1")) {
                             String[] splitLine = line.split(": ", 2);
                             int quantity = Integer.parseInt(splitLine[1]);

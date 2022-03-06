@@ -1,9 +1,5 @@
 package models;
 
-import models.Enemy;
-
-import javax.swing.*;
-
 /**
  * This class represents Enemy1
  */

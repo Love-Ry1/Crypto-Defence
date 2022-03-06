@@ -67,4 +67,5 @@ public class Shop {
     public boolean addTower(){
         return (button1 && posX >= 0 && posY >= 0);
     }
+
 }

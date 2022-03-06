@@ -1,9 +1,7 @@
 package controllers;
 
 import models.Block;
-import models.GameModel;
 import models.Tower;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -55,4 +53,5 @@ public class DrawTowers {
             }
         }
     }
+
 }

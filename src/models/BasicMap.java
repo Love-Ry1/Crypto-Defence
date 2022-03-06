@@ -1,9 +1,6 @@
 package models;
 
-
-import java.awt.*;
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.net.URL;
@@ -21,10 +18,7 @@ public class BasicMap implements Serializable {
     private int endRow;
     private int endColumn;
     private int[][] blockTypeArray = new int[height][width];
-    private boolean changeMap= true;
-
-
-    Block[][] blockArray = new Block[width][height];
+    private Block[][] blockArray = new Block[width][height];
 
     /**
      * This method is for changing the map, but player need to change it at the beginning of the game
@@ -41,9 +35,7 @@ public class BasicMap implements Serializable {
 
             default:
                 this.MAPNAME = "map1.txt";
-
         }
-
         System.out.println(MAPNAME);
         loadMap();
         mapInit();
@@ -113,12 +105,12 @@ public class BasicMap implements Serializable {
         loadMap();
         mapInit();
     }
+
     /**
      * This method reads a map from a text file which is configurable
      */
     public void loadMap(){
         URL url;
-        InputStream is;
         BufferedReader bf;
         try {
             String urlString = "http://142.93.106.21:5000/d3/" + MAPNAME;
@@ -136,7 +128,7 @@ public class BasicMap implements Serializable {
                             blockTypeArray[j][k] = number;
                         }
                         index++;
-                        if(index > 100){
+                        if(index > 400){
                             break;
                         }
                     }
@@ -198,4 +190,5 @@ public class BasicMap implements Serializable {
         int column = posX / 80;
         return pathArray[row][column];
     }
+
 }

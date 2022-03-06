@@ -2,7 +2,6 @@ package controllers;
 
 import models.BasicMap;
 import models.Block;
-
 import java.awt.*;
 
 /**
@@ -20,9 +19,6 @@ public class DrawBasicMap {
         this.basicMap = basicMap;
     }
 
-    public BasicMap getBasicMap(){
-        return basicMap;
-    }
     /**
      * This method draws a map
      * @param g
@@ -38,7 +34,7 @@ public class DrawBasicMap {
                 if (currentBlock != null) {
                     DrawBlock drawBlock = new DrawBlock(currentBlock);
                     drawBlock.draw(g);
-                    if(i == basicMap.getEndRow() && j == basicMap.getEndColumn()){
+                    if(i == basicMap.getEndRow() && j == basicMap.getEndColumn()){      // draws the "finish square" in a pattern
                         for (int k = 0; k < 80; k++){
                             for (int l = 0; l < 80; l++){
                                 if(k % 2 == 0 && l % 2 == 1){
@@ -50,8 +46,6 @@ public class DrawBasicMap {
                                 }
                             }
                         }
-
-
                     }
                 }
             }

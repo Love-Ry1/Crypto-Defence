@@ -1,7 +1,5 @@
 package models;
 
-import javax.swing.*;
-
 /**
  * This class is for creating the Grass block
  */

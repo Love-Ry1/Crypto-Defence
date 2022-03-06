@@ -1,7 +1,6 @@
 package models;
 
 import controllers.GameScreen;
-
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -231,7 +230,9 @@ public class GameModel implements Runnable, Serializable {
             try {
                 Thread.sleep(20);
             } catch (InterruptedException ex){
+                ex.printStackTrace();
             }
         }
     }
+
 }

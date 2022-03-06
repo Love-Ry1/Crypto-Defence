@@ -1,19 +1,13 @@
 package controllers;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  * This class creates the buttons for the bottom frame
  */
 public class BottomBarButtons {
     public int x, y, width, height;
-    private Rectangle bounds; // a rectangle that checks if our x- and y- are inside the buttons bounds.
+    private Rectangle bounds;       // a rectangle that checks if our x- and y- are inside the buttons bounds.
     private boolean mouseOver, mousePressed;
     private Image image;
 
@@ -74,7 +68,6 @@ public class BottomBarButtons {
             g.fillRect(x, y, width, height);
             g.drawImage(image, x + width / 2 - (image.getWidth(null) / 2), y + height / 2 - image.getHeight(null) / 2, null);
         }
-
     }
 
     /**
@@ -90,7 +83,6 @@ public class BottomBarButtons {
             g.drawRect(x + 2, y + 2, width - 4, height - 4);
             g.drawRect(x + 3, y + 3, width - 6, height - 6);
         }
-
     }
 
     /**

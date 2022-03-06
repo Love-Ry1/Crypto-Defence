@@ -8,16 +8,14 @@ import javax.sound.sampled.Clip;
  * This class is for creating the sound that generates when an enemy dies or a Tower shoots
  */
 public class PlaySound {
-    Clip clip;
-    AudioInputStream inputStream;
+    private Clip clip;
+    private AudioInputStream inputStream;
 
     public PlaySound(){
         try{
             clip = AudioSystem.getClip();
-
-
         } catch(Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -56,4 +54,5 @@ public class PlaySound {
             e.printStackTrace();
         }
     }
+
 }

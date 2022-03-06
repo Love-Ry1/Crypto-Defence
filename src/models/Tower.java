@@ -1,6 +1,5 @@
 package models;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -137,7 +136,6 @@ public abstract class Tower implements Serializable {
      * @param enemyList the enemyList for enemies
      * @return the enemy that is first in range of the towers
      */
-    // returnerar första enemyn som är i range, är inte perfekt implementerad eftersom models.Enemy klassen inte är klar än
     public Enemy firstEnemyInRange(ArrayList<Enemy> enemyList){
         for (int i = 0; i < enemyList.size(); i++){
             Enemy currentEnemy = enemyList.get(i);
@@ -174,7 +172,6 @@ public abstract class Tower implements Serializable {
 
         for (Iterator<Bullets> it = bullets.iterator(); it.hasNext();){
             Bullets bullet = it.next();
-
             bullet.update();
             if (bullet.hitTarget()){
                 bullet.getEnemy().takeDamage(damage);
@@ -182,4 +179,5 @@ public abstract class Tower implements Serializable {
             }
         }
     }
+
 }

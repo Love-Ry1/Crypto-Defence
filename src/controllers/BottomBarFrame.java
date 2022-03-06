@@ -1,4 +1,5 @@
 package controllers;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -35,7 +36,6 @@ public class BottomBarFrame implements MouseMethods{
      * @param g
      */
     public void draw(Graphics2D g) {
-        //g.setColor(new Color(255,229,204));
         g.setColor(new Color(255,229,204));
         g.fillRect(x, y, width, height);
         tower1.draw(g);
@@ -65,7 +65,7 @@ public class BottomBarFrame implements MouseMethods{
         image = new ImageIcon(getClass().getResource("/load.png"), "save").getImage();
         load = new BottomBarButtons(30, 870, 80, 32, image);
 
-         image = new ImageIcon(getClass().getResource("/mapChange.png"), "connection").getImage();
+        image = new ImageIcon(getClass().getResource("/mapChange.png"), "connection").getImage();
         connect = new BottomBarButtons(30, 910, 80, 32, image);
     }
 
@@ -151,8 +151,6 @@ public class BottomBarFrame implements MouseMethods{
         connect.setMousePressed(false);
         if (connect.getInitialBound().contains(x, y)) {
             buttonChange = true;
-            //gameScreen.getDrawBasicMap().getBasicMap().changeMap();
-            System.out.println("connect!!!!!!!!!");
         }
     }
 

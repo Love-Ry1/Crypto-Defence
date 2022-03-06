@@ -1,6 +1,5 @@
 package models;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
@@ -61,12 +60,10 @@ public abstract class Bullets implements Serializable {
         this.speed = speed;
     }
 
-    // this method could merge with updatePos? Need to add border cases
-
     /**
      * This method updates the directions for the bullet
      */
-    public void updateDirection(){
+    public void updateDirection(){      // this method could merge with updatePos?
         int enemyPosX = enemy.getPosX();
         int enemyPosY = enemy.getPosY();
 

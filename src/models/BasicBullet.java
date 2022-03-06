@@ -1,7 +1,5 @@
 package models;
 
-import javax.swing.*;
-
 /**
  * This BasicBullet class that represents a basic bullet, which is a type of bullet
  */

@@ -64,5 +64,4 @@ public class Player implements Serializable {
         health -= damage;
     }
 
-
 }

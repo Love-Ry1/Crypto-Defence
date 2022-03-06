@@ -65,7 +65,8 @@ public class GameInfo implements Serializable {
      * This method is used to keep track of the time in the game
      * @return the gameTick
      */
-    public int getGameTick() {
+    public int getGameTick() {      // Gametick used to keep track of the in-game time
         return gameTick;
-    } // Gametick used to keep track of the time ingame
+    }
+
 }

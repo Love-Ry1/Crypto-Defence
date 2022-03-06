@@ -1,7 +1,6 @@
 package controllers;
 
 import models.*;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -18,6 +17,7 @@ public class GameScreen extends JPanel implements MouseMethods {
     private Player player;
     private int posX, posY;
     private DrawBasicMap drawBasicMap = new DrawBasicMap();
+
     public GameScreen(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
         bottomBarFrame = new BottomBarFrame(0, 800, 815, 185, this);

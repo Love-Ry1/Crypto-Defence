@@ -1,6 +1,5 @@
 package models;
 
-import java.awt.*;
 import java.io.Serializable;
 
 /**

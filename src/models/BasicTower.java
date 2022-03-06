@@ -1,9 +1,5 @@
 package models;
 
-import models.Tower;
-
-import javax.swing.*;
-
 /**
  * This class represents a BasicTower, which is a type of tower
  */

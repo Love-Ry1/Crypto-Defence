@@ -1,16 +1,11 @@
 package models;
 
-import java.awt.*;
-import java.io.File;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * This class represents an enemy
  */
 public abstract class Enemy implements Serializable {
-
     private int width;
     private int height;
     private int speed;
@@ -18,8 +13,8 @@ public abstract class Enemy implements Serializable {
     private int health;
     private int posX;
     private int posY;
-    private BasicMap basicMap ;
-    BasicMap.direction oldDir = null;
+    private BasicMap basicMap;
+    private BasicMap.direction oldDir = null;
 
     /**
      * This constructor initializes the enemy on the map
@@ -181,4 +176,5 @@ public abstract class Enemy implements Serializable {
     public void enemyUpdate(){
         move();
     }
+
 }
