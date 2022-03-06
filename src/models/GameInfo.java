@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * This class has the essential info to set a GameModel state, and it is used to serializable the state of a GameModel
  */
 public class GameInfo implements Serializable {
+    private BasicMap basicMap;
     private Tower[][] towerMap;
     private ArrayList<Enemy> enemyList;
     private MobWave mobWave;
@@ -21,11 +22,12 @@ public class GameInfo implements Serializable {
      * @param player the player class that contains the players health and gold
      * @param gameTick the gameTick
      */
-    public void saveGameInfo(Tower[][] towerMap, ArrayList<Enemy> enemyList, MobWave mobWave, Player player, int gameTick){
+    public void saveGameInfo(Tower[][] towerMap, ArrayList<Enemy> enemyList, MobWave mobWave, Player player, BasicMap basicMap, int gameTick){
         this.towerMap = towerMap;
         this.enemyList = enemyList;
         this.mobWave = mobWave;
         this.player = player;
+        this.basicMap = basicMap;
         this.gameTick = gameTick;
     }
 
@@ -59,6 +61,10 @@ public class GameInfo implements Serializable {
      */
     public Player getPlayer(){
         return player;
+    }
+
+    public BasicMap getBasicMap(){
+        return basicMap;
     }
 
     /**

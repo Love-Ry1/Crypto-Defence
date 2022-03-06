@@ -108,7 +108,7 @@ public class GameModel implements Runnable, Serializable {
      */
     public void saveGame(){
         // update GameInfo
-        gameInfo.saveGameInfo(towerMap, enemyList, mobWave, player, gameTick);
+        gameInfo.saveGameInfo(towerMap, enemyList, mobWave, player, basicMap, gameTick);
 
         // serialize it
         try {
@@ -143,9 +143,9 @@ public class GameModel implements Runnable, Serializable {
         towerMap = gameInfo.getTowerMap();
         enemyList = gameInfo.getEnemyList();
         mobWave = gameInfo.getMobWave();
-        gameTick = gameInfo.getGameTick();
         player = gameInfo.getPlayer();
-
+        basicMap = gameInfo.getBasicMap();
+        gameTick = gameInfo.getGameTick();
         loadGameFlag = false;
     }
 
