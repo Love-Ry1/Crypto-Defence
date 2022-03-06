@@ -1,5 +1,4 @@
 package controllers;
-import models.Server;
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +10,6 @@ public class BottomBarFrame implements MouseMethods{
     private BottomBarButtons tower1, tower2, tower3;
     private BottomBarButtons nextLevel, save, load, connect;
     private GameScreen gameScreen;
-    private Server server;
     private boolean buttonTower1, buttonTower2, buttonTower3, buttonNextLevel, buttonSave, buttonLoad, buttonChange;
 
     /**
