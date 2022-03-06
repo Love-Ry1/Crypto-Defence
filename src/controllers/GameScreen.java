@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * This class creates a Jpanel
+ * This class creates a Jpanel that represents the screen of the game
  */
 public class GameScreen extends JPanel implements MouseMethods {
     private BottomBarFrame bottomBarFrame;
