@@ -52,6 +52,22 @@ public class GameModel implements Runnable, Serializable {
     }
 
     /**
+     * Returns what block a X coordinate represents
+     * @return the block which the X coordinate represents.
+     */
+    public int getCurrentBlockX(){
+        return currentBlockX;
+    }
+
+    /**
+     * Returns what block an Y coordinate represents
+     * @return the block which the Y coordinate represents.
+     */
+    public int getCurrentBlockY(){
+        return currentBlockY;
+    }
+
+    /**
      * This method is for adding a Tower to the game
      * @param posX the x-coordinate
      * @param posY the y-coordinate
