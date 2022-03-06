@@ -16,7 +16,14 @@ public abstract class Tower implements Serializable {
     private int attackCoolDownTick = 0;
     private int cost;
     private ArrayList<Bullets> bullets = new ArrayList<>();
+
+    /**
+     * an Enum for having the name of the Tower
+     */
     public enum TowerName{
+        /**
+         * BASIC is the name of the tower
+         */
         BASIC
     }
     private TowerName towerName;

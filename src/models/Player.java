@@ -8,8 +8,11 @@ import java.io.Serializable;
 public class Player implements Serializable {
     private int health;
     private int gold;
-    // Todo add a gold image and maybe a health image.
 
+
+    /**
+     * This constructure initiats health and gold for the player
+     */
     public Player() {
         this.gold = 50;
         this.health = 100;

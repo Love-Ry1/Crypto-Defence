@@ -9,6 +9,10 @@ import java.io.Serializable;
 public abstract class Bullets implements Serializable {
     private int posX;
     private int posY;
+
+    /**
+     * an enum for having all direction
+     */
     protected enum Direction{
         NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST
     }
@@ -125,6 +129,10 @@ public abstract class Bullets implements Serializable {
         return rect.contains(posX, posY);
     }
 
+    /**
+     * This method returns an enemy which bullet targets
+     * @return returns the target enemy
+     */
     public Enemy getEnemy(){
         return enemy;
     }

@@ -3,6 +3,8 @@ package models;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 
 /**
  * This class is for creating the sound that generates when an enemy dies or a Tower shoots
@@ -11,6 +13,9 @@ public class PlaySound {
     private Clip clip;
     private AudioInputStream inputStream;
 
+    /**
+     * The constructur which initiats the sound
+     */
     public PlaySound(){
         try{
             clip = AudioSystem.getClip();
@@ -36,7 +41,9 @@ public class PlaySound {
      */
     public void playShot1(){
         try{
-            inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/shot1.wav"));
+            InputStream stream = new BufferedInputStream(getClass().getResourceAsStream("/shot1.wav"));
+            inputStream = AudioSystem.getAudioInputStream(stream);
+
             play();
         } catch (Exception e){
             e.printStackTrace();
@@ -48,7 +55,9 @@ public class PlaySound {
      */
     public void playDeath1(){
         try{
-            inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/death1.wav"));
+
+            InputStream stream = new BufferedInputStream(getClass().getResourceAsStream("/death1.wav"));
+            inputStream = AudioSystem.getAudioInputStream(stream);
             play();
         } catch (Exception e){
             e.printStackTrace();

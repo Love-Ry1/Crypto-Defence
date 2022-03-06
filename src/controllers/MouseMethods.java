@@ -1,5 +1,8 @@
 package controllers;
 
+/**
+ * This is the interface that has methods for the mouse
+ */
 public interface MouseMethods {
 
     /**

@@ -14,6 +14,10 @@ public class MobWave implements Serializable {
     private transient BufferedReader bf;
     private BasicMap basicMap;
 
+    /**
+     * the constructor which initializes the mob wave
+     * @param basicMap the map
+     */
     public MobWave(BasicMap basicMap){
         this.basicMap = basicMap;
         try {

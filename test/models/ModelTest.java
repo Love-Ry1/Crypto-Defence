@@ -6,7 +6,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * This class is for testing methods and classes
+ */
 public class ModelTest {
+    /**
+     * Testing if the Tower shoots the enemies
+     */
     @Test
     public void towersShootsBulletsAtEnemies() {
         Tower tower = new BasicTower(0, 0);
@@ -19,6 +25,9 @@ public class ModelTest {
         assertTrue(tower.getBullets().size() > 0);
     }
 
+    /**
+     * Testing if the player gets damage
+     */
     @Test
     public void playerTakeDamage(){
         Player player = new Player();
@@ -29,8 +38,12 @@ public class ModelTest {
         assertEquals(player.getHealth(), OldHealth - 10);
     }
 
+    /**
+     * testing if the conditions to add a tower in the class shop works
+     *
+     */
     @Test
-    public void addTowerOnMapWithShop(){
+    public void addTowerWithShop(){
         Shop shop = new Shop();
         assertFalse(shop.addTower());
         shop.setButton1(true);
@@ -38,6 +51,9 @@ public class ModelTest {
         assertTrue(shop.addTower());
     }
 
+    /**
+     * Testing if the coordinates on the map corresponds to the right block
+     */
     @Test
     public void getCoordinatesToBlockInGameModel(){
         GameModel gameModel = new GameModel(new GameScreen(new GameFrame()));
@@ -51,6 +67,9 @@ public class ModelTest {
         assertEquals(1, gameModel.getCurrentBlockY());
     }
 
+    /**
+     * Testing if the bullets move to the right direction towards an enemy
+     */
     @Test
     public void bulletsMovingInRightDirection(){
         Enemy enemy = new Enemy1(100, 100, new MobWave(new BasicMap()));

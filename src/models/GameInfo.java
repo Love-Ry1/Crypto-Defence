@@ -21,6 +21,7 @@ public class GameInfo implements Serializable {
      * @param mobWave the mobWave class that contains the mob waves
      * @param player the player class that contains the players health and gold
      * @param gameTick the gameTick
+     * @param basicMap the map for the game
      */
     public void saveGameInfo(Tower[][] towerMap, ArrayList<Enemy> enemyList, MobWave mobWave, Player player, BasicMap basicMap, int gameTick){
         this.towerMap = towerMap;

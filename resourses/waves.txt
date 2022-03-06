@@ -2,14 +2,23 @@ level1:
 enemy1: 1
 ;
 level2:
-enemy1: 2
+enemy1: 5
 ;
 level3:
-enemy1: 3
+enemy1: 10
 ;
 level4:
-enemy1: 4
+enemy1: 15
 ;
 level5:
-enemy1: 5
+enemy1: 20
+;
+level6:
+enemy1: 25
+;
+level7:
+enemy1: 30
+;
+level8:
+enemy1: 40
 ;
