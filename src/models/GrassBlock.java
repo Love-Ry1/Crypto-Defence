@@ -8,8 +8,8 @@ import javax.swing.*;
 public class GrassBlock extends Block {
     /**
      * This method is for drawing blocks
-     * @param posX
-     * @param posY
+     * @param posX the x-coordinate
+     * @param posY the y-coordinate
      */
     protected GrassBlock(int posX, int posY) {
         super(posX, posY);

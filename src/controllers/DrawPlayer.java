@@ -10,7 +10,7 @@ public class DrawPlayer {
 
     /**
      * This is the constructor for initiating the player
-     * @param player
+     * @param player the player from the Player class
      */
     public DrawPlayer(Player player){
         this.player = player;

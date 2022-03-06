@@ -35,7 +35,8 @@ public class BottomBarFrame implements MouseMethods{
      * @param g
      */
     public void draw(Graphics2D g) {
-        g.setColor(Color.ORANGE);
+        //g.setColor(new Color(255,229,204));
+        g.setColor(Color.orange);
         g.fillRect(x, y, width, height);
         tower1.draw(g);
         tower2.draw(g);

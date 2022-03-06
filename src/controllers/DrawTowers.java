@@ -21,7 +21,7 @@ public class DrawTowers {
 
     /**
      * This method chooses the correct image for a tower
-     * @param tower
+     * @param tower the Tower from the Tower class
      */
     public void chooseImage(Tower tower){
         Tower.TowerName name = tower.getTowerName();

@@ -16,7 +16,7 @@ public class DrawEnemies {
 
     /**
      * This is the constructor for initiating the enemies
-     * @param enemies
+     * @param enemies the enemy in the enemies ArrayList
      */
     public DrawEnemies(ArrayList<Enemy> enemies){
         this.enemies = enemies;

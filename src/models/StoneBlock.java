@@ -8,8 +8,8 @@ import javax.swing.*;
 public class StoneBlock extends Block {
     /**
      * This method draws a stone block on the map
-     * @param posX
-     * @param posY
+     * @param posX the x-coordinate
+     * @param posY the y-coordinate
      */
     protected StoneBlock(int posX, int posY) {
         super(posX, posY);

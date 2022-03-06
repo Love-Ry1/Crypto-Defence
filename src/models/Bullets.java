@@ -117,8 +117,8 @@ public abstract class Bullets implements Serializable {
     }
 
     /**
-     * This method returns true if bullet has hit its target, otherwise return false-----
-     * @return
+     * This method draws a rectangle around the enemy and returns true if bullet has hit its target, otherwise return false
+     * @return true if the bullet is in the bounds (posX, posY) of the enemy
      */
     public boolean hitTarget(){
         Rectangle rect = new Rectangle();

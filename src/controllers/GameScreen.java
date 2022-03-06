@@ -50,7 +50,7 @@ public class GameScreen extends JPanel implements MouseMethods {
 
     /**
      * this method return bottomBarFrame
-     * @return
+     * @return the bottomBarFrame
      */
     public BottomBarFrame getBottomBarFrame(){
         return bottomBarFrame;
@@ -58,16 +58,16 @@ public class GameScreen extends JPanel implements MouseMethods {
 
 
     /**
-     * this method return position X
-     * @return
+     * this method returns the X coordinate
+     * @return the X coordinate
      */
     public int getPosX() {
         return posX;
     }
 
     /**
-     * this method return position Y
-     * @return
+     * this method returns the Y coordinate
+     * @return the Y coordinate
      */
     public int getPosY(){
         return posY;
@@ -75,10 +75,10 @@ public class GameScreen extends JPanel implements MouseMethods {
 
     /**
      * this method updates player, enemyList, towerMap, BasicMap and position(X,Y)
-     * @param enemyList
-     * @param towerMap
-     * @param player
-     * @param basicMap
+     * @param enemyList the enemyList list
+     * @param towerMap the towerMap array
+     * @param player the player class
+     * @param basicMap the basicMap class
      */
     public void update(ArrayList<Enemy> enemyList, Tower[][] towerMap, Player player, BasicMap basicMap){
         this.player = player;
@@ -90,6 +90,9 @@ public class GameScreen extends JPanel implements MouseMethods {
         repaint();
     }
 
+    /**
+     * This method creates a mouseListener to the gameFrame and then we add the mouseListener and mouseMotionListener
+     */
     public void initInputs() {
         mouseMouseListener = new MyMouseListener(gameFrame);
         addMouseListener(mouseMouseListener);

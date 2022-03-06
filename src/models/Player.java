@@ -17,7 +17,7 @@ public class Player implements Serializable {
 
     /**
      * This method return health
-     * @return
+     * @return the health
      */
     public int getHealth() {
         return health;
@@ -25,7 +25,7 @@ public class Player implements Serializable {
 
     /**
      * This method is for setting a health
-     * @param health
+     * @param health the health for the player
      */
     public void setHealth(int health) {
         this.health = health;
@@ -33,7 +33,7 @@ public class Player implements Serializable {
 
     /**
      * This method returns gold
-     * @return
+     * @return the amount of gold the player have
      */
     public int getGold() {
         return gold;
@@ -41,24 +41,24 @@ public class Player implements Serializable {
 
     /**
      * This method sets gold
-     * @param gold
+     * @param gold the amount of gold for the player
      */
     public void setGold(int gold) {
         this.gold = gold;
     }
 
     /**
-     * This methods is for adding the gold and return it
-     * @param add
-     * @return
+     * This method is for adding the gold and return it
+     * @param add the amount of gold that wants to be added
+     * @return the amount of gold added
      */
     public int addGold(int add) {
         return gold += add;
     }
 
     /**
-     * This method is for decreasing damage
-     * @param damage
+     * This method is for decreasing the health of the player depending on the damage
+     * @param damage the amount of damage that is being dealt to the player
      */
     public void takeDamage(int damage) {
         health -= damage;

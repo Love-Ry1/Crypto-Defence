@@ -19,7 +19,7 @@ public class DrawBullets {
 
     /**
      *  This is the constructor for initiating the towers
-     * @param towers
+     * @param towers the Tower in the Tower array
      */
         public DrawBullets(Tower[][] towers){
             this.towers = towers;

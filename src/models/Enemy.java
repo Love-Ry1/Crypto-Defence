@@ -21,6 +21,12 @@ public abstract class Enemy implements Serializable {
     private BasicMap basicMap ;
     BasicMap.direction oldDir = null;
 
+    /**
+     * This constructor initializes the enemy on the map
+     * @param posX the x-coordinate
+     * @param posY the y-coordinate
+     * @param mobWave the mobWave
+     */
     public Enemy(int posX, int posY, MobWave mobWave){
         this.posX = posX;
         this.posY = posY;
@@ -70,7 +76,7 @@ public abstract class Enemy implements Serializable {
     public int getDamage(){return damage;}
 
     /**
-     * Thos method returns the X position of the enemy
+     * This method returns the X position of the enemy
      * @return the x-coordinate for the enemy
      */
     public int getPosX(){
@@ -162,8 +168,8 @@ public abstract class Enemy implements Serializable {
     }
 
     /**
-     * This method checks if the enemy is on the last block, and returns true if it is -----
-     * @return
+     * This method checks if the enemy is on the last block, and returns true if it is
+     * @return true if it is on the last block
      */
     public boolean isOnEndBlock(){
         return posX/80 == basicMap.getEndColumn() && posY/80 == basicMap.getEndRow();

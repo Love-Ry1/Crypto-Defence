@@ -27,7 +27,7 @@ public class MobWave implements Serializable {
 
     /**
      * This method returns basicMap
-     * @return
+     * @return the basicMap
      */
     public BasicMap getBasicMap(){
         return basicMap;
@@ -86,14 +86,14 @@ public class MobWave implements Serializable {
 
     /**
      * This method returns the next enemy in the linked list and removes it
-     * @return
+     * @return the next enemy in the linked list and removes it
      */
     public Enemy nextMob(){
         return wave.pollFirst();
     }
 
     /**
-     * This method goes to the next level ----------
+     * This method goes to the next level
      */
     public void nextLevel(){
         oldLevel = level;

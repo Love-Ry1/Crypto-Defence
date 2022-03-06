@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * This class has the essential info to set a gamemodel state, and its used to serializable the state of a gamemodel
+ * This class has the essential info to set a GameModel state, and it is used to serializable the state of a GameModel
  */
 public class GameInfo implements Serializable {
     private Tower[][] towerMap;
@@ -14,12 +14,12 @@ public class GameInfo implements Serializable {
     private int gameTick;
 
     /**
-     * ?????
-     * @param towerMap
-     * @param enemyList
-     * @param mobWave
-     * @param player
-     * @param gameTick
+     * This method saves the information from the following parameters
+     * @param towerMap the towerMap array that contains our towers
+     * @param enemyList the enemyList list that contains our enemies
+     * @param mobWave the mobWave class that contains the mob waves
+     * @param player the player class that contains the players health and gold
+     * @param gameTick the gameTick
      */
     public void saveGameInfo(Tower[][] towerMap, ArrayList<Enemy> enemyList, MobWave mobWave, Player player, int gameTick){
         this.towerMap = towerMap;
@@ -31,7 +31,7 @@ public class GameInfo implements Serializable {
 
     /**
      * this method returns towerMap
-     * @return
+     * @return the towerMap
      */
     public Tower[][] getTowerMap() {
         return towerMap;
@@ -39,7 +39,7 @@ public class GameInfo implements Serializable {
 
     /**
      * this method returns enemyList
-     * @return
+     * @return the enemyList
      */
     public ArrayList<Enemy> getEnemyList() {
         return enemyList;
@@ -47,7 +47,7 @@ public class GameInfo implements Serializable {
 
     /**
      * this method returns mobWave
-     * @return
+     * @return the mobWave
      */
     public MobWave getMobWave() {
         return mobWave;
@@ -55,7 +55,7 @@ public class GameInfo implements Serializable {
 
     /**
      * this method returns player
-     * @return
+     * @return the player
      */
     public Player getPlayer(){
         return player;
@@ -63,7 +63,7 @@ public class GameInfo implements Serializable {
 
     /**
      * This method is used to keep track of the time in the game
-     * @return the gametick
+     * @return the gameTick
      */
     public int getGameTick() {
         return gameTick;

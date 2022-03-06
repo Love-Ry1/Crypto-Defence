@@ -4,7 +4,7 @@ import java.awt.*;
 import java.io.Serializable;
 
 /**
- * Thos class represents a block
+ * This class represents a block
  */
 public abstract class Block implements Serializable {
     private int posX;
@@ -15,8 +15,8 @@ public abstract class Block implements Serializable {
 
     /**
      * Constructor for initiate and create the block
-     * @param posX
-     * @param posY
+     * @param posX the x-coordinate
+     * @param posY the y-coordinate
      */
     protected Block(int posX, int posY) {
         this.posX = posX;
@@ -24,16 +24,16 @@ public abstract class Block implements Serializable {
     }
 
     /**
-     * This method return x position of the block
-     * @return
+     * This method return x-coordinate of the block
+     * @return the x-coordinate of the block
      */
     public int getPosX() {
         return posX;
     }
 
     /**
-     * This method return y position of the block
-     * @return
+     * This method return y-coordinate of the block
+     * @return the y-coordinate of the block
      */
     public int getPosY() {
         return posY;
@@ -41,7 +41,7 @@ public abstract class Block implements Serializable {
 
     /**
      * This method return width of the block
-     * @return
+     * @return the width of the block
      */
     public static int getWidth() {
         return width;
@@ -49,7 +49,7 @@ public abstract class Block implements Serializable {
 
     /**
      * This method returns height of the block
-     * @return
+     * @return the height of the block
      */
     public static int getHeight() {
         return height;

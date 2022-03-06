@@ -28,8 +28,8 @@ public class GameModel implements Runnable, Serializable {
     private BasicMap basicMap = new BasicMap();
 
     /**
-     *
-     * @param gameScreen
+     * This constructor initializes the GameModel
+     * @param gameScreen the GameScreen
      */
     public GameModel(GameScreen gameScreen){
         this.width = BasicMap.getWidth();
@@ -43,8 +43,8 @@ public class GameModel implements Runnable, Serializable {
 
     /**
      * The idea is that we get the position of the mouse and the functions uses it to find the current "models.Block"
-     * @param posX
-     * @param posY
+     * @param posX the x-coordinate
+     * @param posY the y-coordinate
      */
     public void posToBlock(int posX, int posY){
         currentBlockX = posX / Block.getHeight();
@@ -53,9 +53,9 @@ public class GameModel implements Runnable, Serializable {
 
     /**
      * This method is for adding a Tower to the game
-     * @param posX
-     * @param posY
-     * @param towerName
+     * @param posX the x-coordinate
+     * @param posY the y-coordinate
+     * @param towerName the towerName for the tower
      */
     public void addTower(int posX, int posY, Tower.TowerName towerName) {
         posToBlock(posX, posY);
@@ -196,8 +196,6 @@ public class GameModel implements Runnable, Serializable {
                 gameScreen.getBottomBarFrame().setButtonTower1(false);
             }
 
-            gameScreen.update(enemyList, towerMap, player, basicMap);
-
             if(saveGameFlag){
                 saveGame();
             }
@@ -207,6 +205,7 @@ public class GameModel implements Runnable, Serializable {
             }
 
             gameScreen.getBottomBarFrame().resetButtons();
+            gameScreen.update(enemyList, towerMap, player, basicMap);
             try {
                 Thread.sleep(20);
             } catch (InterruptedException ex){

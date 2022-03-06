@@ -107,7 +107,7 @@ public class BasicMap implements Serializable {
     }
 
     /**
-     * this mehtod loads and initials the map
+     * this method loads and initials the map
      */
     public BasicMap() {
         loadMap();
