@@ -4,6 +4,8 @@ import javax.swing.*;
 
 /**
  * This class creates a JFrame
+ *  @author Mustafa Bawi
+ *  @version 2022-03-06
  */
 public class GameFrame extends JFrame {
     private final GameScreen gameScreen;

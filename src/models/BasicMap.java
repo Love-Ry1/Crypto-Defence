@@ -7,6 +7,8 @@ import java.net.URL;
 
 /**
  * This class creates a game map
+ *  @author Love Rymo
+ *  @version 2022-03-06
  */
 public class BasicMap implements Serializable {
 

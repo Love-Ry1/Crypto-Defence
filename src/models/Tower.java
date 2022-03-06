@@ -6,6 +6,8 @@ import java.util.Iterator;
 
 /**
  * This is an abstract class for having all information about Tower and their functionality
+ *  @author Abbas Fiazi
+ *  @version 2022-03-06
  */
 public abstract class Tower implements Serializable {
     private int posX;

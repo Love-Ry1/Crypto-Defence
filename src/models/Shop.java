@@ -2,6 +2,8 @@ package models;
 
 /**
  * This class is for creating the panel that displays the Towers and the things you can buy in the game
+ *  @author Mustafa Bawi
+ *  @version 2022-03-06
  */
 public class Shop {
     private boolean button1 = false;

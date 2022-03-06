@@ -5,6 +5,8 @@ import java.awt.*;
 
 /**
  * This BottomBarFrame creates the frame for the bottom bar and initializes the buttons from the BottomBarButtons class
+ *  @author Fadi Abunaj
+ *  @version 2022-03-06
  */
 public class BottomBarFrame implements MouseMethods{
     private int x, y, width, height;

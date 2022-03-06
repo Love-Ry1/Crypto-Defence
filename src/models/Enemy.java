@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * This class represents an enemy
+ *  @author Abbas Faizi
+ *  @version 2022-03-06
  */
 public abstract class Enemy implements Serializable {
     private int width;

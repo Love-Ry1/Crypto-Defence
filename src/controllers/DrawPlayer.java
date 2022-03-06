@@ -5,6 +5,8 @@ import java.awt.*;
 
 /**
  * This class will draw our players health and gold and display it on the map
+ *  @author Fadi Abunaj
+ *  @version 2022-03-06
  */
 public class DrawPlayer {
     Player player;

@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 /**
  * This class is for creating the sound that generates when an enemy dies or a Tower shoots
+ * @author Abbas Faizi
  */
 public class PlaySound {
     private Clip clip;

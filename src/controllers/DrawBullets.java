@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /**
  * This class draws the bullets
+ *  @author Basem Ali
+ *  @version 2022-03-06
  */
 public class DrawBullets {
     private Tower[][] towers;

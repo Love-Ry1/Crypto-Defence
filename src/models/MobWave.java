@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 /**
  * This class is for generating different waves of enemies
+ *  @author Abbas Faizi
+ *  @version 2022-03-06
  */
 public class MobWave implements Serializable {
     private LinkedList<Enemy> wave = new LinkedList<>();

@@ -6,6 +6,8 @@ import java.awt.event.MouseMotionListener;
 
 /**
  * This class notifies whenever you change the state of your mouse
+ *  @author Fadi Abunaj
+ *  @version 2022-03-06
  */
 public class MyMouseListener implements MouseListener, MouseMotionListener {
 

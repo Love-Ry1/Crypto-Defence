@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 /**
  * This class draws the enemies on the map
+ *  @author Abbas Faizi
+ *  @version 2022-03-06
  */
 public class DrawEnemies {
     ArrayList<Enemy> enemies;

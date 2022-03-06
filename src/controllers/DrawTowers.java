@@ -7,6 +7,8 @@ import java.awt.*;
 
 /**
  * This class draws the towers
+ *  @author Mustafa Bawi
+ *  @version 2022-03-06
  */
 public class DrawTowers {
     private Tower[][] towers;

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 /**
  * This class has the essential info to set a GameModel state, and it is used to serializable the state of a GameModel
+ *  @author Mustafa Bawi
+ *  @version 2022-03-06
  */
 public class GameInfo implements Serializable {
     private BasicMap basicMap;

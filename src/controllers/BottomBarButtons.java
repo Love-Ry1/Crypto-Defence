@@ -4,6 +4,8 @@ import java.awt.*;
 
 /**
  * This class creates the buttons for the bottom frame
+ * @author Fadi Abunaj
+ * @version 2022-03-06
  */
 public class BottomBarButtons {
     public int x, y, width, height;

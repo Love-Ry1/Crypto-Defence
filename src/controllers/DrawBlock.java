@@ -6,6 +6,8 @@ import java.awt.*;
 
 /**
  * This class will draw a block into the BasicMap
+ *  @author Basem Ali
+ *  @version 2022-03-06
  */
 public class DrawBlock {
     private final Block block;

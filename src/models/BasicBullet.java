@@ -2,6 +2,8 @@ package models;
 
 /**
  * This BasicBullet class that represents a basic bullet, which is a type of bullet
+ *  @author Mustafa Bawi
+ *  @version 2022-03-06
  */
 public class BasicBullet extends Bullets {
     /**

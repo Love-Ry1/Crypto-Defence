@@ -2,6 +2,8 @@ package models;
 
 /**
  * This class is for creating the stone block
+ *  @author Fadi Abunaj
+ *  @version 2022-03-06
  */
 public class StoneBlock extends Block {
     /**

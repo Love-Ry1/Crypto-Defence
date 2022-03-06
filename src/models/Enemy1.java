@@ -2,6 +2,8 @@ package models;
 
 /**
  * This class represents Enemy1
+ *  @author Abbas Faizi
+ *  @version 2022-03-06
  */
 public class Enemy1 extends Enemy {
     /**

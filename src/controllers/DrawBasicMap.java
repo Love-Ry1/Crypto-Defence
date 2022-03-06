@@ -6,6 +6,8 @@ import java.awt.*;
 
 /**
  * This class will take a map and draw it
+ *  @author Love Rymo
+ *  @version 2022-03-06
  */
 public class DrawBasicMap {
     private Block[][] blockArray;

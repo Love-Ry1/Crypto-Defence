@@ -8,6 +8,8 @@ import java.util.Iterator;
 
 /**
  * This GameModel class is for handling of all logic which the model of the game has.
+ *  @author Love Rymo
+ *  @version 2022-03-06
  */
 public class GameModel implements Runnable, Serializable {
     private final int width;

@@ -4,6 +4,8 @@ import controllers.GameFrame;
 
 /**
  * This class initializes the game
+ *  @author Mustafa Bawi
+ *  @version 2022-03-06
  */
 public class Main {
 

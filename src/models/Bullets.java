@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 /**
  * This class represents a bullet
+ *  @author Love Rymo
+ *  @version 2022-03-06
  */
 public abstract class Bullets implements Serializable {
     private int posX;

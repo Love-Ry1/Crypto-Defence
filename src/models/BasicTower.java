@@ -2,6 +2,8 @@ package models;
 
 /**
  * This class represents a BasicTower, which is a type of tower
+ *  @author Basem Ali
+ *  @version 2022-03-06
  */
 public class BasicTower extends Tower {
     /**

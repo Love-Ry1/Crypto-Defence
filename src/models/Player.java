@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * This class represents a player
+ *  @author Fadi Abunaj
+ *  @version 2022-03-06
  */
 public class Player implements Serializable {
     private int health;

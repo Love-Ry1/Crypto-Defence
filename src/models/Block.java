@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * This class represents a block
+ *  @author Mustafa Bawi
+ *  @version 2022-03-06
  */
 public abstract class Block implements Serializable {
     private int posX;
